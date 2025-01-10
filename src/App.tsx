@@ -1,5 +1,4 @@
 import './App.css'
-import i18n from 'i18next';
 import Header from './component/header';
 import Home from './component/home';
 import Contact from './component/contact';
@@ -11,11 +10,6 @@ import Footer from './component/footer';
 
 
 function App() {
-  
-  const handleChangeLanguage = (event:any)=> {
-    const newLang = event.target.value;
-    i18n.changeLanguage(newLang);
-  }
   return (
     <>
       <Header/>
