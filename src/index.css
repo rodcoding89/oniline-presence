@@ -83,7 +83,7 @@ h1 {
   line-height: 1.1;
 }
 
-.btn {
+.menu {
   border-radius: 8px;
   background-color: #fff;
   padding: 5px 10px;
@@ -104,5 +104,93 @@ h1 {
   -moz-box-shadow: 0 0.5px 4px 1px #dddddd;
   box-shadow: 0 0.5px 4px 1px #dddddd;
 }
+/*********************************CONTACT************/
+.contact-info-box .contact-icon {
+  color: var(--color-fifty);
+  font-size: 16px;
+  margin-bottom: 24px;
+  width: 50px;
+  height: 50px;
+  line-height: 50px;
+  background: var(--color-thirty);
+  display: inline-block;
+  border-radius: 50%;
+  position: absolute;
+  left: 0;
+}
+.contact-info-box {
+  text-align: center;
+  margin-bottom: 30px;
+  position: relative;
+}
+.contact-info {
+  margin-bottom: 61px;
+  float: left;
+  padding-top: 10px;
+}
+.contact-desc {
+  margin-left: 80px;
+  text-align: left;
+}
+.contact-form textarea.form-control {
+  height: 200px;
+  resize: inherit;
+}
+.contact-info-box h5 {
+  font-size: 21px;
+  position: relative;
+  padding-bottom: 0;
+}
+.section-heading {
+  margin: 0px 0px 70px;
+}
+.section-heading h2 {
+  font-size: 42px;
+  font-weight: 700;
+  margin-bottom: 5px;
+  padding-bottom: 10px;
+  text-transform: capitalize;
+  position: relative;
+  display: inline-block;
+}
+.form-control {
+  display: block;
+  width: 100%;
+  padding: 6px 12px;
+  font-size: 14px;
+  border-radius: 0;
+  height: 47px;
+  border: 2px solid #dadddc;
+  background-color: transparent;
+  box-shadow: none;
+  line-height: 1.42857143;
+  color: var(--color-primary);
+  font-size: 15px;
+  -webkit-box-shadow: inset 0 1px 1px rgba(0, 0, 0, .075);
+  box-shadow: inset 0 1px 1px rgba(0, 0, 0, .075);
+  -webkit-transition: border-color ease-in-out .15s, -webkit-box-shadow ease-in-out .15s;
+  -o-transition: border-color ease-in-out .15s, box-shadow ease-in-out .15s;
+  transition: border-color ease-in-out .15s, box-shadow ease-in-out .15s;
+}
 
+.contact-form .form-group {
+  margin-bottom: 30px;
+}
+.contact-form .form-group {
+  float: left;
+  width: 100%;
+}
+.btn {
+  padding: 11px 32px;
+  font-size: 15px;
+  text-transform: uppercase;
+  font-weight: 600;
+  border-radius: 0;
+  border: 2px solid transparent;
+  border-radius: 50px;
+}
+.btn-primary {
+  background: var(--color-thirty);
+  border-color: var(--color-thirty);
+}
 

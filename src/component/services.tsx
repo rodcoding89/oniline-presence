@@ -49,7 +49,7 @@ const Services:React.FC<ServiceProps> = ()=>{
     console.log("service",services)
     return (
         <Element className="min-h-[200px] mt-[75px]" name="services">
-            <div className='bg-thirty h-[500px]'>
+            <div className='bg-secondary h-[500px]'>
                 <h1 className='mb-10 ml-[calc(15%/2)] pt-[20px] text-fifty uppercase'>Services</h1>
             </div>
             <div className='w-[85%] mx-auto mt-[-275px]'>
