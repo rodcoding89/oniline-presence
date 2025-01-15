@@ -50,7 +50,8 @@ const Services:React.FC<ServiceProps> = ()=>{
     return (
         <Element className="min-h-[200px] mt-[75px]" name="services">
             <div className='bg-secondary h-[500px]'>
-                <h1 className='mb-10 ml-[calc(15%/2)] pt-[20px] text-fifty uppercase'>Services</h1>
+                <h1 className='mb-10 mx-[calc(15%/2)] pt-[20px] text-fifty uppercase'>Services</h1>
+                <p className='text-fifty mx-[calc(15%/2)]'>Lorem ipsum dolor sit amet consectetur adipisicing elit. Quo inventore sunt tenetur. Lorem ipsum dolor sit amet consectetur adipisicing elit. Quo inventore sunt tenetur.</p>
             </div>
             <div className='w-[85%] mx-auto mt-[-275px]'>
                 <div className='flex justify-center items-start gap-y-8 flex-wrap'>
