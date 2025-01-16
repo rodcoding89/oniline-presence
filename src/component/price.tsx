@@ -1,12 +1,133 @@
-import { Element } from 'react-scroll';
+import { useState } from 'react';
+import {Element, Link } from 'react-scroll';
+import { useTranslation } from 'react-i18next';
+import Icon from './Icon';
 interface PriceProps{
 
 }
-
+const priceList = [
+    {
+        title:"Site vitrine standard",
+        devMethode:["Wordpress","Sur mesure"],
+        content:[{
+                price:"999.99",
+                devType:{type:"Développé sous WORDPRESS",outil:"(Outil de gestion de contenu)"},
+                options:["Sélection d'une palette de couleur","Domaine + hébergement + e-mail pendant 12 mois","Interface administrateur STANDARD","Site responsive (adapté tous supports)","Mise en place du contenu (textes & images)","Formulaire de contact","Liens de partage sur les réseaux sociaux","Optimisation du référencement","Statistiques de visite","Mise en ligne du site","Formation utilisation du site"]
+            },{
+                price:"1500",
+                devType:{type:"Développé SUR-MESURE",outil:"(Codage à la main)"},
+                options:["Sélection d'une palette de couleur","Domaine + hébergement + e-mail pendant 12 mois","Site responsive (adapté tous supports)","Mise en place du contenu (textes & images)","Formulaire de contact","Liens de partage sur les réseaux sociaux","Optimisation du référencement","Statistiques de visite","Mise en ligne du site","Formation utilisation du site"]
+            }
+        ]
+    },
+    {
+        title:"Plateforme e-commerce",
+        devMethode:["Wordpress","Sur mesure"],
+        content:[{
+                price:"2500",
+                devType:{type:"Développé sous WORDPRESS",outil:"(Outil de gestion de contenu)"},
+                options:["Sélection d'une palette de couleur","Domaine + hébergement + e-mail pendant 12 mois","Interface administrateur STANDARD","Site responsive (adapté tous supports)","Mise en place du contenu (textes & images)","Formulaire de contact","Liens de partage sur les réseaux sociaux","Optimisation du référencement","Statistiques de visite","Mise en ligne du site","Formation utilisation du site"]
+            },{
+                price:"4000",
+                devType:{type:"Développé SUR-MESURE",outil:"(Codage à la main)"},
+                options:["Sélection d'une palette de couleur","Domaine + hébergement + e-mail pendant 12 mois","Site responsive (adapté tous supports)","Mise en place du contenu (textes & images)","Formulaire de contact","Liens de partage sur les réseaux sociaux","Optimisation du référencement","Statistiques de visite","Mise en ligne du site","Formation utilisation du site"]
+            }
+        ],
+    },
+    {
+        title:"Application mobile",
+        content:[{
+                price:"2500",
+                devType:{type:"Développé sous WORDPRESS",outil:"(Outil de gestion de contenu)"},
+                options:["Sélection d'une palette de couleur","Domaine + hébergement + e-mail pendant 12 mois","Interface administrateur STANDARD","Site responsive (adapté tous supports)","Mise en place du contenu (textes & images)","Formulaire de contact","Liens de partage sur les réseaux sociaux","Optimisation du référencement","Statistiques de visite","Mise en ligne du site","Formation utilisation du site"]
+            }
+        ]
+    },
+    {
+        title:"Logiciel métiers / Saas",
+        content:[{
+                price:"2500",
+                devType:{type:"Développé sous WORDPRESS",outil:"(Outil de gestion de contenu)"},
+                options:["Sélection d'une palette de couleur","Domaine + hébergement + e-mail pendant 12 mois","Interface administrateur STANDARD","Site responsive (adapté tous supports)","Mise en place du contenu (textes & images)","Formulaire de contact","Liens de partage sur les réseaux sociaux","Optimisation du référencement","Statistiques de visite","Mise en ligne du site","Formation utilisation du site"]
+            }
+        ]
+    }
+]
 const Price:React.FC<PriceProps> = ()=>{
+    const { t } = useTranslation();
+    const initialActiveContentIndex = priceList.reduce((acc, _, index) => {
+        acc[index] = 0; // Par défaut, sélectionner "Wordpress" (content[0])
+        return acc;
+      }, {} as { [key: number]: number });
+    const [activeContentIndex, setActiveContentIndex] = useState<{ [key: number]: number }>(
+        initialActiveContentIndex
+    );
+    const handleContentSwitch = (itemIndex: number, contentIndex: number) => {
+        setActiveContentIndex((prev) => ({
+          ...prev,
+          [itemIndex]: contentIndex, // Met à jour l'index du contenu pour cet élément
+        }));
+    };
     return (
         <Element className="min-h-[200px] mt-[75px]" name="price">
-            <h1>Tarif</h1>
+            <div>
+                <div className='w-[85%] mx-auto'>
+                    <h1 className='text-center text-thirty font-semibold mb-4 uppercase'>Tarifs</h1>
+                    <h4 className='text-center text-[#aaa] text-[1.4em] mb-10'>Un tarif adapté à un site internet de qualité !</h4>
+                    <div className='flex justify-center items-start gap-4'>
+                        {
+                            priceList.map((item,index)=>{
+                                return (
+                                    <div key={index} className='self-stretch p-4 bg-fifty'>
+                                        <h3 className='text-center uppercase font-bold text-[1.3em] mb-5'>{item.title}</h3>
+                                        {
+                                            item.devMethode && (
+                                                <div className='flex justify-center w-full'>
+                                                    <div className='flex justify-around items-center gap-3 py-2 px-3 bg-white'>
+                                                    {
+                                                        item.devMethode.map((m,i)=>{
+                                                            return(
+                                                                <p onClick={()=>handleContentSwitch(index, i)} className={` rounded-xl cursor-pointer uppercase text-[.9em] ${activeContentIndex[index] === i ? 'text-white bg-thirty py-1 px-3':''}`} key={i}>{m}</p>
+                                                            )
+                                                        })
+                                                    }
+                                                    </div>
+                                                </div>
+                                            )
+                                        }
+                                        <h6 className='text-center text-[#aaa] uppercase mt-4 mb-[-4px]'>A partir de</h6>
+                                        <div className='text-center'>
+                                            <span className='text-center text-[3em] relative'>{item.content[activeContentIndex[index] || 0].price}<em className='absolute top-[3px] right-[-8px] !text-[.4em]'>€</em></span>
+                                        </div>
+                                        <p className='block text-center font-medium'>{item.content[activeContentIndex[index] || 0].devType.type}</p>
+                                        <span className='block text-center text-[.8em] mb-3'>{item.content[activeContentIndex[index] || 0].devType.outil}</span>
+                                        <ul className='m-0 p-0 flex flex-col justify-start items-start gap-2 w-full'>
+                                            {
+                                                item.content[activeContentIndex[index] || 0].options.map((o,k)=>{
+                                                    return (
+                                                        <li key={k} className={`flex justify-start items-center py-[6px] px-2 w-full gap-1 ${k%2 === 0 ? 'bg-[#E8E8E8]' : ''}`}><Icon name="bx-plus" size='1.3em' color='var(--color-thirty)'/>{o}</li>
+                                                    )
+                                                })
+                                            }
+                                        </ul>
+                                        <span className='cursor-pointer px-6 mt-3 py-3 text-fifty bg-thirty hover:text-thirty hover:bg-white flex items-center justify-center transition-hover duration-500 ease-in'>
+                                        <Link
+                                        activeClass="active"
+                                        spy={true} 
+                                        smooth={true} 
+                                        offset={-65} 
+                                        duration={500} 
+                                        to={`contact`} 
+                                        >{t("devi")}
+                                        </Link>
+                                        </span>
+                                    </div>
+                                )
+                            })
+                        }
+                    </div>
+                </div>
+            </div>
         </Element>
     )
 }
