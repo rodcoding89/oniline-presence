@@ -74,11 +74,11 @@ const Price:React.FC<PriceProps> = ()=>{
                 <div className='w-[85%] mx-auto'>
                     <h1 className='text-center text-thirty font-semibold mb-4 uppercase'>Tarifs</h1>
                     <h4 className='text-center text-[#aaa] text-[1.4em] mb-10'>Un tarif adapté à un site internet de qualité !</h4>
-                    <div className='flex justify-center items-start gap-4'>
+                    <div className='flex justify-center items-start gap-4 flex-wrap'>
                         {
                             priceList.map((item,index)=>{
                                 return (
-                                    <div key={index} className='self-stretch p-4 bg-fifty'>
+                                    <div key={index} className='self-stretch p-4 bg-fifty w-1/3'>
                                         <h3 className='text-center uppercase font-bold text-[1.3em] mb-5'>{item.title}</h3>
                                         {
                                             item.devMethode && (
@@ -125,6 +125,51 @@ const Price:React.FC<PriceProps> = ()=>{
                                 )
                             })
                         }
+                    </div>
+                    <div className='flex justify-center items-start gap-4 mt-10'>
+                        <div className='w-1/3 p-4 bg-fifty flex-wrap'>
+                            <h3 className='text-center uppercase font-bold text-[1.3em] mb-1'>Forfais maintenance</h3>
+                            <div className='text-center'>
+                                <p className='font-semibold text-[1.7em]'>50<em className='font-light text-[.5em] mt-[-1px]'>€/Heures ou</em></p>
+                                <span className='text-center text-[3em] relative'>500<em className='absolute top-[3px] right-[-41px] !text-[.4em]'>€/AN</em></span>
+                            </div>
+                            <ul className='m-0 p-0 flex flex-col justify-start items-start gap-2 w-full'>
+                                <li className={`flex justify-start items-center py-[6px] px-2 w-full gap-1 bg-[#E8E8E8]`}><Icon name="bx-plus" size='1.3em' color='var(--color-thirty)'/>Mise a jour site & plugins</li>
+                                <li className={`flex justify-start items-center py-[6px] px-2 w-full gap-1`}><Icon name="bx-plus" size='1.3em' color='var(--color-thirty)'/>Modification graphique & contenu</li>
+                                <li className={`flex justify-start items-center py-[6px] px-2 w-full gap-1 bg-[#E8E8E8]`}><Icon name="bx-plus" size='1.3em' color='var(--color-thirty)'/>Sauvegarde externalisé mensuel</li>
+                                <li className={`flex justify-start items-center py-[6px] px-2 w-full gap-1`}><Icon name="bx-plus" size='1.3em' color='var(--color-thirty)'/>Optimisation performance</li>
+                                <li className={`flex justify-start items-center py-[6px] px-2 w-full gap-1 bg-[#E8E8E8]`}><Icon name="bx-plus" size='1.3em' color='var(--color-thirty)'/>Restauration en cas de piratage</li>
+                            </ul>
+                            <span className='cursor-pointer px-6 mt-3 py-3 text-fifty bg-thirty hover:text-thirty hover:bg-white flex items-center justify-center transition-hover duration-500 ease-in'>
+                                <Link
+                                activeClass="active"
+                                spy={true} 
+                                smooth={true} 
+                                offset={-65} 
+                                duration={500} 
+                                to={`contact`} 
+                                >Me contacter
+                                </Link>
+                            </span>
+                        </div>
+                        <div className='w-1/3 p-4 bg-fifty'>
+                            <h3 className='text-center uppercase font-bold text-[1.3em] mb-1'>Développement spécifique</h3>
+                            <h6 className='text-center text-[#aaa] uppercase mt-4 mb-[-4px]'>Taux journalier moyen</h6>
+                            <div className='text-center'>
+                                <span className='text-center text-[3em] relative'>400<em className='absolute top-[3px] right-[-62px] !text-[.4em]'>€/JOUR</em></span>
+                            </div>
+                            <span className='cursor-pointer px-6 mt-3 py-3 text-fifty bg-thirty hover:text-thirty hover:bg-white flex items-center justify-center transition-hover duration-500 ease-in'>
+                                <Link
+                                activeClass="active"
+                                spy={true} 
+                                smooth={true} 
+                                offset={-65} 
+                                duration={500} 
+                                to={`contact`} 
+                                >Me contacter
+                                </Link>
+                            </span>
+                        </div>
                     </div>
                 </div>
             </div>
