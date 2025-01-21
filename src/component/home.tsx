@@ -39,7 +39,7 @@ const Home:React.FC<HomeProps> = ()=>{
                             </span>
                         </div>
                     </div>
-                    <img className='w-1/2 rounded-t-l-[100px] rounded-b-l-[100px] aspect-square' src='/assets/images/home.jpg' alt="home" />
+                    <img className='w-1/2 rounded-tl-[100px] rounded-bl-[100px] h-[550px]' src='/assets/images/home.jpg' alt="home" />
                 </div>
             </div>
         </Element>

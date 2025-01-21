@@ -1,5 +1,6 @@
 import { Element } from 'react-scroll';
 import Icon from './Icon';
+import { Link } from 'react-router-dom';
 interface ContactProps{
 
 }
@@ -14,30 +15,39 @@ const Contact:React.FC<ContactProps> = ()=>{
                 <div className="w-full flex justify-center items-start gap-10">
                     <div className="contact-info w-1/3">
                         <div className="contact-info-box">
-                            <div className="contact-icon">  <Icon name='bx-home' size='16px' color='var(--color-primary)'/>  
+                            <div className="contact-icon">  <Icon name='bxl-whatsapp' size='16px' color='var(--color-primary)'/>  
                             </div>
                             <div className="contact-desc">
-                              <h5 className='text-thirty'>Address</h5>
-                              <p>123, Street Name, City, Post Code</p>
+                              <h5 className='text-thirty'>Via whatsapp</h5>
+                              <Link to="https://wa.me/+33751025598">+33 7 51 02 55 98</Link>
                               </div>
                           </div>
-                      
-                          <div className="contact-info-box">
+                        <div className="contact-info-box">
+                            <div className="contact-icon">  <Icon name='bx-phone' size='16px' color='var(--color-primary)'/>
+                            </div>
+                            <div className="contact-desc">
+                                <h5 className='text-thirty'>Call US</h5>
+                                <p>+00 123-456-789</p>
+                            </div>
+                        </div>
+                        <div className="contact-info-box">
                             <div className="contact-icon"><Icon name='bx-envelope' size='16px' color='var(--color-primary)'/>  </div>
                             <div className="contact-desc">
                               <h5 className='text-thirty'>Email</h5>
                               <p>yourmail@mail.com</p>
                             </div>
                         </div>
-                      
                         <div className="contact-info-box">
-                            <div className="contact-icon">  <Icon name='bx-phone' size='16px' color='var(--color-primary)'/>
-                            </div>
+                            <div className="contact-icon"><Icon name='bx-time' size='16px' color='var(--color-primary)'/>  </div>
                             <div className="contact-desc">
-                              <h5 className='text-thirty'>Call US</h5>
-                              <p>+00 123-456-789</p>
+                              <h5 className='text-thirty'>Horaire</h5>
+                              <ul>
+                                <li>Lundi - Vendredi</li>
+                                <li>09H00 - 17H00</li>
+                              </ul>
                             </div>
                         </div>
+                      
                     </div>
                   
               

@@ -7,13 +7,16 @@ import Price from './component/price';
 import Reference from './component/reference';
 import About from './component/about';
 import Footer from './component/footer';
+import PopUp from './component/popup';
+import { useState } from 'react';
 
 
 function App() {
+  const [isPopUp,setIsPopUp] = useState<boolean>(true)
   return (
     <>
       <Header/>
-      <main>
+      <main className={`transition-transform duration-500 delay-100 ease-in-out ${isPopUp ? 'translate-x-[-25vw]' : 'translate-x-0'}`}>
        <Home/>
        <About/>
        <Services/>
@@ -22,6 +25,7 @@ function App() {
        <Contact/>
       </main>
       <Footer/>
+      <PopUp/>
     </>
   )
 }
