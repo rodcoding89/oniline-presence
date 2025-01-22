@@ -1,5 +1,7 @@
 import { Element } from 'react-scroll';
 import Icon from './Icon';
+import { useContext } from 'react';
+import { AppContext } from '../app-context';
 interface ServiceProps{
 
 }
@@ -46,7 +48,10 @@ const services = [
     }
 ]
 const Services:React.FC<ServiceProps> = ()=>{
-    console.log("service",services)
+    const {setContextData} = useContext(AppContext)
+    const handleShowMore = ()=>{
+        setContextData({type:"popupMain",value:true})
+    }
     return (
         <Element className="min-h-[200px] mt-[75px]" name="services">
             <div className='bg-fifty h-[500px]'>
@@ -61,7 +66,7 @@ const Services:React.FC<ServiceProps> = ()=>{
                                 <div key={item.id} className='w-1/3 px-[30px] border-b-4 border-solid py-[40px] bg-white boxShadow transition-hover duration-[.4s] ease-in border-white hover:border-b-secondary'>
                                     <div className='flex justify-start items-center gap-2 mb-3'><span className='w-16 h-16 rounded-full bg-secondary flex justify-center items-center'><Icon name={item.service.icon} color="#fff" size="1.6em"/></span><h3 className='uppercase text-[1.1em] flex-1'>{item.service.serviceName}</h3></div>
                                     <p className='mb-3'>{item.service.shortDescript}</p>
-                                    <div className='border-2 border-solid border-secondary py-2 px-5 text-center cursor-pointer transition-hover duration-[.5s] ease-in hover:bg-secondary hover:text-white'>En savoir plus</div>
+                                    <div onClick={handleShowMore} className='border-2 border-solid border-secondary py-2 px-5 text-center cursor-pointer transition-hover duration-[.5s] ease-in hover:bg-secondary hover:text-white'>En savoir plus</div>
                                 </div>
                             )
                         })
