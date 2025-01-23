@@ -201,4 +201,63 @@ h1 {
   background: var(--color-thirty);
   border-color: var(--color-thirty);
 }
+.dropping-texts {
+  display: inline-block;
+  text-align: left;
+  height: 25px;
+  vertical-align: -2px;
+  overflow-y: hidden;
+  position: relative; /* Ajouté pour positionner les éléments correctement */
+}
+
+.dropping-texts > div {
+  font-size: inherit;
+  color: var(--color-fifty);
+  font-weight: 300;
+  position: absolute; /* Position absolue pour éviter le chevauchement */
+  top: 0;
+  left: 0;
+  opacity: 0; /* Masquer par défaut */
+  transform: translateY(-50px);
+  animation: roll 15s linear infinite; /* Animation appliquée à tous les éléments */
+}
+
+.dropping-texts > div:nth-child(1) {
+  animation-delay: 0s; /* Délai pour le premier élément */
+}
+.dropping-texts > div:nth-child(2) {
+  animation-delay: 3s; /* Délai pour le deuxième élément */
+}
+.dropping-texts > div:nth-child(3) {
+  animation-delay: 6s; /* Délai pour le troisième élément */
+}
+.dropping-texts > div:nth-child(4) {
+  animation-delay: 9s; /* Délai pour le quatrième élément */
+}
+.dropping-texts > div:nth-child(5) {
+  animation-delay: 12s; /* Délai pour le cinquième élément */
+}
+
+@keyframes roll {
+  0% {
+    opacity: 0;
+    transform: translateY(-50px);
+  }
+  10% {
+    opacity: 1;
+    transform: translateY(0);
+  }
+  20% {
+    opacity: 1;
+    transform: translateY(0);
+  }
+  30% {
+    opacity: 0;
+    transform: translateY(50px);
+  }
+  100% {
+    opacity: 0;
+    transform: translateY(50px);
+  }
+}
 

@@ -1,3 +1,4 @@
+import { AppProvider } from './app-context';
 import './App.css'
 import RootPage from './component';
 
@@ -5,7 +6,9 @@ import RootPage from './component';
 function App() {
   return (
     <>
-    <RootPage/>
+    <AppProvider>
+      <RootPage/>
+    </AppProvider>
     </>
   )
 }

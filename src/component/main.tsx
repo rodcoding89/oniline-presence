@@ -20,7 +20,7 @@ const Main:React.FC<MainProps> = ()=>{
         }
     },[contextData])
     return (
-        <main className={`transition-transform duration-500 delay-100 ease-in-out ${isPopUp ? 'translate-x-[-25vw]' : 'translate-x-0'}`}>
+        <main className={`transition-transform duration-700 delay-300 ease-in-out ${isPopUp ? 'translate-x-[-25vw]' : 'translate-x-0'}`}>
             <Home/>
             <About/>
             <Services/>

@@ -50,7 +50,7 @@ const services = [
 const Services:React.FC<ServiceProps> = ()=>{
     const {setContextData} = useContext(AppContext)
     const handleShowMore = ()=>{
-        setContextData({type:"popupMain",value:true})
+        setContextData({type:"popupMain",value:true,size:"w-[50%]"})
     }
     return (
         <Element className="min-h-[200px] mt-[75px]" name="services">

@@ -13,6 +13,16 @@ const Home:React.FC<HomeProps> = ()=>{
                 <div className='w-full flex gap-[40px] justify-center items-start'>
                     <div className='flex flex-col justify-center items-center self-stretch ml-[calc(15%/2)]'>
                         <h1 className='text-fifty mb-3 uppercase text-[3em]'>Lorem ipsum dolor sit amet.</h1>
+                        <div className='flex justify-start items-center gap-2 w-full mb-4'>
+                            <h4 className='text-fifty uppercase text-[1em]'>Spécialisé dans le Développement</h4>
+                            <div className="dropping-texts flex-1">
+                                <div>Web Wordpress</div>
+                                <div>Web From scratch</div>
+                                <div>Web E-commerce From scratch</div>
+                                <div>Web E-commerce Wordpress</div>
+                                <div>Application web/mobile</div>
+                            </div>
+                        </div>
                         <p className='mb-3 text-fifty'>Lorem ipsum, dolor sit amet consectetur adipisicing elit. Pariatur laudantium blanditiis natus error.</p>
                         <div className='flex justify-start items-center gap-5 w-full mt-3 ml-5'>
                             <span className='cursor-pointer px-6 py-3 text-secondary bg-fifty rounded-2xl hover:outline-fifty hover:outline hover:outline-1 hover:bg-secondary hover:text-fifty flex items-center justify-center transition-hover duration-500 ease-in'>
