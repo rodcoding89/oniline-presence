@@ -13,13 +13,13 @@ const Home:React.FC<HomeProps> = ()=>{
                 <div className='w-full flex gap-[40px] justify-center items-start'>
                     <div className='flex flex-col justify-center items-center self-stretch ml-[calc(15%/2)]'>
                         <h1 className='text-fifty mb-3 uppercase text-[3em]'>Lorem ipsum dolor sit amet.</h1>
-                        <div className='flex justify-start items-center gap-2 w-full mb-4'>
-                            <h4 className='text-fifty uppercase text-[1em]'>Spécialisé dans le Développement</h4>
+                        <div className='flex justify-start items-center gap-2 w-full mb-4 bg-primary p-4'>
+                            <h4 className='text-fifty uppercase text-[1em] dev'>Spécialisé dans le Développement</h4>
                             <div className="dropping-texts flex-1">
-                                <div>Web Wordpress</div>
-                                <div>Web From scratch</div>
-                                <div>Web E-commerce From scratch</div>
-                                <div>Web E-commerce Wordpress</div>
+                                <div>Site Web Wordpress</div>
+                                <div>Site Web From scratch</div>
+                                <div>E-commerce From scratch</div>
+                                <div>Site Web E-commerce Wordpress</div>
                                 <div>Application web/mobile</div>
                             </div>
                         </div>

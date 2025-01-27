@@ -62,16 +62,16 @@ ul{
   box-shadow: 0 0.5px 4px 1px #dddddd;
   background-color: #fff;
 }
-.header a{
+.navi a{
   position: relative;
 }
-.header .navi a:hover{
+.navi a:hover{
   color: var(--color-thirty);
 }
-.header .navi a.active{
+.navi a.active{
   color: var(--color-secondary);
 }
-.header .navi a.active::before{
+.navi a.active::before{
   content: '';
   position: absolute;
   left: -10px;
@@ -209,7 +209,10 @@ h1 {
   overflow-y: hidden;
   position: relative; /* Ajouté pour positionner les éléments correctement */
 }
-
+.dev{
+  color: coral;
+  font-weight: 500;
+}
 .dropping-texts > div {
   font-size: inherit;
   color: var(--color-fifty);

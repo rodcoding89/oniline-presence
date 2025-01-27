@@ -12,10 +12,10 @@ interface RootPageProps{
 
 const RootPage:React.FC<RootPageProps> = ()=>{
     const {contextData} = useContext(AppContext)
-    const [size,setSize] = useState<string>('')
+    const [data,setData] = useState<{size:string,mode:string}>({size:"w-[50%]",mode:'bloc'})
     useEffect(()=>{
         if (contextData && contextData.type === "popupMain") {
-            setSize(contextData.size)
+            setData({size:contextData.size,mode:contextData.mode})
         } 
     },[contextData])
     return (
@@ -25,7 +25,7 @@ const RootPage:React.FC<RootPageProps> = ()=>{
             <Main/>
             <Footer/>
         </div>
-        <PopUp windowSize={size}/>
+        <PopUp windowSize={data!.size} mode={data!.mode}/>
         </>
     )
 }

@@ -87,7 +87,8 @@ const Price:React.FC<PriceProps> = ()=>{
                                                     {
                                                         item.devMethode.map((m,i)=>{
                                                             return(
-                                                                <p onClick={()=>handleContentSwitch(index, i)} className={` rounded-xl cursor-pointer uppercase text-[.9em] ${activeContentIndex[index] === i ? 'text-white bg-thirty py-1 px-3':''}`} key={i}>{m}</p>
+                                                                <p onClick={()=>handleContentSwitch(index, i)} className={` relative cursor-pointer uppercase text-[.9em] before:w-0 
+                                                                before:transition-all before:duration-700 before:ease-in-out z-0 ${activeContentIndex[index] === i ? ' py-1 px-2 before:absolute before:left-0 before:top-0 before:bg-fifty before:!w-full before:h-full before:rounded-xl before:z-[-1] ':''}`} key={i}>{m}</p>
                                                             )
                                                         })
                                                     }
