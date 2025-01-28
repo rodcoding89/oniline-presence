@@ -2,55 +2,15 @@ import { Element } from 'react-scroll';
 import Icon from './Icon';
 import { useContext } from 'react';
 import { AppContext } from '../app-context';
+import { services } from '../utils/constant';
 interface ServiceProps{
 
 }
-const services = [
-    {
-        id:1,
-        service:{
-            serviceName:"Creation site vitrine",
-            shortDescript:"Lorem ipsum dolor sit amet, consectetur adipisicing elit. Provident, unde culpa. Dolores tenetur neque esse fugit provident? Earum quam vero nostrum dolorem sequi error facilis autem iure, quo eum ratione?",
-            icon:"bx-home"
-        }   
-    },
-    {
-        id:2,
-        service:{
-            serviceName:"Refonte site",
-            shortDescript:"Lorem ipsum dolor sit amet, consectetur adipisicing elit. Provident, unde culpa. Dolores tenetur neque esse fugit provident? Earum quam vero nostrum dolorem sequi error facilis autem iure, quo eum ratione?",
-            icon:"bx-home"
-        }   
-    },
-    {
-        id:3,
-        service:{
-            serviceName:"Creation site e-commerce",
-            shortDescript:"Lorem ipsum dolor sit amet, consectetur adipisicing elit. Provident, unde culpa. Dolores tenetur neque esse fugit provident? Earum quam vero nostrum dolorem sequi error facilis autem iure, quo eum ratione?",
-            icon:"bx-shopping-bag"
-        }   
-    },
-    {
-        id:4,
-        service:{
-            serviceName:"Logiciel métiers / Saas",
-            shortDescript:"Lorem ipsum dolor sit amet, consectetur adipisicing elit. Provident, unde culpa. Dolores tenetur neque esse fugit provident? Earum quam vero nostrum dolorem sequi error facilis autem iure, quo eum ratione?",
-            icon:"bx-desktop"
-        }   
-    },
-    {
-        id:5,
-        service:{
-            serviceName:"Application mobile",
-            shortDescript:"Lorem ipsum dolor sit amet, consectetur adipisicing elit. Provident, unde culpa. Dolores tenetur neque esse fugit provident? Earum quam vero nostrum dolorem sequi error facilis autem iure, quo eum ratione?",
-            icon:"bx-devices"
-        }   
-    }
-]
+
 const Services:React.FC<ServiceProps> = ()=>{
     const {setContextData} = useContext(AppContext)
-    const handleShowMore = ()=>{
-        setContextData({type:"popupMain",value:true,size:"w-[50%]",mode:'bloc'})
+    const handleShowMore = (id:number)=>{
+        setContextData({type:"popupMain",value:true,size:"w-[70%]",mode:'service',id:id})
     }
     return (
         <Element className="min-h-[200px] mt-[75px]" name="services">
@@ -66,7 +26,7 @@ const Services:React.FC<ServiceProps> = ()=>{
                                 <div key={item.id} className='w-1/3 px-[30px] border-b-4 border-solid py-[40px] bg-white boxShadow transition-hover duration-[.4s] ease-in border-white hover:border-b-secondary'>
                                     <div className='flex justify-start items-center gap-2 mb-3'><span className='w-16 h-16 rounded-full bg-secondary flex justify-center items-center'><Icon name={item.service.icon} color="#fff" size="1.6em"/></span><h3 className='uppercase text-[1.1em] flex-1'>{item.service.serviceName}</h3></div>
                                     <p className='mb-3'>{item.service.shortDescript}</p>
-                                    <div onClick={handleShowMore} className='border-2 border-solid border-secondary py-2 px-5 text-center cursor-pointer transition-hover duration-[.5s] ease-in hover:bg-secondary hover:text-white'>En savoir plus</div>
+                                    <div onClick={()=>handleShowMore(item.id)} className='border-2 border-solid border-secondary py-2 px-5 text-center cursor-pointer transition-hover duration-[.5s] ease-in hover:bg-secondary hover:text-white'>En savoir plus</div>
                                 </div>
                             )
                         })

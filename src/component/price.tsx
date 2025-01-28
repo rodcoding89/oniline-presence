@@ -2,57 +2,11 @@ import { useState } from 'react';
 import {Element, Link } from 'react-scroll';
 import { useTranslation } from 'react-i18next';
 import Icon from './Icon';
+import { priceList } from '../utils/constant';
 interface PriceProps{
 
 }
-const priceList = [
-    {
-        title:"Site vitrine standard",
-        devMethode:["Wordpress","Sur mesure"],
-        content:[{
-                price:"999.99",
-                devType:{type:"Développé sous WORDPRESS",outil:"(Outil de gestion de contenu)"},
-                options:["Sélection d'une palette de couleur","Domaine + hébergement + e-mail pendant 12 mois","Interface administrateur STANDARD","Site responsive (adapté tous supports)","Mise en place du contenu (textes & images)","Formulaire de contact","Liens de partage sur les réseaux sociaux","Optimisation du référencement","Statistiques de visite","Mise en ligne du site","Formation utilisation du site"]
-            },{
-                price:"1500",
-                devType:{type:"Développé SUR-MESURE",outil:"(Codage à la main)"},
-                options:["Sélection d'une palette de couleur","Domaine + hébergement + e-mail pendant 12 mois","Site responsive (adapté tous supports)","Mise en place du contenu (textes & images)","Formulaire de contact","Liens de partage sur les réseaux sociaux","Optimisation du référencement","Statistiques de visite","Mise en ligne du site","Formation utilisation du site"]
-            }
-        ]
-    },
-    {
-        title:"Plateforme e-commerce",
-        devMethode:["Wordpress","Sur mesure"],
-        content:[{
-                price:"2500",
-                devType:{type:"Développé sous WORDPRESS",outil:"(Outil de gestion de contenu)"},
-                options:["Sélection d'une palette de couleur","Domaine + hébergement + e-mail pendant 12 mois","Interface administrateur STANDARD","Site responsive (adapté tous supports)","Mise en place du contenu (textes & images)","Formulaire de contact","Liens de partage sur les réseaux sociaux","Optimisation du référencement","Statistiques de visite","Mise en ligne du site","Formation utilisation du site"]
-            },{
-                price:"4000",
-                devType:{type:"Développé SUR-MESURE",outil:"(Codage à la main)"},
-                options:["Sélection d'une palette de couleur","Domaine + hébergement + e-mail pendant 12 mois","Site responsive (adapté tous supports)","Mise en place du contenu (textes & images)","Formulaire de contact","Liens de partage sur les réseaux sociaux","Optimisation du référencement","Statistiques de visite","Mise en ligne du site","Formation utilisation du site"]
-            }
-        ],
-    },
-    {
-        title:"Application mobile",
-        content:[{
-                price:"2500",
-                devType:{type:"Développé sous WORDPRESS",outil:"(Outil de gestion de contenu)"},
-                options:["Sélection d'une palette de couleur","Domaine + hébergement + e-mail pendant 12 mois","Interface administrateur STANDARD","Site responsive (adapté tous supports)","Mise en place du contenu (textes & images)","Formulaire de contact","Liens de partage sur les réseaux sociaux","Optimisation du référencement","Statistiques de visite","Mise en ligne du site","Formation utilisation du site"]
-            }
-        ]
-    },
-    {
-        title:"Logiciel métiers / Saas",
-        content:[{
-                price:"2500",
-                devType:{type:"Développé sous WORDPRESS",outil:"(Outil de gestion de contenu)"},
-                options:["Sélection d'une palette de couleur","Domaine + hébergement + e-mail pendant 12 mois","Interface administrateur STANDARD","Site responsive (adapté tous supports)","Mise en place du contenu (textes & images)","Formulaire de contact","Liens de partage sur les réseaux sociaux","Optimisation du référencement","Statistiques de visite","Mise en ligne du site","Formation utilisation du site"]
-            }
-        ]
-    }
-]
+
 const Price:React.FC<PriceProps> = ()=>{
     const { t } = useTranslation();
     const initialActiveContentIndex = priceList.reduce((acc, _, index) => {
