@@ -15,7 +15,7 @@ const Contact:React.FC<ContactProps> = ()=>{
                 <div className="w-full flex justify-center items-start gap-10">
                     <div className="contact-info w-1/3">
                         <div className="contact-info-box">
-                            <div className="contact-icon">  <Icon name='bxl-whatsapp' size='16px' color='var(--color-primary)'/>  
+                            <div className="contact-icon flex justify-center items-center">  <Icon name='bxl-whatsapp' size='1.3em' color='var(--color-primary)'/>  
                             </div>
                             <div className="contact-desc">
                               <h5 className='text-thirty'>Via whatsapp</h5>
@@ -23,7 +23,7 @@ const Contact:React.FC<ContactProps> = ()=>{
                               </div>
                           </div>
                         <div className="contact-info-box">
-                            <div className="contact-icon">  <Icon name='bx-phone' size='16px' color='var(--color-primary)'/>
+                            <div className="contact-icon flex justify-center items-center">  <Icon name='bx-phone' size='1.3em' color='var(--color-primary)'/>
                             </div>
                             <div className="contact-desc">
                                 <h5 className='text-thirty'>Call US</h5>
@@ -31,14 +31,14 @@ const Contact:React.FC<ContactProps> = ()=>{
                             </div>
                         </div>
                         <div className="contact-info-box">
-                            <div className="contact-icon"><Icon name='bx-envelope' size='16px' color='var(--color-primary)'/>  </div>
+                            <div className="contact-icon flex justify-center items-center"><Icon name='bx-envelope' size='1.3em' color='var(--color-primary)'/>  </div>
                             <div className="contact-desc">
                               <h5 className='text-thirty'>Email</h5>
                               <p>yourmail@mail.com</p>
                             </div>
                         </div>
                         <div className="contact-info-box">
-                            <div className="contact-icon"><Icon name='bx-time' size='16px' color='var(--color-primary)'/>  </div>
+                            <div className="contact-icon flex justify-center items-center"><Icon name='bx-time' size='1.3em' color='var(--color-primary)'/>  </div>
                             <div className="contact-desc">
                               <h5 className='text-thirty'>Horaire</h5>
                               <ul>

@@ -96,7 +96,8 @@ export const serviceDetail = {
         content:[
             {
                 title:"Qu'est-ce que la création de site internet?",
-                para:"Un site vitrine est un site internet qui présente les services et/ou les produits de votre entreprise, sans vente en ligne. Il a donc pour objectif de vous apporter une présence en ligne pour acquérir de nouveaux prospects tout en gardant un lien avec vos clients via internet.\n\nLa création de site internet présente de nombreux avantages comme notamment :",
+                para:"Un site vitrine est un site internet qui présente les services et/ou les produits de votre entreprise, sans vente en ligne. Il a donc pour objectif de vous apporter une présence en ligne pour acquérir de nouveaux prospects tout en gardant un lien avec vos clients via internet.",
+                souspara:"La création de site internet présente de nombreux avantages comme notamment :",
                 contentPara:[
                     {title:"Améliorer votre visibilité sur internet",text:"Internet est aujourd’hui le principal canal pour la recherche d’informations. Quel que soit votre secteur d’activité, avoir une présence sur le web est indispensable aujourd’hui pour faire connaître sa marque et ses offres.\nLa création de site internet va permettre de délivrer des informations pertinentes aux internautes sur votre entreprise. Mais aussi, permet d’obtenir des demandes de devis, de contact, des appels téléphoniques ou encore des téléchargements de documents."},
                     {title:"Conquérir de nouveaux marchés",text:"Un site internet ne connaît pas de frontières. N'importe quel humain disposant d'une connexion internet peut accéder à votre site. Autrement dit, vous pouvez étendre votre zone de chalandise aux 5 continents si vous le souhaitez."},
@@ -105,8 +106,9 @@ export const serviceDetail = {
                 img:'/assets/images/fieger.png',
             },
             {
-                title:"Qu'est-ce que la création de site internet?",
+                title:"Comment créer un site internet ?",
                 para:"Un site vitrine est un site internet qui présente les services et/ou les produits de votre entreprise, sans vente en ligne. Il a donc pour objectif de vous apporter une présence en ligne pour acquérir de nouveaux prospects tout en gardant un lien avec vos clients via internet.\n\nLa création de site internet présente de nombreux avantages comme notamment :",
+                souspara:"La création de site internet présente de nombreux avantages comme notamment :",
                 contentPara:[
                     {title:"Améliorer votre visibilité sur internet",text:"Internet est aujourd’hui le principal canal pour la recherche d’informations. Quel que soit votre secteur d’activité, avoir une présence sur le web est indispensable aujourd’hui pour faire connaître sa marque et ses offres.\nLa création de site internet va permettre de délivrer des informations pertinentes aux internautes sur votre entreprise. Mais aussi, permet d’obtenir des demandes de devis, de contact, des appels téléphoniques ou encore des téléchargements de documents."},
                     {title:"Conquérir de nouveaux marchés",text:"Un site internet ne connaît pas de frontières. N'importe quel humain disposant d'une connexion internet peut accéder à votre site. Autrement dit, vous pouvez étendre votre zone de chalandise aux 5 continents si vous le souhaitez."},
@@ -115,21 +117,54 @@ export const serviceDetail = {
                 img:'/assets/images/fieger.png',
             },
             {
-                title:"",
-                para:"",
-                img:''
+                title:"Combien coûte la création d'un site internet ?",
+                para:"Les tarifs pour la création d'un site internet dépendront directement des fonctionnalités et de la structure souhaitées. Ainsi, selon la complexité de votre projet, le budget à prévoir sera plus ou moins élevé.",
+                img:'/assets/images/fieger.png',
+                souspara:"Pour une estimation du coût de votre projet de création de site internet, contactez-nous via notre formulaire. Une chef de projet étudiera votre demande et vous fera parvenir un devis.",
             }
         ]
     }
 }
-export const reference = {
-    1:{
-        title:"",
-        referenceContent:[
-            {
-                img:'',
-                refId:0
-            }
-        ]
-    }
+interface ReferenceContentItem {
+    img: string;
+    projet: string;
+    refId: number;
 }
+  
+interface ReferenceItem {
+    title: string;
+    referenceContent: ReferenceContentItem[];
+}
+  
+interface Reference {
+    [key: number]: ReferenceItem;
+}
+  
+export const reference: Reference = {
+    1: {
+      title: "Quelques créations site vitrine",
+      referenceContent: [
+        {
+          img: '/assets/images/fieger.png',
+          projet: 'Titre du projet',
+          refId: 1
+        },
+        {
+          img: '/assets/images/fieger.png',
+          projet: 'Titre du projet',
+          refId: 1
+        },
+        {
+          img: '/assets/images/fieger.png',
+          projet: 'Titre du projet',
+          refId: 1
+        },
+        {
+          img: '/assets/images/fieger.png',
+          projet: 'Titre du projet',
+          refId: 1
+        }
+      ]
+    }
+};
+  
