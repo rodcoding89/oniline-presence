@@ -129,17 +129,56 @@ interface ReferenceContentItem {
     img: string;
     projet: string;
     refId: number;
+    cat:string;
+}
+interface siteInterface {
+    title:string,
+    proprio:string,
+    img:string,
+    description : {title:string,para:string[]},
+    infoSite:{title:string,year:string,cat:string,techno:string[],mode:string},
+    task:string[]
+}
+
+interface RefItemContent {
+    title: string;
+    [key: number]: siteInterface;
 }
   
 interface ReferenceItem {
     title: string;
     referenceContent: ReferenceContentItem[];
 }
-  
+interface refContent{
+    [key: string]: RefItemContent;
+}
+
 interface Reference {
     [key: number]: ReferenceItem;
 }
-  
+
+export const refDetailContent:refContent = {
+    vitrine: {
+        title:"Site vitrine",
+        1:{
+            title:"Site internet pour",
+            proprio:"Madame Gisabel",
+            img: '/assets/images/fieger.png',
+            description:{
+                title:'Domaine d\'activité de',
+                para:['Domaine d\'activité de']
+            },
+            infoSite:{
+                title:'Infos projet web',
+                year:"2024",
+                cat:"Site vitrine sous wordpress",
+                techno:['HTML5','Bootstrap','JavaScript',"JQuery","WordPress",'CSS3'],
+                mode:'WordPress'
+            },
+            task:['Définition de la charte graphique (palette couleur,typographie...)','mise en place du template','correction du style',"Ajout de composant & plugins & images & pages & fonctionnalités","Ajustement nécessaire","Test","Dépliement"]
+        }
+    }
+}
 export const reference: Reference = {
     1: {
       title: "Quelques créations site vitrine",
@@ -147,22 +186,26 @@ export const reference: Reference = {
         {
           img: '/assets/images/fieger.png',
           projet: 'Titre du projet',
-          refId: 1
+          refId: 1,
+          cat:'vitrine'
         },
         {
           img: '/assets/images/fieger.png',
           projet: 'Titre du projet',
-          refId: 1
+          refId: 1,
+          cat:'vitrine'
         },
         {
           img: '/assets/images/fieger.png',
           projet: 'Titre du projet',
-          refId: 1
+          refId: 1,
+          cat:'vitrine'
         },
         {
           img: '/assets/images/fieger.png',
           projet: 'Titre du projet',
-          refId: 1
+          refId: 1,
+          cat:'vitrine'
         }
       ]
     }

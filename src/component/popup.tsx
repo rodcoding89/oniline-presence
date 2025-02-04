@@ -1,10 +1,12 @@
-import { useContext, useEffect, useState } from "react"
+import { useContext, useEffect, useRef, useState } from "react"
 import i18n from '../i18n';
 import { Link } from 'react-scroll';
 import { AppContext } from "../app-context";
 import CloseButton from "./close-btn";
 import { useTranslation } from 'react-i18next';
-import { reference, serviceDetail } from "../utils/constant";
+import { refDetailContent, reference, serviceDetail } from "../utils/constant";
+import Icon from "./Icon";
+import { redirect } from "react-router-dom";
 interface PopupProps{
     windowSize:string,
     mode:string,
@@ -14,13 +16,22 @@ interface PopupProps{
 const PopUp:React.FC<PopupProps> = ({windowSize,mode,id})=>{
     const { t } = useTranslation();
     const [hidePopUp,setHidePopUp] = useState<boolean>(false);
+    const [refDetail,setRefDetail] = useState<any>()
     const {contextData,setContextData} = useContext(AppContext)
     const data:any = id !== null ? serviceDetail[id as keyof typeof serviceDetail] : null;
     const refenrence = id !== null ? reference[id] : null
-    console.log("data",data)
+    //= id !== null ? refDetailContent[id] : null
+    const [popupMode,setMode] = useState<string>('')
+    
     const [currentIndex,setCurrentIndex] = useState<number>(0)
     const handlePopUp = ()=>{
-        setContextData({type:"popupMain",value:false})
+        setContextData({state:"hide",value:false})
+        setHidePopUp(false)
+    }
+    const openRefDetail = (refId:number,cat:string)=>{ 
+        console.log("refDetail",refDetail)
+        setRefDetail(refDetailContent[cat][refId])
+        setMode('reference')
     }
     const slide = (param:string)=>{
         console.log('is called',param)
@@ -31,15 +42,20 @@ const PopUp:React.FC<PopupProps> = ({windowSize,mode,id})=>{
         }
     }
     useEffect(()=>{
-        if (contextData && contextData.type === "popupMain") {
+        if (contextData && contextData.state === "show") {
+            console.log("contextData.value",contextData.value)
             setHidePopUp(contextData.value)
         }
     },[contextData])
+    useEffect(()=>{
+        setMode(mode)
+    },[mode])
+    console.log("mode",hidePopUp,contextData)
     return (
         <div className={`fixed flex justify-end w-[100vw] h-[100vh] top-0 right-0 bottom-0 transition-all duration-500 ease-out ${hidePopUp ? 'z-[100] bg-[rgba(0,0,0,0.3)]':'z-[-1] bg-transparent'}`}>
             <div className={`relative ${windowSize} bg-fifty min-h-[1500px] overflow-y-auto transition-transform duration-700 ease-out ${hidePopUp ? 'translate-x-0' : 'translate-x-[100vw]'}`}>
                 {
-                    mode === 'mobile' ? (
+                    popupMode === 'mobile' ? (
                         <div className="flex flex-col justify-between items-start h-[100vh] gap-3 py-3 px-5">
                             <div className="flex justify-between items-center gap-3 w-full">
                                 <Link
@@ -115,7 +131,7 @@ const PopUp:React.FC<PopupProps> = ({windowSize,mode,id})=>{
                                 <p>Lorem, ipsum dolor sit amet consectetur adipisicing.</p>
                             </div>
                         </div>
-                    ): mode === 'service' ? (
+                    ): popupMode === 'service' ? (
                         <div className="flex flex-col justify-between items-start h-[100vh] gap-3 py-3 px-8 overflow-y-auto">
                             <div className="flex justify-between items-center gap-3 w-full">
                                 <h3 className="text-[1.5em] font-bold uppercase text-thirty">Services</h3>
@@ -154,36 +170,82 @@ const PopUp:React.FC<PopupProps> = ({windowSize,mode,id})=>{
                                         })
                                     }
                                 </div>
-                                <div className="mt-5 text-[1.8em] text-thirty font-semibold mb-3">
-                                    <h2>Nos réalisation</h2>
-                                    <h4>{refenrence?.title}</h4>
+                                <div className="mt-10 mb-3">
+                                    <h2 className="mb-3 text-[2em] text-thirty font-semibold">Nos réalisation</h2>
+                                    <h4 className="mb-3 text-[1.5em] text-primary font-semibold">{refenrence?.title}</h4>
                                     <div className="flex justify-between items-start gap-3">
                                         <div className="overflow-hidden w-4/5">
                                             <div className={`flex justify-start transition-transform duration-700 ease-in-out items-center`} style={{width:`${refenrence?.referenceContent.length!*100}%`,transform: `translateX(-${currentIndex*100/refenrence?.referenceContent.length!}%)`}}>
                                                 {
                                                     refenrence?.referenceContent.map((item:any,index:number)=>{
                                                     return (
-                                                        <div key={index} className="w-full aspect-video">
-                                                            <img src={item.img} alt={item.projet} />
-                                                            <div>{item.projet}</div>
+                                                        <div key={index} className="w-full aspect-video relative">
+                                                            <img className="w-full" src={item.img} alt={item.projet} />
+                                                            <div className="absolute bottom-0 left-0 bg-white text-secondary p-2 flex flex-col gap-1 text-[1.1em]">{item.projet}
+                                                                <span className="underline cursor-pointer" onClick={()=>openRefDetail(item.refId,item.cat)}>détail</span>
+                                                            </div>
                                                         </div>
                                                     )
                                                 })
                                             }
                                             </div>
                                         </div>
-                                        <div className="flex justify-start items-center gap-2 w-1/5">
-                                            <span onClick={()=>slide('prev')} className="cursor-pointer">Prev</span>
-                                            <span onClick={()=>slide('naxt')} className="cursor-pointer">Next</span>
+                                        <div className="flex justify-start items-center gap-5 w-1/5">
+                                            <span onClick={()=>slide('prev')} className={`cursor-pointer w-10 h-10 rounded-[.2em] flex justify-center items-center bg-white ${currentIndex === 0 ? 'opacity-40 cursor-not-allowed':''}`}><Icon name="bx-chevron-left" size="2em" color="var(--color-thirty)"/></span>
+                                            <span onClick={()=>slide('naxt')} className={`cursor-pointer w-10 h-10 rounded-[.2em] flex justify-center items-center bg-white ${currentIndex === refenrence?.referenceContent.length! - 1 ? 'opacity-40 cursor-not-allowed':''}`}><Icon name="bx-chevron-right" size="2em" color="var(--color-thirty)"/></span>
                                         </div>
                                     </div>
                                 </div>
                             </div>
                         </div>
                     ) : (
-                        <div>
-                            <h1 className="text-primary">Reférence</h1>
-                            <span className="absolute right-3 top-3 cursor-pointer"><CloseButton size="large" onClose={handlePopUp}/></span>
+                        <div className="flex flex-col justify-start items-start h-[100vh] gap-3 py-3 px-8 overflow-y-auto">
+                            <div className="flex justify-between items-center gap-3 w-full">
+                                <h3 className="text-[1.5em] font-bold uppercase text-thirty">Références</h3>
+                                <span className=" cursor-pointer"><CloseButton size="large" onClose={handlePopUp}/></span>
+                            </div>
+                            <div className="mt-4">
+                                <h3 className="text-[1.7em] font-semibold text-right uppercase mb-3 ml-[50%]">{refDetail?.title+' '+refDetail?.proprio}</h3>
+                                <hr  className="border-thirty mb-5"/>
+                                <div className="flex justify-center items-center gap-4">
+                                    <img className="w-1/2" src={refDetail?.img} alt={refDetail?.proprio} />
+                                    <div className="w-1/2">
+                                        <h4 className="text-[1.4em] font-semibold text-thirty">{refDetail?.infoSite.title}</h4>
+                                        <div className="flex flex-col justify-start items-start gap-2 mt-4">
+                                            <div className="flex justify-between items-center gap-1 w-full"><span className="flex justify-start items-center gap-1"><Icon name="bx-calendar" size="1em" color="var(--color-thirty)"/>Année</span> <span className="font-medium flex-1 text-right">{refDetail?.infoSite.year}</span></div>
+                                            <div className="flex justify-between items-center gap-1 w-full"><span className="flex justify-start items-center gap-1"><Icon name="bx-category" size="1em" color="var(--color-thirty)"/>Catégorie</span><span className="font-medium flex-1 text-right">{refDetail?.infoSite.cat}</span></div>
+                                        </div>
+                                        <div className="mt-4 flex justify-start items-center flex-wrap gap-2">
+                                            {
+                                                refDetail?.infoSite.techno.map((item:string,index:number)=>{
+                                                    return <p className="py-1 px-2 rounded-[.2em] text-fifty bg-thirty" key={index}>{item}</p>
+                                                })
+                                            }
+                                        </div>
+                                    </div>
+                                </div>
+                                <div className="mt-4">
+                                    <h4 className="text-[1.4em] font-semibold text-thirty">{refDetail?.description.title + ' '+refDetail?.proprio}</h4>
+                                    <div>
+                                        {
+                                            refDetail?.description.para.map((item:string,index:number)=>{
+                                                return <p key={index}>{item}</p>
+                                            })
+                                        }
+                                    </div>
+                                </div>
+                                <div className="mt-4">
+                                    <h4 className="text-[1.4em] font-semibold text-thirty mb-3">Construction du site</h4>
+                                    <hr  className="border-thirty mb-5"/>
+                                    <div className="flex justify-start items-center gap-1 flex-wrap w-full">
+                                        {
+                                            refDetail?.task.map((item:string,index:number)=>{
+                                                return <p className="w-[calc(50%-4px)] flex justify-start items-center gap-1" key={index}><Icon name="bx-check" size=".9em"/>{item}</p>
+                                            })
+                                        }
+                                    </div>
+                                </div>
+                            </div>
                         </div>
                     )
                 }

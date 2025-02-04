@@ -56,7 +56,7 @@ const Header:React.FC<HeaderProps> = ()=>{
     };
     const handleShowMore = ()=>{
         console.error('i18n is undefined or does not have the method changeLanguage');
-        setContextData({type:"popupMain",value:true,size:"w-[25%]",mode:"mobile"})
+        setContextData({state:"show",value:true,size:"w-[25%]",mode:"mobile"})
     } 
     return (
         <header className='header w-full h-[65px] fixed top-0 left-0 bottom-0 right-0 z-10 flex items-center'>

@@ -10,7 +10,7 @@ interface ServiceProps{
 const Services:React.FC<ServiceProps> = ()=>{
     const {setContextData} = useContext(AppContext)
     const handleShowMore = (id:number)=>{
-        setContextData({type:"popupMain",value:true,size:"w-[70%]",mode:'service',id:id})
+        setContextData({state:"show",value:true,size:"w-[70%]",mode:'service',id:id})
     }
     return (
         <Element className="min-h-[200px] mt-[75px]" name="services">
