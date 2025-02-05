@@ -19,7 +19,7 @@ const RootPage:React.FC<RootPageProps> = ()=>{
             console.log("contextData",contextData)
             //setContextData(null)
         }else if(contextData && contextData.state === "hide"){
-            setData({size:'w-0',mode:'',id:null})
+            setData({size:contextData.size,mode:'',id:null})
         }
     },[contextData])
     return (

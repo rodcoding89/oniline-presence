@@ -35,7 +35,7 @@ body{
   color: var(--color-primary);
 }
 ul{
-  list-style: none;
+  /*list-style: none;*/
 }
 .language-picker__item{
   display: flex

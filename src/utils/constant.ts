@@ -136,7 +136,7 @@ interface siteInterface {
     proprio:string,
     img:string,
     description : {title:string,para:string[]},
-    infoSite:{title:string,year:string,cat:string,techno:string[],mode:string},
+    infoSite:{title:string,year:string,cat:string,techno:string[],mode:string,link:string},
     task:string[]
 }
 
@@ -166,14 +166,15 @@ export const refDetailContent:refContent = {
             img: '/assets/images/fieger.png',
             description:{
                 title:'Domaine d\'activité de',
-                para:['Domaine d\'activité de']
+                para:['Création du site internet de {name}, spécialisée dans la {open}co-écriture de livres pour entrepreneurs et particuliers{close}. Elle accompagne ses clients dans la réalisation de leurs projets littéraires, transformant leurs idées en ouvrages aboutis.\n','Ce site vitrine personnalisé met en avant ses différentes formules de {open}co-écriture{close}, adaptées aux besoins spécifiques de chaque auteur en devenir. Il détaille le processus collaboratif, de la conception à la publication, offrant une transparence totale sur les étapes clés de la création d\'un livre.\n',"Ce site vitrine sur mesure contient une interface d'administration ainsi qu'une expérience de navigation optimale sur tous types d'appareils.\n","Ce site internet renforce la visibilité et la crédibilité de {name} en tant que {open}co-écrivaine{close}, mettant en avant son expertise, son parcours littéraire ainsi que les témoignages de clients satisfaits. Cette plateforme reflète son engagement à aider les auteurs à concrétiser leurs rêves d'écriture.\n"]
             },
             infoSite:{
                 title:'Infos projet web',
                 year:"2024",
                 cat:"Site vitrine sous wordpress",
                 techno:['HTML5','Bootstrap','JavaScript',"JQuery","WordPress",'CSS3'],
-                mode:'WordPress'
+                mode:'WordPress',
+                link:'https://test.com'
             },
             task:['Définition de la charte graphique (palette couleur,typographie...)','mise en place du template','correction du style',"Ajout de composant & plugins & images & pages & fonctionnalités","Ajustement nécessaire","Test","Dépliement"]
         }

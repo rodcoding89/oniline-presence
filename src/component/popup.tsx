@@ -1,4 +1,4 @@
-import { useContext, useEffect, useRef, useState } from "react"
+import { useContext, useEffect, useState } from "react"
 import i18n from '../i18n';
 import { Link } from 'react-scroll';
 import { AppContext } from "../app-context";
@@ -6,7 +6,6 @@ import CloseButton from "./close-btn";
 import { useTranslation } from 'react-i18next';
 import { refDetailContent, reference, serviceDetail } from "../utils/constant";
 import Icon from "./Icon";
-import { redirect } from "react-router-dom";
 interface PopupProps{
     windowSize:string,
     mode:string,
@@ -25,7 +24,7 @@ const PopUp:React.FC<PopupProps> = ({windowSize,mode,id})=>{
     
     const [currentIndex,setCurrentIndex] = useState<number>(0)
     const handlePopUp = ()=>{
-        setContextData({state:"hide",value:false})
+        setContextData({state:"hide",value:false,size:windowSize})
         setHidePopUp(false)
     }
     const openRefDetail = (refId:number,cat:string)=>{ 
@@ -52,8 +51,8 @@ const PopUp:React.FC<PopupProps> = ({windowSize,mode,id})=>{
     },[mode])
     console.log("mode",hidePopUp,contextData)
     return (
-        <div className={`fixed flex justify-end w-[100vw] h-[100vh] top-0 right-0 bottom-0 transition-all duration-500 ease-out ${hidePopUp ? 'z-[100] bg-[rgba(0,0,0,0.3)]':'z-[-1] bg-transparent'}`}>
-            <div className={`relative ${windowSize} bg-fifty min-h-[1500px] overflow-y-auto transition-transform duration-700 ease-out ${hidePopUp ? 'translate-x-0' : 'translate-x-[100vw]'}`}>
+        <div className={`fixed flex justify-end w-[100vw] h-[100vh] top-0 right-0 bottom-0 transition-all duration-500 ease-in-out ${hidePopUp ? 'z-[100] bg-[rgba(0,0,0,0.3)]':'z-[-1] bg-transparent'}`}>
+            <div className={`relative ${windowSize} bg-fifty overflow-y-auto transition-transform duration-700 ease-in-out ${hidePopUp ? 'translate-x-0' : 'translate-x-[100vw]'}`}>
                 {
                     popupMode === 'mobile' ? (
                         <div className="flex flex-col justify-between items-start h-[100vh] gap-3 py-3 px-5">
@@ -138,11 +137,11 @@ const PopUp:React.FC<PopupProps> = ({windowSize,mode,id})=>{
                                 <span className=" cursor-pointer"><CloseButton size="large" onClose={handlePopUp}/></span>
                             </div>
                             <div className="mt-3">
-                                <h2 className="text-[1.8em] text-thirty font-semibold mb-3">{data.title}</h2>
-                                <p className="mb-3">{data.info}</p>
+                                <h2 className="text-[1.8em] text-thirty font-semibold mb-3">{data?.title}</h2>
+                                <p className="mb-3">{data?.info}</p>
                                 <div className="flex flex-col justify-start items-center gap-5">
                                     {
-                                        data.content.map((item:any,index:number)=>{
+                                        data?.content.map((item:any,index:number)=>{
                                             
                                             return <div key={index} className={`${item.contentPara === undefined ? 'flex justify-start items-center gap-5 flex-row-reverse' : ''}`}>
                                                 <div className="mt-3 mb-5 w-full block">
@@ -206,44 +205,76 @@ const PopUp:React.FC<PopupProps> = ({windowSize,mode,id})=>{
                             </div>
                             <div className="mt-4">
                                 <h3 className="text-[1.7em] font-semibold text-right uppercase mb-3 ml-[50%]">{refDetail?.title+' '+refDetail?.proprio}</h3>
-                                <hr  className="border-thirty mb-5"/>
+                                <hr  className="border-thirty mb-10 ml-[50%]"/>
                                 <div className="flex justify-center items-center gap-4">
                                     <img className="w-1/2" src={refDetail?.img} alt={refDetail?.proprio} />
                                     <div className="w-1/2">
-                                        <h4 className="text-[1.4em] font-semibold text-thirty">{refDetail?.infoSite.title}</h4>
+                                        <h4 className="text-[1.4em] font-semibold text-thirty uppercase">{refDetail?.infoSite.title}</h4>
                                         <div className="flex flex-col justify-start items-start gap-2 mt-4">
-                                            <div className="flex justify-between items-center gap-1 w-full"><span className="flex justify-start items-center gap-1"><Icon name="bx-calendar" size="1em" color="var(--color-thirty)"/>Année</span> <span className="font-medium flex-1 text-right">{refDetail?.infoSite.year}</span></div>
-                                            <div className="flex justify-between items-center gap-1 w-full"><span className="flex justify-start items-center gap-1"><Icon name="bx-category" size="1em" color="var(--color-thirty)"/>Catégorie</span><span className="font-medium flex-1 text-right">{refDetail?.infoSite.cat}</span></div>
-                                        </div>
-                                        <div className="mt-4 flex justify-start items-center flex-wrap gap-2">
+                                            <div className="flex justify-between items-center gap-1 w-full">
+                                                <span className="flex justify-start items-center gap-1">
+                                                    <Icon name="bx-calendar" size="1em" color="var(--color-thirty)"/>
+                                                    Année
+                                                </span> 
+                                                <span className="font-medium flex-1 text-right">{refDetail?.infoSite.year}</span>
+                                            </div>
+                                            <div className="flex justify-between items-center gap-1 w-full">
+                                                <span className="flex justify-start items-center gap-1">
+                                                    <Icon name="bx-category" size="1em" color="var(--color-thirty)"/>
+                                                    Catégorie</span>
+                                                <span className="font-medium flex-1 text-right">{refDetail?.infoSite.cat}</span>
+                                            </div>
+                                            <div className="flex justify-between items-center gap-1 w-full">
+                                                <span className="flex justify-start items-center gap-1">
+                                                    <Icon name="bx-code-alt" size="1.1em" color="var(--color-thirty)"/>Technologies
+                                                </span>
+                                                <div className="mt-4 flex justify-end items-center flex-wrap gap-2">
+                                                {
+                                                    refDetail?.infoSite.techno.map((item:string,index:number)=>{
+                                                        return <p className="py-1 px-2 rounded-[.2em] text-fifty bg-thirty" key={index}>{item}</p>
+                                                    })
+                                                }
+                                            </div>
+                                            </div>
                                             {
-                                                refDetail?.infoSite.techno.map((item:string,index:number)=>{
-                                                    return <p className="py-1 px-2 rounded-[.2em] text-fifty bg-thirty" key={index}>{item}</p>
-                                                })
+                                                refDetail?.infoSite.link !== '' ? <a href={refDetail?.infoSite.link} className="py-1 px-4 outline outline-1 outline-thirty rounded-lg mt-4 text-right" target="__blanc">Lien du site </a> : <span className="py-1 px-4 outline outline-1 outline-thirty rounded-lg mt-4 text-right">Site en maintenance</span>
                                             }
                                         </div>
                                     </div>
                                 </div>
-                                <div className="mt-4">
-                                    <h4 className="text-[1.4em] font-semibold text-thirty">{refDetail?.description.title + ' '+refDetail?.proprio}</h4>
-                                    <div>
+                                <div className="mt-10">
+                                    <h4 className="text-[1.4em] font-semibold text-thirty uppercase mb-3">{refDetail?.description.title + ' '+refDetail?.proprio}</h4>
+                                    <hr  className="border-thirty mb-5"/>
+                                    <div className="mt-4">
                                         {
-                                            refDetail?.description.para.map((item:string,index:number)=>{
-                                                return <p key={index}>{item}</p>
+                                            refDetail?.description.para.map((item:any, index:number) => {
+                                                const modifiedItem = item
+                                                  .replace(/{name}/g, refDetail?.proprio)
+                                                  .replace(/{open}/g, '<strong>')
+                                                  .replace(/{close}/g, '</strong>');
+                                        
+                                                return (
+                                                  <p className="whitespace-pre-wrap mb-3" key={index} dangerouslySetInnerHTML={{ __html: modifiedItem }}></p>
+                                                );
                                             })
                                         }
                                     </div>
                                 </div>
-                                <div className="mt-4">
-                                    <h4 className="text-[1.4em] font-semibold text-thirty mb-3">Construction du site</h4>
+                                <div className="mt-10">
+                                    <h4 className="text-[1.4em] font-semibold text-thirty mb-3 uppercase">Tâches réalisés sur le site</h4>
                                     <hr  className="border-thirty mb-5"/>
-                                    <div className="flex justify-start items-center gap-1 flex-wrap w-full">
+                                    <ul className="flex justify-start items-center !list-decimal gap-1 flex-wrap w-full pl-5">
                                         {
                                             refDetail?.task.map((item:string,index:number)=>{
-                                                return <p className="w-[calc(50%-4px)] flex justify-start items-center gap-1" key={index}><Icon name="bx-check" size=".9em"/>{item}</p>
+                                                return <li className="w-[calc(50%-4px)]" key={index}>
+                                                <div className="flex justify-start items-center gap-1">
+                                                  <Icon name="bx-check" size=".9em" />
+                                                  {item}
+                                                </div>
+                                              </li>
                                             })
                                         }
-                                    </div>
+                                    </ul>
                                 </div>
                             </div>
                         </div>
