@@ -13,7 +13,7 @@ const Services:React.FC<ServiceProps> = ()=>{
         setContextData({state:"show",value:true,size:"w-[70%]",mode:'service',id:id})
     }
     return (
-        <Element className="min-h-[200px] mt-[75px]" name="services">
+        <Element className="mt-[75px]" name="services">
             <div className='bg-fifty h-[500px]'>
                 <h1 className='mb-10 mx-[calc(15%/2)] pt-[20px] uppercase'>Services</h1>
                 <p className='mx-[calc(15%/2)]'>Lorem ipsum dolor sit amet consectetur adipisicing elit. Quo inventore sunt tenetur. Lorem ipsum dolor sit amet consectetur adipisicing elit. Quo inventore sunt tenetur.</p>

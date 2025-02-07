@@ -23,7 +23,7 @@ const Price:React.FC<PriceProps> = ()=>{
         }));
     };
     return (
-        <Element className="min-h-[200px] mt-[75px]" name="price">
+        <Element className="mt-[75px]" name="price">
             <div>
                 <div className='w-[85%] mx-auto'>
                     <h1 className='text-center text-thirty font-semibold mb-4 uppercase'>Tarifs</h1>
