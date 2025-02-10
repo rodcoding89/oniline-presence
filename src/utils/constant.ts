@@ -129,6 +129,7 @@ interface ReferenceContentItem {
     img: string;
     projet: string;
     refId: number;
+    index:number;
     cat:string;
 }
 interface siteInterface {
@@ -186,29 +187,111 @@ export const reference: Reference = {
       referenceContent: [
         {
           img: '/assets/images/fieger.png',
-          projet: 'Titre du projet',
+          projet: 'Fieger',
           refId: 1,
-          cat:'vitrine'
+          index:1,
+          cat:'website'
+        },
+        {
+          img: '/assets/images/fieger.png',
+          projet: 'Gymrenat',
+          refId: 1,
+          index:2,
+          cat:'website'
+        },
+        {
+          img: '/assets/images/fieger.png',
+          projet: 'Charlotte consulting',
+          refId: 1,
+          index:3,
+          cat:'website'
         },
         {
           img: '/assets/images/fieger.png',
           projet: 'Titre du projet',
           refId: 1,
-          cat:'vitrine'
-        },
-        {
-          img: '/assets/images/fieger.png',
-          projet: 'Titre du projet',
-          refId: 1,
-          cat:'vitrine'
-        },
-        {
-          img: '/assets/images/fieger.png',
-          projet: 'Titre du projet',
-          refId: 1,
-          cat:'vitrine'
+          index:4,
+          cat:'website'
         }
       ]
+    },
+    2: {
+        title: "Quelques créations site vitrine",
+        referenceContent: [
+          {
+            img: '/assets/images/fieger.png',
+            projet: 'Titre du projet',
+            refId: 1,
+            index:5,
+            cat:'ecommerce'
+          },
+          {
+            img: '/assets/images/fieger.png',
+            projet: 'Blog',
+            refId: 1,
+            index:6,
+            cat:'ecommerce'
+          },
+          {
+            img: '/assets/images/fieger.png',
+            projet: 'Kebab 78',
+            refId: 1,
+            index:7,
+            cat:'ecommerce'
+          },
+          {
+            img: '/assets/images/fieger.png',
+            projet: 'Chicken grill',
+            refId: 1,
+            index:8,
+            cat:'ecommerce'
+          }
+        ]
+    },
+    3: {
+        title: "Quelques créations site vitrine",
+        referenceContent: [
+          {
+            img: '/assets/images/fieger.png',
+            projet: 'Site de rencontre Android',
+            refId: 1,
+            index:9,
+            cat:'app'
+          },
+          {
+            img: '/assets/images/fieger.png',
+            projet: 'Site de rencontre IOS',
+            refId: 1,
+            index:10,
+            cat:'app'
+          }
+        ]
+    },
+    4: {
+        title: "Quelques créations site vitrine",
+        referenceContent: [
+          {
+            img: '/assets/images/fieger.png',
+            projet: 'Site de rencontre',
+            refId: 1,
+            index:11,
+            cat:'saas'
+          },
+          {
+            img: '/assets/images/fieger.png',
+            projet: 'Location de salle',
+            refId: 1,
+            index:12,
+            cat:'saas'
+          },
+          {
+            img: '/assets/images/fieger.png',
+            projet: 'Reaseau social',
+            refId: 1,
+            index:13,
+            cat:'saas'
+          }
+        ]
     }
 };
   

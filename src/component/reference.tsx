@@ -1,12 +1,23 @@
 import { Element } from 'react-scroll';
 import IsoTopeGrid from "react-isotope";
-import { useState } from 'react';
+import { useEffect, useState } from 'react';
+import { reference } from '../utils/constant';
 
 interface ReferenceProps{
 
 }
 
-const cardsLayout = [
+function createCardObjet(){
+  const gridData:any = []
+  Object.values(reference).forEach((item)=>{
+    item.referenceContent.forEach((val:any)=>{
+      const item = {"id":'label'+(val.index).toString(),"content":{title:val.projet,link:val.img},"row":0,"col":0,"w":1,"h":1,"filter":[val.cat]}
+      gridData.push(item)
+    })
+  })
+  return gridData;
+}
+const cardsData = [
     {
       "id": "a",
       "content":"My Data 1",
@@ -80,8 +91,10 @@ const Reference:React.FC<ReferenceProps> = ()=>{
         { name: "Application mobile", isChecked: false,label:"app" },
         { name: "Logiciel metiès / Saas", isChecked: false,label:"saas" }
     ];
+    const [noOfCols, setNoOfCols] = useState(Math.floor((window.innerWidth *.85 - 16)/ 250));
     const [filters, updateFilters] = useState<{name:string,isChecked:boolean,label:string}[]>(nav);
-
+    const cardsLayout = createCardObjet();
+    console.log(createCardObjet(),cardsData)
     const onFilter = (item:{name:string,isChecked:boolean,label:string}) => {
         updateFilters((state) => {
           const items = state.map(f => {
@@ -97,7 +110,21 @@ const Reference:React.FC<ReferenceProps> = ()=>{
           return state
         });
     };
-    console.log(filters)
+    useEffect(()=>{
+      const handleResize = () => {
+        const num = Math.floor((window.innerWidth *.85 - 16) / 250)
+        console.log("num",num,"window.innerWidth *.85 / 250",window.innerWidth *.85 / 250,"window.innerWidth",window.innerWidth)
+        setNoOfCols(num);
+      };
+  
+      window.addEventListener('resize', handleResize);
+  
+      // Nettoyer l'écouteur d'événements lorsque le composant est démonté
+      return () => {
+        window.removeEventListener('resize', handleResize);
+      };
+    }, []);
+    console.log("noOfCols",noOfCols)
     return (
         <Element className="mt-[75px]" name="reference">
             <div className='bg-secondary h-[400px]'>
@@ -114,17 +141,17 @@ const Reference:React.FC<ReferenceProps> = ()=>{
                         })
                     }
                 </nav>
-                <div className="container">
+                <div className="flex justify-center items-center w- h-[500px]">
                     <IsoTopeGrid
                     gridLayout={cardsLayout} // gridlayout of cards
-                    noOfCols={4} // number of columns show in one row
-                    unitWidth={200} // card width of 1 unit
-                    unitHeight={100} // card height of 1 unit
+                    noOfCols={noOfCols} // number of columns show in one row
+                    unitWidth={250} // card width of 1 unit
+                    unitHeight={300} // card height of 1 unit
                     filters={filters} // list of selected filters
                     >
-                    {cardsLayout.map(card => (
-                        <div key={card.id} className={''}>
-                        {card.content}
+                    {cardsLayout.map((card:any) => (
+                        <div key={card.id} className=''>
+                        {card.content.title}
                         </div>
                     ))}
                     </IsoTopeGrid>
