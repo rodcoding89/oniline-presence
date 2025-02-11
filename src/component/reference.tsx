@@ -1,6 +1,6 @@
 import { Element } from 'react-scroll';
 import IsoTopeGrid from "react-isotope";
-import { useEffect, useState } from 'react';
+import { useEffect, useRef, useState } from 'react';
 import { reference } from '../utils/constant';
 
 interface ReferenceProps{
@@ -17,71 +17,6 @@ function createCardObjet(){
   })
   return gridData;
 }
-const cardsData = [
-    {
-      "id": "a",
-      "content":"My Data 1",
-      "row": 0,
-      "col": 0,
-      "w": 1,
-      "h": 1,
-      "filter": ["website"]
-    },
-    {
-      "id": "b",
-      "content":"My Data 2",
-      "row": 0,
-      "col": 1,
-      "w": 1,
-      "h": 1,
-      "filter": ["saas"]
-    },
-    {
-      "id": "c",
-      "content":"My Data 3",
-      "row": 0,
-      "col": 3,
-      "w": 1,
-      "h": 1,
-      "filter": ["website"]
-    },
-    {
-      "id": "d",
-      "content":"My Data 4",
-      "row": 1,
-      "col": 0,
-      "w": 1,
-      "h": 1,
-      "filter": ["ecommerce"]
-    },
-    {
-      "id": "e",
-      "content":"My Data 5",
-      "row": 1,
-      "col": 1,
-      "w": 1,
-      "h": 1,
-      "filter": ["app"]
-    },
-    {
-      "id": "f",
-      "content":"My Data 6",
-      "row": 1,
-      "col": 2,
-      "w": 1,
-      "h": 1,
-      "filter": ["ecommerce"]
-    },
-    {
-      "id": "h",
-      "content":"My Data 7",
-      "row": 2,
-      "col": 0,
-      "w": 1,
-      "h": 1,
-      "filter": ["saas"]
-    }
-  ];
   
 const Reference:React.FC<ReferenceProps> = ()=>{
     const nav = [
@@ -94,7 +29,9 @@ const Reference:React.FC<ReferenceProps> = ()=>{
     const [noOfCols, setNoOfCols] = useState(Math.floor((window.innerWidth *.85 - 16)/ 250));
     const [filters, updateFilters] = useState<{name:string,isChecked:boolean,label:string}[]>(nav);
     const cardsLayout = createCardObjet();
-    console.log(createCardObjet(),cardsData)
+    const containerRef = useRef<HTMLDivElement>(null);
+
+    //console.log("original",cardsLayout,"melangé",shuffleArray(tmpArr))
     const onFilter = (item:{name:string,isChecked:boolean,label:string}) => {
         updateFilters((state) => {
           const items = state.map(f => {
@@ -113,7 +50,7 @@ const Reference:React.FC<ReferenceProps> = ()=>{
     useEffect(()=>{
       const handleResize = () => {
         const num = Math.floor((window.innerWidth *.85 - 16) / 250)
-        console.log("num",num,"window.innerWidth *.85 / 250",window.innerWidth *.85 / 250,"window.innerWidth",window.innerWidth)
+        console.log("num",num,"window.innerWidth *.85 / 250",window.innerWidth *.85 / 250,"window.innerWidth",window.innerWidth,"num",num)
         setNoOfCols(num);
       };
   
@@ -124,6 +61,64 @@ const Reference:React.FC<ReferenceProps> = ()=>{
         window.removeEventListener('resize', handleResize);
       };
     }, []);
+    useEffect(()=>{
+      const container = containerRef.current;
+      const select = Array.from(document.querySelectorAll(".styles_isotope-container__3X0JH .item"))
+      const isotopSelect = document.querySelector(".styles_isotope-container__3X0JH") as HTMLElement
+      const columNum = (elements:any[],row:number)=>{
+        // Déterminer le nombre de colonnes (par exemple, 3 colonnes)
+        const numberOfColumns = row;
+
+        // Initialiser un tableau pour compter les éléments par colonne
+        const columnCounts = new Array(numberOfColumns).fill(0);
+
+        // Parcourir les éléments et compter ceux de chaque colonne
+        for (let i = 0; i < elements.length; i++) {
+          const columnIndex = i % numberOfColumns;
+          columnCounts[columnIndex]++;
+        }
+
+        // Afficher le nombre d'éléments par colonne
+        return columnCounts[0]
+      }
+      const row = Math.ceil(select.length / noOfCols);
+      const height = (row * 300) + ((10 * (row - 1)) === 0 ? 10 : (10 * (row - 1)))
+      isotopSelect.style.height = height + 'px';
+      const columnCount = columNum(select,row)
+      const width = (columnCount * 250) + (10 * (columnCount - 1)) + 30
+      isotopSelect.style.width = width + 'px';
+      // Fonction de callback pour le MutationObserver
+      
+      const handleMutations = (mutationsList:any[]) => {
+        for (let mutation of mutationsList) {
+          if (mutation.type === 'childList') {
+            const select = Array.from(document.querySelectorAll(".styles_isotope-container__3X0JH .item"))
+            const isotopSelect = document.querySelector(".styles_isotope-container__3X0JH") as HTMLElement
+            const row = Math.ceil(select.length / noOfCols);
+            const height = (row * 300) + ((10 * (row - 1)) === 0 ? 10 : (10 * (row - 1)))
+            isotopSelect.style.height = height + 'px';
+            const columnCount = columNum(select,row)
+            const width = (columnCount * 250) + (10 * (columnCount - 1)) + 30
+            isotopSelect.style.width = width + 'px';
+            console.log('Un enfant a été ajouté ou supprimé:', select.length,"row",row,"height",height,"width",width);
+            return
+          }
+        }
+       //console.log("size",mutationsList.length)
+      };
+      // Créer une instance de MutationObserver
+      const observer = new MutationObserver(handleMutations);
+
+      // Configurer l'observateur pour surveiller les enfants du conteneur
+      if (container) {
+        observer.observe(container, { childList: true, subtree: true });
+      }
+
+      // Nettoyer l'observateur lorsque le composant est démonté
+      return () => {
+        observer.disconnect();
+      };
+    },[])
     console.log("noOfCols",noOfCols)
     return (
         <Element className="mt-[75px]" name="reference">
@@ -141,7 +136,7 @@ const Reference:React.FC<ReferenceProps> = ()=>{
                         })
                     }
                 </nav>
-                <div className="flex justify-center items-center w- h-[500px]">
+                <div ref={containerRef} className="flex justify-center items-center w-full">
                     <IsoTopeGrid
                     gridLayout={cardsLayout} // gridlayout of cards
                     noOfCols={noOfCols} // number of columns show in one row
@@ -150,7 +145,7 @@ const Reference:React.FC<ReferenceProps> = ()=>{
                     filters={filters} // list of selected filters
                     >
                     {cardsLayout.map((card:any) => (
-                        <div key={card.id} className=''>
+                        <div key={card.id} className='item !border-0 bg-black text-white'>
                         {card.content.title}
                         </div>
                     ))}
