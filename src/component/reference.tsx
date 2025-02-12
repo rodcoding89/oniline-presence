@@ -11,7 +11,7 @@ function createCardObjet(){
   const gridData:any = []
   Object.values(reference).forEach((item)=>{
     item.referenceContent.forEach((val:any)=>{
-      const item = {"id":'label'+(val.index).toString(),"content":{title:val.projet,link:val.img},"row":0,"col":0,"w":1,"h":1,"filter":[val.cat]}
+      const item = {"id":'label'+(val.index).toString(),"content":{title:val.projet,link:val.img,mode:val.mode,shortText:val.shortText},"row":0,"col":0,"w":1,"h":1,"filter":[val.cat]}
       gridData.push(item)
     })
   })
@@ -65,27 +65,12 @@ const Reference:React.FC<ReferenceProps> = ()=>{
       const container = containerRef.current;
       const select = Array.from(document.querySelectorAll(".styles_isotope-container__3X0JH .item"))
       const isotopSelect = document.querySelector(".styles_isotope-container__3X0JH") as HTMLElement
-      const columNum = (elements:any[],row:number)=>{
-        // Déterminer le nombre de colonnes (par exemple, 3 colonnes)
-        const numberOfColumns = row;
-
-        // Initialiser un tableau pour compter les éléments par colonne
-        const columnCounts = new Array(numberOfColumns).fill(0);
-
-        // Parcourir les éléments et compter ceux de chaque colonne
-        for (let i = 0; i < elements.length; i++) {
-          const columnIndex = i % numberOfColumns;
-          columnCounts[columnIndex]++;
-        }
-
-        // Afficher le nombre d'éléments par colonne
-        return columnCounts[0]
-      }
+      
       const row = Math.ceil(select.length / noOfCols);
       const height = (row * 300) + ((10 * (row - 1)) === 0 ? 10 : (10 * (row - 1)))
       isotopSelect.style.height = height + 'px';
-      const columnCount = columNum(select,row)
-      const width = (columnCount * 250) + (10 * (columnCount - 1)) + 30
+      const columnCount = select.length <= noOfCols ? select.length : noOfCols
+      const width = (columnCount * 250) + (10 * (columnCount - 1)) + 20
       isotopSelect.style.width = width + 'px';
       // Fonction de callback pour le MutationObserver
       
@@ -97,8 +82,8 @@ const Reference:React.FC<ReferenceProps> = ()=>{
             const row = Math.ceil(select.length / noOfCols);
             const height = (row * 300) + ((10 * (row - 1)) === 0 ? 10 : (10 * (row - 1)))
             isotopSelect.style.height = height + 'px';
-            const columnCount = columNum(select,row)
-            const width = (columnCount * 250) + (10 * (columnCount - 1)) + 30
+            const columnCount = select.length <= noOfCols ? select.length : noOfCols
+            const width = (columnCount * 250) + (10 * (columnCount - 1)) + 20
             isotopSelect.style.width = width + 'px';
             console.log('Un enfant a été ajouté ou supprimé:', select.length,"row",row,"height",height,"width",width);
             return
@@ -136,7 +121,7 @@ const Reference:React.FC<ReferenceProps> = ()=>{
                         })
                     }
                 </nav>
-                <div ref={containerRef} className="flex justify-center items-center w-full">
+                <div ref={containerRef} className="flex justify-center items-center w-full mt-5">
                     <IsoTopeGrid
                     gridLayout={cardsLayout} // gridlayout of cards
                     noOfCols={noOfCols} // number of columns show in one row
@@ -145,8 +130,16 @@ const Reference:React.FC<ReferenceProps> = ()=>{
                     filters={filters} // list of selected filters
                     >
                     {cardsLayout.map((card:any) => (
-                        <div key={card.id} className='item !border-0 bg-black text-white'>
-                        {card.content.title}
+                        <div key={card.id} className='item !border-0 overflow-hidden relative group'>
+                          <img src={card.content.link} alt={card.content.title} />
+                          <div className={`bg-white p-2 absolute bottom-0 left-0 translate-y-[150px] transition-transform duration-700 ease-in-out group-hover:translate-y-0 w-full siteInfo overflow-hidden cursor-pointer`}>
+                            <div className='flex justify-between items-center gap-2'>
+                              <h4 className='text-primary font-semibold text-[18px] mb-2 text-ellipsis overflow-hidden whitespace-nowrap flex-1'>{card.content.title}</h4>
+                              <span className='text-[11px] text-[#aaa] '>{card.content.mode}</span>
+                              
+                            </div>
+                            <p className='hidden p-[10px] text-[14px] bg-[#060641] text-white translate-y-[0px]'>{card.content.shortText}</p>
+                          </div>
                         </div>
                     ))}
                     </IsoTopeGrid>

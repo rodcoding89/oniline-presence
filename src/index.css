@@ -49,6 +49,14 @@ ul{
     width: calc(100% - 8.5%);
     height: 100%;
 }
+.siteInfo:hover{
+  span{
+    display: block;
+  }
+  p{
+    display: block;
+  }
+}
 .language-picker__button .icon {
   height: 16px;
   width: 16px;

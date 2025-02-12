@@ -131,6 +131,8 @@ interface ReferenceContentItem {
     refId: number;
     index:number;
     cat:string;
+    mode:string;
+    shortText:string;
 }
 interface siteInterface {
     title:string,
@@ -190,6 +192,8 @@ export const reference: Reference = {
           projet: 'Fieger',
           refId: 1,
           index:1,
+          mode:"Fait sous WordPress",
+          shortText:"Refonte site",
           cat:'website'
         },
         {
@@ -197,6 +201,8 @@ export const reference: Reference = {
           projet: 'Gymrenat',
           refId: 1,
           index:2,
+          mode:"Codé de A a Z",
+          shortText:"Crétion site vitrine",
           cat:'website'
         },
         {
@@ -204,6 +210,8 @@ export const reference: Reference = {
           projet: 'Charlotte consulting',
           refId: 1,
           index:3,
+          mode:"Codé de A à Z",
+          shortText:"Création site plus blog",
           cat:'website'
         },
         {
@@ -211,6 +219,8 @@ export const reference: Reference = {
           projet: 'Titre du projet',
           refId: 1,
           index:4,
+          mode:"Fait sous WordPress",
+          shortText:"Refonte site",
           cat:'website'
         }
       ]
@@ -223,6 +233,8 @@ export const reference: Reference = {
             projet: 'Titre du projet',
             refId: 1,
             index:5,
+            mode:"Codé de A à Z",
+            shortText:"Site E-commerce",
             cat:'ecommerce'
           },
           {
@@ -230,6 +242,8 @@ export const reference: Reference = {
             projet: 'Blog',
             refId: 1,
             index:6,
+            mode:"Codé de A à Z",
+            shortText:"Site E-commerce",
             cat:'ecommerce'
           },
           {
@@ -237,6 +251,8 @@ export const reference: Reference = {
             projet: 'Kebab 78',
             refId: 1,
             index:7,
+            mode:"Codé de A à Z",
+            shortText:"Site E-commerce",
             cat:'ecommerce'
           },
           {
@@ -244,6 +260,8 @@ export const reference: Reference = {
             projet: 'Chicken grill',
             refId: 1,
             index:8,
+            mode:"Codé de A à Z",
+            shortText:"Site E-commerce",
             cat:'ecommerce'
           }
         ]
@@ -253,16 +271,20 @@ export const reference: Reference = {
         referenceContent: [
           {
             img: '/assets/images/fieger.png',
-            projet: 'Site de rencontre Android',
+            projet: 'LovSid Android',
             refId: 1,
             index:9,
+            mode:"Codé de A à Z",
+            shortText:"Appli de rencontre version android",
             cat:'app'
           },
           {
             img: '/assets/images/fieger.png',
-            projet: 'Site de rencontre IOS',
+            projet: 'LovSid IOS',
             refId: 1,
             index:10,
+            mode:"Codé de A à Z",
+            shortText:"Appli de rencontre version IOS",
             cat:'app'
           }
         ]
@@ -272,9 +294,11 @@ export const reference: Reference = {
         referenceContent: [
           {
             img: '/assets/images/fieger.png',
-            projet: 'Site de rencontre',
+            projet: 'LovSid',
             refId: 1,
             index:11,
+            mode:"Codé de A à Z",
+            shortText:"Site de rencontre",
             cat:'saas'
           },
           {
@@ -282,13 +306,17 @@ export const reference: Reference = {
             projet: 'Location de salle',
             refId: 1,
             index:12,
+            mode:"Codé de A à Z",
+            shortText:"Site E-commerce",
             cat:'saas'
           },
           {
             img: '/assets/images/fieger.png',
-            projet: 'Reaseau social',
+            projet: 'Miror Soul',
             refId: 1,
             index:13,
+            mode:"Codé de A à Z",
+            shortText:"Site reseaux social",
             cat:'saas'
           }
         ]
