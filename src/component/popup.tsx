@@ -178,7 +178,7 @@ const PopUp:React.FC<PopupProps> = ({windowSize,mode,id})=>{
                                                 {
                                                     refenrence?.referenceContent.map((item:any,index:number)=>{
                                                     return (
-                                                        <div key={index} className="w-full aspect-video relative">
+                                                        <div key={index} className={` aspect-video relative`} style={{width:`${100 / refenrence?.referenceContent.length!}%`}}>
                                                             <img className="w-full" src={item.img} alt={item.projet} />
                                                             <div className="absolute bottom-0 left-0 bg-white text-secondary p-2 flex flex-col gap-1 text-[1.1em]">{item.projet}
                                                                 <span className="underline cursor-pointer" onClick={()=>openRefDetail(item.refId,item.cat)}>détail</span>

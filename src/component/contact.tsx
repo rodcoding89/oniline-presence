@@ -12,8 +12,8 @@ const Contact:React.FC<ContactProps> = ()=>{
                 <div className="section-heading  text-center"> 
                     <h2 className='uppercase text-thirty'>Nous contacter</h2> 
                 </div>
-                <div className="w-full flex justify-center items-start gap-10">
-                    <div className="contact-info w-1/3">
+                <div className="w-full flex justify-center items-start gap-10 max-792:flex-col">
+                    <div className="contact-info w-1/3 max-792:w-full">
                         <div className="contact-info-box">
                             <div className="contact-icon flex justify-center items-center">  <Icon name='bxl-whatsapp' size='1.3em' color='var(--color-primary)'/>  
                             </div>
@@ -47,42 +47,39 @@ const Contact:React.FC<ContactProps> = ()=>{
                               </ul>
                             </div>
                         </div>
-                      
                     </div>
-                  
-              
-                    <div className="w-2/3">
+                    <div className="w-2/3 max-792:w-full">
                         <div className="contact-form">
-                            <form action="contact.php" method="post">
+                            <form>
                             
-                            <div className='w-full flex justify-start items-start gap-5'>
-                                <div className="w-1/2">
-                                    <div className="form-group">
-                                    <input className="form-control focus:outline-[#aaa]" name="name"  placeholder="Name" type="text"/>
+                                <div className='w-full flex justify-start items-start gap-5 max-485:flex-col max-485:gap-0'>
+                                    <div className="w-1/2 max-485:w-full ">
+                                        <div className="form-group">
+                                        <input className="form-control focus:outline-[#aaa]" name="name"  placeholder="Name" type="text"/>
+                                        </div>
+                                    </div>
+                                    
+                                    <div className="w-1/2 max-485:w-full">
+                                        <div className="form-group">
+                                        <input className="form-control focus:outline-[#aaa]" name="email"  placeholder="Email" type="email"/>
+                                        </div>
                                     </div>
                                 </div>
                                 
-                                <div className="w-1/2">
-                                    <div className="form-group">
-                                    <input className="form-control focus:outline-[#aaa]" name="email"  placeholder="Email" type="email"/>
+                                <div className="w-full">
+                                    <div className=" form-group">
+                                    <input className="form-control focus:outline-[#aaa]" name="subject" placeholder="Subject" type="text"/>
                                     </div>
                                 </div>
-                            </div>
-                            
-                            <div className="w-full">
-                                <div className=" form-group">
-                                <input className="form-control focus:outline-[#aaa]" name="subject" placeholder="Subject" type="text"/>
+                                
+                                <div className="w-full">
+                                    <div className="form-group">
+                                    <textarea className="form-control focus:outline-[#aaa]" name="message" rows={18} placeholder="Your Message"></textarea>
+                                    </div>
                                 </div>
+                                <div className="w-full form-group text-right m-b-0">
+                                    <input value="send message" name="submit" className="btn btn-primary" type="submit"/>
                                 </div>
-                            
-                            <div className="w-full">
-                                <div className="form-group">
-                                <textarea className="form-control focus:outline-[#aaa]" name="message" rows={18} placeholder="Your Message"></textarea>
-                                </div>
-                            </div>
-                            <div className="w-full form-group text-right m-b-0">
-                                <input value="send message" name="submit" className="btn btn-primary" type="submit"/>
-                            </div>
                             </form>
                         </div>
                     </div>

@@ -23,7 +23,7 @@ const Services:React.FC<ServiceProps> = ()=>{
                     {
                         services.map((item:any)=>{
                             return (
-                                <div key={item.id} className='w-1/3 px-[30px] border-b-4 border-solid py-[40px] bg-white boxShadow transition-hover duration-[.4s] ease-in border-white hover:border-b-secondary'>
+                                <div key={item.id} className='basis-[300px] max-w-[400px] flex-grow px-[30px] border-b-4 border-solid py-[40px] bg-white boxShadow transition-hover duration-[.4s] ease-in border-white hover:border-b-secondary max-520:max-w-[320px] max-520:basis-[250px]'>
                                     <div className='flex justify-start items-center gap-2 mb-3'><span className='w-16 h-16 rounded-full bg-secondary flex justify-center items-center'><Icon name={item.service.icon} color="#fff" size="1.6em"/></span><h3 className='uppercase text-[1.1em] flex-1'>{item.service.serviceName}</h3></div>
                                     <p className='mb-3'>{item.service.shortDescript}</p>
                                     <div onClick={()=>handleShowMore(item.id)} className='border-2 border-solid border-secondary py-2 px-5 text-center cursor-pointer transition-hover duration-[.5s] ease-in hover:bg-secondary hover:text-white'>En savoir plus</div>

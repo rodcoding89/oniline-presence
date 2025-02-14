@@ -1,4 +1,4 @@
-import { Link } from 'react-scroll';
+import { Link,animateScroll as scroller } from 'react-scroll';
 import i18n from '../i18n';
 import Icon from './Icon';
 import { useContext, useEffect, useState } from 'react';
@@ -29,12 +29,21 @@ const Header:React.FC<HeaderProps> = ()=>{
         
             // Changer la langue dans i18next
             i18n.changeLanguage(langCode);
-            navigate("/"+langCode)
+            scroller.scrollTo(0, {
+                duration: 500,
+                smooth: true,
+                offset: -65, // Scrolls to element + 50 pixels down the page
+                // ... other options
+            });
         }else{
             setLanguage(location.pathname.split("/")[1]);
-        
             // Changer la langue dans i18next
-            i18n.changeLanguage(location.pathname.split("/")[1]);
+            i18n.changeLanguage(location.pathname.split("/")[1]);scroller.scrollTo(0, {
+                duration: 500,
+                smooth: true,
+                offset: -65, // Scrolls to element + 50 pixels down the page
+                // ... other options
+            });
         }
       }, [navigate]);
     const handleChangeLanguage = (lang: string) => {
@@ -55,8 +64,10 @@ const Header:React.FC<HeaderProps> = ()=>{
         }
     };
     const handleShowMore = ()=>{
-        console.error('i18n is undefined or does not have the method changeLanguage');
-        setContextData({state:"show",value:true,size:"w-[25%]",mode:"mobile"})
+        const windowWidth = window.innerWidth;
+        const costomeWidth = windowWidth >= 920 ? 'w-[25%]' : windowWidth <= 920 && windowWidth >= 650 ? 'w-[45%]' : windowWidth <= 650 && windowWidth >= 420 ? 'w-[55%]' : 'w-[100%]'
+        console.log("width",window.innerWidth)
+        setContextData({state:"show",value:true,size:costomeWidth,mode:"mobile"})
     } 
     return (
         <header className='header w-full h-[65px] fixed top-0 left-0 bottom-0 right-0 z-10 flex items-center'>
@@ -70,7 +81,7 @@ const Header:React.FC<HeaderProps> = ()=>{
                 duration={500}
                 to={`home`}
                 >LOGO</Link>
-                <nav className='navi flex justify-start items-center gap-4'>
+                <nav className='navi flex justify-start items-center gap-4 max-920:hidden'>
                     <Link
                     className='cursor-pointer text-primary'
                     activeClass="active" 

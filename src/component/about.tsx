@@ -24,22 +24,22 @@ const About:React.FC<AboutProps> = ()=>{
         <Element className="min-h-[200px] mt-[75px]" name="about">
             <div className='w-[85%] mx-auto'>
                 <h1 className='text-center uppercase text-thirty mb-10'>A propos</h1>
-                <div className='flex justify-around items-start gap-8'>
-                    <div className="parcours w-1/3">
+                <div className='flex justify-around items-center gap-8 max-920:flex-col'>
+                    <div className="parcours w-1/3 max-920:w-full">
                         <h3 className='text-[#aaa] text-[1.5em] mb-4'>Parcours</h3>
                         <p>Lorem, ipsum dolor sit amet consectetur adipisicing elit. Deserunt debitis tenetur magni minima minus consequuntur aut aperiam autem, consequatur in.</p>
                         <p>Lorem, ipsum dolor sit amet consectetur adipisicing elit. Deserunt debitis tenetur magni minima minus consequuntur aut aperiam autem, consequatur in.</p>
                         <p>Lorem, ipsum dolor sit amet consectetur adipisicing elit. Deserunt debitis tenetur magni minima minus consequuntur aut aperiam autem, consequatur in.</p>
                     </div>
-                    <img className='w-1/3' src="/assets/images/about.svg" alt="about" />
-                    <div className="experience w-1/3">
+                    <img className='w-1/3 max-920:w-2/3 max-485:w-full' src="/assets/images/about.svg" alt="about" />
+                    <div className="experience w-1/3 max-920:w-full">
                         <h3 className='text-[#aaa] text-[1.5em] mb-4'>Expériences</h3>
                         <p>Lorem, ipsum dolor sit amet consectetur adipisicing elit. Deserunt debitis tenetur magni minima minus consequuntur aut aperiam autem, consequatur in.</p>
                         <p>Lorem, ipsum dolor sit amet consectetur adipisicing elit. Deserunt debitis tenetur magni minima minus consequuntur aut aperiam autem, consequatur in.</p>
                         <p>Lorem, ipsum dolor sit amet consectetur adipisicing elit. Deserunt debitis tenetur magni minima minus consequuntur aut aperiam autem, consequatur in.</p>
                     </div>
                 </div>
-                <div className="stat flex justify-around items-center gap-5 mt-4">
+                <div className="stat flex justify-start items-center flex-wrap gap-5 mt-4 max-485:justify-center">
                     {
                         stat.map((item,index)=>{
                             return (
