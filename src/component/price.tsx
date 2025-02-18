@@ -32,7 +32,7 @@ const Price:React.FC<PriceProps> = ()=>{
                         {
                             priceList.map((item,index)=>{
                                 return (
-                                    <div key={index} className='self-stretch p-4 bg-fifty basis-[150px] flex-grow max-w-[250px]'>
+                                    <div key={index} className='self-stretch p-4 bg-fifty basis-[200px] flex-grow max-w-[250px]'>
                                         <h3 className='text-center uppercase font-bold text-[1.3em] flex flex-col justify-center items-center'>{item.title}<span className='w-1/5 h-[6px] bg-thirty mb-5 mt-3'></span></h3>
                                         {
                                             item.devMethode && (
@@ -83,7 +83,7 @@ const Price:React.FC<PriceProps> = ()=>{
                         }
                     </div>
                     <div className='flex flex-wrap justify-center gap-5 mt-10'>
-                        <div className='basis-[150px] max-w-[250px] flex-grow p-4 bg-fifty flex-wrap'>
+                        <div className='basis-[200px] max-w-[250px] flex-grow p-4 bg-fifty flex-wrap'>
                             <h3 className='text-center uppercase font-bold text-[1.3em] flex flex-col justify-center items-center'>Forfais maintenance<span className='w-1/5 h-[6px] bg-thirty mb-5 mt-3'></span></h3>
                             <div className='text-center w-full flex flex-col justify-center items-center'>
                                 <p className='font-semibold text-[1.7em]'>50<em className='font-light text-[.5em] mt-[-1px]'>€/Heures ou</em></p>
@@ -109,7 +109,7 @@ const Price:React.FC<PriceProps> = ()=>{
                                 </Link>
                             </span>
                         </div>
-                        <div className='basis-[150px] max-w-[250px] flex-grow p-4 bg-fifty'>
+                        <div className='basis-[200px] max-w-[250px] flex-grow p-4 bg-fifty self-start'>
                             <h3 className='text-center uppercase font-bold text-[1.3em] flex flex-col justify-center items-center'>Développement spécifique<span className='w-1/5 h-[6px] bg-thirty mb-5 mt-3'></span></h3>
                             <h6 className='text-center text-[#aaa] uppercase mt-4 mb-[-4px]'>Taux journalier moyen</h6>
                             <div className='text-center'>

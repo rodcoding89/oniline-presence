@@ -86,10 +86,10 @@ ul{
   content: '';
   position: absolute;
   left: -10px;
-  border-radius: 50%;
+  border-radius: 30% 70% 70% 30% / 30% 30% 70% 70%;
   top: 0;
-  width: 25px;
-  height: 25px;
+  width: 30px;
+  height: 30px;
   background-color: var(--color-secondary);
   opacity: .4;
 }
@@ -212,8 +212,7 @@ h1 {
 }
 .dropping-texts {
   display: inline-block;
-  text-align: left;
-  height: 25px;
+  height: 100px;
   vertical-align: -2px;
   overflow-y: hidden;
   position: relative; /* Ajouté pour positionner les éléments correctement */
@@ -223,9 +222,18 @@ h1 {
   font-weight: 500;
 }
 .dropping-texts > div {
-  font-size: inherit;
-  color: var(--color-fifty);
-  font-weight: 300;
+  text-transform: uppercase;
+  color: #0000;
+  font-size: 35px;
+  font-weight: bold;
+  background: 
+    repeating-radial-gradient(#000 0 0.0001%,#fff 0 0.0002%) 50% 0/2500px 2500px,
+    repeating-conic-gradient(#000 0 0.0001%,#fff 0 0.0002%) 50% 50%/2500px 2500px;
+  background-blend-mode: difference;
+  mix-blend-mode: lighten;
+  -webkit-background-clip: text;
+          background-clip: text;
+  
   position: absolute; /* Position absolue pour éviter le chevauchement */
   top: 0;
   left: 0;

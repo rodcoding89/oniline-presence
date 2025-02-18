@@ -26,22 +26,24 @@ const Header:React.FC<HeaderProps> = ()=>{
             const langCode = detectedLanguage.split('-')[0] || 'en'; // Extrait le code de langue (ex: 'en' de 'en-US')
             // Définir la langue détectée comme valeur par défaut
             setLanguage(langCode);
-        
+            
             // Changer la langue dans i18next
             i18n.changeLanguage(langCode);
-            scroller.scrollTo(0, {
+            scroller.scrollTo(1, {
                 duration: 500,
                 smooth: true,
-                offset: -65, // Scrolls to element + 50 pixels down the page
+                offset: 0, // Scrolls to element + 50 pixels down the page
                 // ... other options
             });
+            navigate("/"+langCode)
         }else{
             setLanguage(location.pathname.split("/")[1]);
             // Changer la langue dans i18next
-            i18n.changeLanguage(location.pathname.split("/")[1]);scroller.scrollTo(0, {
+            navigate("/"+location.pathname.split("/")[1])
+            i18n.changeLanguage(location.pathname.split("/")[1]);scroller.scrollTo(1, {
                 duration: 500,
                 smooth: true,
-                offset: -65, // Scrolls to element + 50 pixels down the page
+                offset: 0, // Scrolls to element + 50 pixels down the page
                 // ... other options
             });
         }
@@ -132,7 +134,7 @@ const Header:React.FC<HeaderProps> = ()=>{
                     to={`contact`}>Contact</Link>
                 </nav>
                 <div className='relative flex justify-start items-center gap-6'>
-                    <div className='flex justify-start items-center gap-2'>
+                    <div className='flex justify-start items-center gap-2 max-485:hidden'>
                         <a className='flex justify-center items-center gap-1 w-[40px] h-[40px] rounded-[.2em] bg-fifty'  href='tel:+33751025598'><Icon name='bx-phone' size='1.4em' color='var(--color-secondary)'/></a>
                         <a className='flex justify-center items-center gap-1 w-[40px] h-[40px] rounded-[.2em] bg-fifty'  href='mailto:rodriguekwayep.freelance@hotmail.com'><Icon name='bx-envelope' size='1.4em' color='var(--color-secondary)'/></a>
                     </div>
