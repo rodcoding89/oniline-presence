@@ -130,6 +130,7 @@ interface ReferenceContentItem {
     projet: string;
     refId: number;
     index:number;
+    name:string;
     cat:string;
     mode:string;
     shortText:string;
@@ -192,6 +193,7 @@ export const reference: Reference = {
           projet: 'Fieger',
           refId: 1,
           index:1,
+          name:"Dimina Mbal",
           mode:"Fait sous WordPress",
           shortText:"Refonte site",
           cat:'website'
@@ -201,6 +203,7 @@ export const reference: Reference = {
           projet: 'Gymrenat',
           refId: 1,
           index:2,
+          name:"Dimina Mbal",
           mode:"Codé de A a Z",
           shortText:"Crétion site vitrine",
           cat:'website'
@@ -210,6 +213,7 @@ export const reference: Reference = {
           projet: 'Charlotte consulting',
           refId: 1,
           index:3,
+          name:"Dimina Mbal",
           mode:"Codé de A à Z",
           shortText:"Création site plus blog",
           cat:'website'
@@ -219,6 +223,7 @@ export const reference: Reference = {
           projet: 'Titre du projet',
           refId: 1,
           index:4,
+          name:"Dimina Mbal",
           mode:"Fait sous WordPress",
           shortText:"Refonte site",
           cat:'website'
@@ -233,6 +238,7 @@ export const reference: Reference = {
             projet: 'Titre du projet',
             refId: 1,
             index:5,
+            name:"Dimina Mbal",
             mode:"Codé de A à Z",
             shortText:"Site E-commerce",
             cat:'ecommerce'
@@ -242,6 +248,7 @@ export const reference: Reference = {
             projet: 'Blog',
             refId: 1,
             index:6,
+            name:"Dimina Mbal",
             mode:"Codé de A à Z",
             shortText:"Site E-commerce",
             cat:'ecommerce'
@@ -251,6 +258,7 @@ export const reference: Reference = {
             projet: 'Kebab 78',
             refId: 1,
             index:7,
+            name:"Dimina Mbal",
             mode:"Codé de A à Z",
             shortText:"Site E-commerce",
             cat:'ecommerce'
@@ -258,6 +266,7 @@ export const reference: Reference = {
           {
             img: '/assets/images/fieger.png',
             projet: 'Chicken grill',
+            name:"Dimina Mbal",
             refId: 1,
             index:8,
             mode:"Codé de A à Z",
@@ -273,6 +282,7 @@ export const reference: Reference = {
             img: '/assets/images/fieger.png',
             projet: 'LovSid Android',
             refId: 1,
+            name:"Dimina Mbal",
             index:9,
             mode:"Codé de A à Z",
             shortText:"Appli de rencontre version android",
@@ -283,6 +293,7 @@ export const reference: Reference = {
             projet: 'LovSid IOS',
             refId: 1,
             index:10,
+            name:"Dimina Mbal",
             mode:"Codé de A à Z",
             shortText:"Appli de rencontre version IOS",
             cat:'app'
@@ -297,6 +308,7 @@ export const reference: Reference = {
             projet: 'LovSid',
             refId: 1,
             index:11,
+            name:"Dimina Mbal",
             mode:"Codé de A à Z",
             shortText:"Site de rencontre",
             cat:'saas'
@@ -306,6 +318,7 @@ export const reference: Reference = {
             projet: 'Location de salle',
             refId: 1,
             index:12,
+            name:"Dimina Mbal",
             mode:"Codé de A à Z",
             shortText:"Site E-commerce",
             cat:'saas'
@@ -315,6 +328,7 @@ export const reference: Reference = {
             projet: 'Miror Soul',
             refId: 1,
             index:13,
+            name:"Dimina Mbal",
             mode:"Codé de A à Z",
             shortText:"Site reseaux social",
             cat:'saas'
