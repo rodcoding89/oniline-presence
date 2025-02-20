@@ -14,12 +14,12 @@ const Services:React.FC<ServiceProps> = ()=>{
     }
     return (
         <Element className="mt-[75px]" name="services">
-            <div className='bg-fifty h-[500px]'>
+            <div className='bg-fifty flex flex-col'>
                 <h1 className='mb-10 mx-[calc(15%/2)] pt-[20px] uppercase'>Services</h1>
-                <p className='mx-[calc(15%/2)]'>Lorem ipsum dolor sit amet consectetur adipisicing elit. Quo inventore sunt tenetur. Lorem ipsum dolor sit amet consectetur adipisicing elit. Quo inventore sunt tenetur.</p>
-            </div>
-            <div className='w-[85%] mx-auto mt-[-275px]'>
-                <div className='flex justify-center items-start gap-y-8 flex-wrap'>
+                <p className='mx-[calc(15%/2)] pb-10'>Lorem ipsum dolor sit amet consectetur adipisicing elit. Quo inventore sunt tenetur. Lorem ipsum dolor sit amet consectetur adipisicing elit. Quo inventore sunt tenetur.</p>
+                <div className='mx-auto bg-white relative'>
+                    <div className='h-[100px] w-full bg-fifty absolute top-0 left-0 z-[1]'></div>
+                    <div className='flex justify-center items-start gap-y-8 flex-wrap w-[85%] mx-auto z-[2] relative'>
                     {
                         services.map((item:any)=>{
                             return (
@@ -31,8 +31,10 @@ const Services:React.FC<ServiceProps> = ()=>{
                             )
                         })
                     }
+                    </div>
                 </div>
             </div>
+            
         </Element>
     )
 }

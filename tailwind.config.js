@@ -14,6 +14,8 @@ export default {
         'max-810':{'max': '810px'},
         'max-792':{'max': '792px'},
         'max-485':{'max': '485px'},
+        'max-420':{'max': '420px'},
+        'max-330':{'max': '330px'},
         'max-520':{'max': '520px'},
       }
     },

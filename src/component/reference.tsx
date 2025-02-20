@@ -49,12 +49,10 @@ const Reference:React.FC<ReferenceProps> = ()=>{
     console.log("cardsLayout",cardsLayout)
     return (
         <Element className="mt-[75px]" name="reference">
-            <div className='bg-secondary h-[400px]'>
-                <h1 className='mb-10 mx-[calc(15%/2)] pt-[20px] uppercase text-fifty'>Nos références</h1>
-                <p className='mx-[calc(15%/2)] text-fifty'>Lorem ipsum dolor sit amet consectetur adipisicing elit. Quo inventore sunt tenetur. Lorem ipsum dolor sit amet consectetur adipisicing elit. Quo inventore sunt tenetur.</p>
-            </div>
-            <div className='w-[85%] mx-auto mt-[-160px] min-h-[160px]'>
-                <nav className='flex justify-center items-center gap-4 bg-fifty p-2 flex-wrap'>
+            <div className='bg-secondary pb-8'>
+                <h1 className='mb-5 mx-[calc(15%/2)] pt-[30px] uppercase text-fifty'>Nos références</h1>
+                <p className='mx-[calc(15%/2)] text-fifty mb-10'>Lorem ipsum dolor sit amet consectetur adipisicing elit. Quo inventore sunt tenetur. Lorem ipsum dolor sit amet consectetur adipisicing elit. Quo inventore sunt tenetur.</p>
+                <nav className='flex justify-center items-center gap-4 bg-white p-2 flex-wrap mx-auto w-[85%]'>
                     {
                         nav.map((item)=>{
                             return (
@@ -63,6 +61,8 @@ const Reference:React.FC<ReferenceProps> = ()=>{
                         })
                     }
                 </nav>
+            </div>
+            <div className='w-[85%] mx-auto'>
                 <div ref={containerRef} className="flex justify-center items-start gap-4 relative mt-5 w-full flex-wrap">
                   <AnimatePresence>
                     {filteredItems.map((card:any,index:number) => (
@@ -71,8 +71,8 @@ const Reference:React.FC<ReferenceProps> = ()=>{
                         initial={{ opacity: 0, y: 20 }}
                         animate={{ opacity: 1, y: 0 }}
                         exit={{ opacity: 0, y: -20 }}
-                        transition={{ duration: 0.3 }}
-                        className="w-[350px] group"
+                        transition={{ duration: 0.5 }}
+                        className="w-[350px] group max-420:w-[280px] max-330:w-[250px]"
                       >
                         <div className='h-[300px] relative overflow-hidden group'>
                           <img className='h-full object-cover cursor-pointer' src={card.link} alt={card.title} />
