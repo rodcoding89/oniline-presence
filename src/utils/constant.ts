@@ -162,7 +162,7 @@ interface Reference {
 }
 
 export const refDetailContent:refContent = {
-    vitrine: {
+    website: {
         title:"Site vitrine",
         1:{
             title:"Site internet pour",

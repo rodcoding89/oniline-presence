@@ -10,7 +10,9 @@ interface ServiceProps{
 const Services:React.FC<ServiceProps> = ()=>{
     const {setContextData} = useContext(AppContext)
     const handleShowMore = (id:number)=>{
-        setContextData({state:"show",value:true,size:"w-[70%]",mode:'service',id:id})
+        const windowWidth = window.innerWidth;
+        const costomeWidth = windowWidth >= 600 ? 'w-[70%]' : windowWidth <= 600 && windowWidth >= 420 ? 'w-[85%]' : 'w-[100%]'
+        setContextData({state:"show",value:true,size:costomeWidth,mode:'service',id:id})
     }
     return (
         <Element className="mt-[75px]" name="services">

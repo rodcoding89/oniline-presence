@@ -1,9 +1,10 @@
 import { Element } from 'react-scroll';
 import IsoTopeGrid from "react-isotope";
 import { motion, AnimatePresence } from "framer-motion";
-import { useEffect, useRef, useState } from 'react';
+import { useContext, useEffect, useRef, useState } from 'react';
 import { reference } from '../utils/constant';
 import Icon from './Icon';
+import { AppContext } from '../app-context';
 
 interface ReferenceProps{
 
@@ -20,28 +21,32 @@ const Reference:React.FC<ReferenceProps> = ()=>{
     const [selectedCategory, setSelectedCategory] = useState<string>("all");
     const [cardsLayout,setCardsLayout] = useState<any[]>([])
     const containerRef = useRef<HTMLDivElement>(null);
-
+    const {setContextData} = useContext(AppContext)
     const filteredItems =
     selectedCategory === "all"
       ? cardsLayout
       : cardsLayout.filter((item) => item.category === selectedCategory);
-
+    const showRefContent = (card:any)=>{
+      const windowWidth = window.innerWidth;
+      const costomeWidth = windowWidth >= 600 ? 'w-[70%]' : windowWidth <= 600 && windowWidth >= 420 ? 'w-[85%]' : 'w-[100%]'
+      setContextData({state:"show",value:true,size:costomeWidth,mode:'reference',id:card.refId,cat:card.category})
+    }
     useEffect(()=>{
       const createCardObjet = ()=>{
         const gridData:any = []
         Object.values(reference).forEach((item)=>{
           item.referenceContent.forEach((val:any)=>{
-            const item = {title:val.projet,link:val.img,mode:val.mode,shortText:val.shortText,category:val.cat,name:val.name}
+            const item = {title:val.projet,link:val.img,mode:val.mode,shortText:val.shortText,category:val.cat,name:val.name,refId:val.refId}
             gridData.push(item)
           })
         })
         
-        const newArray = [...gridData]; // Copie du tableau pour éviter de modifier l'original
+        /*const newArray = [...gridData]; // Copie du tableau pour éviter de modifier l'original
         for (let i = newArray.length - 1; i > 0; i--) {
             const j = Math.floor(Math.random() * (i + 1)); // Index aléatoire entre 0 et i
             [newArray[i], newArray[j]] = [newArray[j], newArray[i]]; // Échange des éléments
-        }
-        return newArray
+        }*/
+        return gridData
       }
       const cardsLayout = createCardObjet();
       setCardsLayout(cardsLayout)
@@ -72,8 +77,7 @@ const Reference:React.FC<ReferenceProps> = ()=>{
                         animate={{ opacity: 1, y: 0 }}
                         exit={{ opacity: 0, y: -20 }}
                         transition={{ duration: 0.5 }}
-                        className="w-[350px] group max-420:w-[280px] max-330:w-[250px]"
-                      >
+                        className="w-[350px] group max-420:w-[280px] max-330:w-[250px]" onClick={()=>showRefContent(card)}>
                         <div className='h-[300px] relative overflow-hidden group'>
                           <img className='h-full object-cover cursor-pointer' src={card.link} alt={card.title} />
                           <div className='h-full cursor-pointer w-full bg-[rgba(142,22,22,.5)] absolute top-0 left-0 flex justify-center items-center transition-transform duration-500 ease-in-out translate-y-[350px] group-hover:translate-y-0'><Icon name='bx-show' size='4em' color='#fff'/></div>
