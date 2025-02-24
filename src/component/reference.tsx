@@ -84,9 +84,10 @@ const Reference:React.FC<ReferenceProps> = ()=>{
                         </div>
                         <div className={`bg-fifty group-hover:bg-secondary py-2`}>
                             <div className='flex justify-between items-center gap-2 mx-4'>
-                              <h4 className='text-secondary font-semibold text-[18px] mb-2 text-ellipsis whitespace-nowrap flex-1 uppercase group-hover:text-fifty relative before:w-1/5 before:h-1 before:bg-secondary before:bottom-[-4px] before:left-[1px] before:block before:group-hover:bg-fifty before:absolute'>{card.name}</h4>
+                              <h4 className='text-secondary font-semibold text-[18px] mb-2 text-ellipsis whitespace-nowrap flex-1 uppercase group-hover:text-fifty relative before:w-1/5 before:h-1 before:bg-secondary before:bottom-[-4px] before:left-[1px] before:block before:group-hover:bg-fifty before:absolute'>{card.projet}</h4>
                               <span className='text-[11px] text-[#aaa]'>{card.mode}</span>
                             </div>
+                            <p className='uppercase text-[14px] font-medium mx-4 mt-1 text-primary group-hover:text-fifty'>{card.name}</p>
                             <p className='mx-4 mt-1 text-[13px] text-primary uppercase group-hover:text-fifty'>{card.shortText}</p>
                           </div>
                       </motion.div>

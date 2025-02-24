@@ -190,10 +190,18 @@ const PopUp:React.FC<PopupProps> = ({windowSize,mode,id})=>{
                                                 {
                                                     serviceSiteReference?.referenceContent.map((item:any,index:number)=>{
                                                     return (
-                                                        <div key={index} className={` aspect-video relative w-full`} style={{width:`${100 / serviceSiteReference?.referenceContent.length!}%`}}>
-                                                            <img className="w-full" src={item.img} alt={item.projet} />
-                                                            <div className="absolute bottom-0 left-0 bg-white text-secondary p-2 flex flex-col gap-1 text-[1.1em]">{item.projet}
-                                                                <span className="underline cursor-pointer" onClick={()=>openRefDetail(item.refId,item.cat)}>détail</span>
+                                                        <div key={index} className={` relative w-full group`} style={{width:`${100 / serviceSiteReference?.referenceContent.length!}%`}} onClick={()=>openRefDetail(item.refId,item.cat)}>
+                                                            <div className='relative h-[350px] w-full overflow-hidden group'>
+                                                                <img className='h-full object-cover cursor-pointer w-full' src={item.img} alt={item.projet} />
+                                                                <div className='h-full cursor-pointer w-full bg-[rgba(142,22,22,.5)] absolute top-0 left-0 flex justify-center items-center transition-transform duration-500 ease-in-out translate-y-[350px] group-hover:translate-y-0'><Icon name='bx-show' size='4em' color='#fff'/></div>
+                                                            </div>
+                                                            <div className={`bg-fifty group-hover:bg-secondary py-2`}>
+                                                                <div className='flex justify-between items-center gap-2 mx-4'>
+                                                                    <h4 className='text-secondary font-semibold text-[18px] mb-2 text-ellipsis whitespace-nowrap w-fit uppercase group-hover:text-fifty relative before:w-1/5 before:h-1 before:bg-secondary before:bottom-[-4px] before:left-[1px] before:block before:group-hover:bg-fifty before:absolute'>{item.projet.trim()}</h4>
+                                                                    <span className='text-[11px] text-[#aaa]'>{item.mode}</span>
+                                                                </div>
+                                                                <p className='uppercase text-[14px] font-medium mx-4 mt-1 text-primary group-hover:text-fifty'>{item.name}</p>
+                                                                <p className='mx-4 mt-1 text-[13px] text-primary uppercase group-hover:text-fifty'>{item.shortText}</p>
                                                             </div>
                                                         </div>
                                                     )

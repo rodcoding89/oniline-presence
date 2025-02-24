@@ -52,7 +52,7 @@ export const services = [
         service:{
             serviceName:"Creation site vitrine",
             shortDescript:"Lorem ipsum dolor sit amet, consectetur adipisicing elit. Provident, unde culpa. Dolores tenetur neque esse fugit provident? Earum quam vero nostrum dolorem sequi error facilis autem iure, quo eum ratione?",
-            icon:"bx-home"
+            icon:"bx-code-alt"
         }   
     },
     {
@@ -60,7 +60,7 @@ export const services = [
         service:{
             serviceName:"Refonte site",
             shortDescript:"Lorem ipsum dolor sit amet, consectetur adipisicing elit. Provident, unde culpa. Dolores tenetur neque esse fugit provident? Earum quam vero nostrum dolorem sequi error facilis autem iure, quo eum ratione?",
-            icon:"bx-home"
+            icon:"bx-edit"
         }   
     },
     {
