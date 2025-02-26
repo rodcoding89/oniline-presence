@@ -39,20 +39,22 @@ const About:React.FC<AboutProps> = ()=>{
                         <p>Lorem, ipsum dolor sit amet consectetur adipisicing elit. Deserunt debitis tenetur magni minima minus consequuntur aut aperiam autem, consequatur in.</p>
                     </div>
                 </div>
-                <div className="stat flex justify-start items-center flex-wrap gap-5 mt-4 max-485:justify-center">
-                    {
-                        stat.map((item,index)=>{
-                            return (
-                                <div key={index} className='flex justify-start items-start gap-2'>
-                                    <Icon name={item.icon+' mt-5'} size='3em' color='var(--color-primary)'/>
-                                    <div className='flex flex-col gap-1'>
-                                        <em className='not-italic text-[4em] relative before:w-full before:h-[3px] before:bg-thirty before:absolute before:left-[5px] before:bottom-0 w-fit'>{item.nb}</em>
-                                        <span className='ml-1 mt-1'>{item.title}</span>
+                <div className='w-full flex justify-center items-center'>
+                    <div className="stat flex justify-start items-center flex-wrap gap-5 mt-4 max-485:justify-center">
+                        {
+                            stat.map((item,index)=>{
+                                return (
+                                    <div key={index} className='flex justify-start items-start gap-2'>
+                                        <Icon name={item.icon+' mt-5'} size='3em' color='var(--color-primary)'/>
+                                        <div className='flex flex-col gap-1'>
+                                            <em className='not-italic text-[4em] relative before:w-full before:h-[3px] before:bg-thirty before:absolute before:left-[5px] before:bottom-0 w-fit'>{item.nb}</em>
+                                            <span className='ml-1 mt-1'>{item.title}</span>
+                                        </div>
                                     </div>
-                                </div>
-                            )
-                        })
-                    }
+                                )
+                            })
+                        }
+                    </div>
                 </div>
             </div>
         </Element>

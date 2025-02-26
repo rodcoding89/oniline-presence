@@ -152,6 +152,14 @@ h1 {
 }
 .contact-desc {
   text-align: left;
+  flex: 1;
+  a{
+    line-break: anywhere;
+    hyphens: auto;
+    -ms-hyphens: auto;
+    -moz-hyphens: auto;
+    -webkit-hyphens: auto;
+  }
 }
 .contact-form textarea.form-control {
   height: 200px;
@@ -178,10 +186,10 @@ h1 {
   width: 100%;
   padding: 6px 12px;
   font-size: 14px;
-  border-radius: 0;
+  border-radius: .2em;
   height: 47px;
   border: 1px solid #aaa;
-  background-color: margintransparent;
+  background-color: transparent;
   box-shadow: none;
   line-height: 1.42857143;
   color: var(--color-primary);

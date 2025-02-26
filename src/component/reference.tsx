@@ -1,5 +1,4 @@
 import { Element } from 'react-scroll';
-import IsoTopeGrid from "react-isotope";
 import { motion, AnimatePresence } from "framer-motion";
 import { useContext, useEffect, useRef, useState } from 'react';
 import { reference } from '../utils/constant';
@@ -36,7 +35,7 @@ const Reference:React.FC<ReferenceProps> = ()=>{
         const gridData:any = []
         Object.values(reference).forEach((item)=>{
           item.referenceContent.forEach((val:any)=>{
-            const item = {title:val.projet,link:val.img,mode:val.mode,shortText:val.shortText,category:val.cat,name:val.name,refId:val.refId}
+            const item = {title:val.projet,link:val.img,mode:val.mode,shortText:val.shortText,category:val.cat,name:val.name,refId:val.refId,projet:val.projet}
             gridData.push(item)
           })
         })
@@ -84,7 +83,7 @@ const Reference:React.FC<ReferenceProps> = ()=>{
                         </div>
                         <div className={`bg-fifty group-hover:bg-secondary py-2`}>
                             <div className='flex justify-between items-center gap-2 mx-4'>
-                              <h4 className='text-secondary font-semibold text-[18px] mb-2 text-ellipsis whitespace-nowrap flex-1 uppercase group-hover:text-fifty relative before:w-1/5 before:h-1 before:bg-secondary before:bottom-[-4px] before:left-[1px] before:block before:group-hover:bg-fifty before:absolute'>{card.projet}</h4>
+                              <h4 className='text-secondary font-semibold text-[18px] mb-2 text-ellipsis whitespace-nowrap w-fit uppercase group-hover:text-fifty relative before:w-2/5 before:h-1 before:bg-secondary before:bottom-[-4px] before:left-[1px] before:block before:group-hover:bg-fifty before:absolute'>{card.projet}</h4>
                               <span className='text-[11px] text-[#aaa]'>{card.mode}</span>
                             </div>
                             <p className='uppercase text-[14px] font-medium mx-4 mt-1 text-primary group-hover:text-fifty'>{card.name}</p>

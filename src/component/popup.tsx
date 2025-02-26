@@ -196,8 +196,8 @@ const PopUp:React.FC<PopupProps> = ({windowSize,mode,id})=>{
                                                                 <div className='h-full cursor-pointer w-full bg-[rgba(142,22,22,.5)] absolute top-0 left-0 flex justify-center items-center transition-transform duration-500 ease-in-out translate-y-[350px] group-hover:translate-y-0'><Icon name='bx-show' size='4em' color='#fff'/></div>
                                                             </div>
                                                             <div className={`bg-fifty group-hover:bg-secondary py-2`}>
-                                                                <div className='flex justify-between items-center gap-2 mx-4'>
-                                                                    <h4 className='text-secondary font-semibold text-[18px] mb-2 text-ellipsis whitespace-nowrap w-fit uppercase group-hover:text-fifty relative before:w-1/5 before:h-1 before:bg-secondary before:bottom-[-4px] before:left-[1px] before:block before:group-hover:bg-fifty before:absolute'>{item.projet.trim()}</h4>
+                                                                <div className='flex justify-between items-start gap-2 mx-4'>
+                                                                    <h4 className='text-secondary font-semibold text-[18px] mb-2 w-fit uppercase group-hover:text-fifty relative before:w-2/5 before:h-1 before:bg-secondary before:bottom-[-4px] before:left-[1px] before:block before:group-hover:bg-fifty before:absolute'>{item.projet}</h4>
                                                                     <span className='text-[11px] text-[#aaa]'>{item.mode}</span>
                                                                 </div>
                                                                 <p className='uppercase text-[14px] font-medium mx-4 mt-1 text-primary group-hover:text-fifty'>{item.name}</p>
