@@ -1,21 +1,51 @@
 import { Element } from 'react-scroll';
 import Icon from './Icon';
 import { useForm } from 'react-hook-form';
+import { Resend } from 'resend';
+import { useState } from 'react';
+import CloseButton from './close-btn';
+
 interface ContactProps{
 
 }
-
+const RESEND_API_KEY = "re_hosg2ASF_GRrpk9V6EFAKQjcoTk9RnCKg";
 const Contact:React.FC<ContactProps> = ()=>{
+    const [loader,setLoader] = useState<boolean>(false)
+    const [isSended,setIsSended] = useState<boolean|null>(null)
     const {
         register,
         handleSubmit,
         formState: { errors,isValid },reset
       } = useForm({ mode: 'onChange'});
-    const sendMessage = (data:any)=>{
+    const sendMessage = async(data:any)=>{
+        const resend = new Resend(RESEND_API_KEY);
+        setLoader(true)
+        setIsSended(null)
+        try {
+            const response = await resend.emails.send({
+                from: data.email,
+                to: 'rodriguekwayep.freelance@hotmail.com',
+                subject: data.subject,
+                text: data.name+'\n'+data.message
+            });
+            if (response) {
+                setIsSended(true)
+                reset()
+                return
+            }
+            setIsSended(false)
+            return
+        } catch (error) {
+            console.error(error)
+        } finally {
+            setLoader(false)
+        }
         console.log("data",data)
-        reset()
     }
-    console.log(errors)
+    const closeBox = ()=>{
+        setIsSended(null)
+    }
+    console.log(errors,'isSended',isSended)
     return (
         <Element className="min-h-[200px] mt-[75px]" name="contact">
             <div className="w-[85%] mx-auto">
@@ -91,8 +121,11 @@ const Contact:React.FC<ContactProps> = ()=>{
                                         {errors.message?.type === "required" && <div className='text-[.8em] text-red-500'>{'Veuillez saisir votre message'}</div>}
                                     </div>
                                 </div>
-                                <div className="w-full form-group text-right m-b-0">
-                                    <input value="send message" name="submit" className={`btn btn-primary text-fifty ${isValid ? 'cursor-pointer opacity-100' : 'cursor-not-allowed opacity-45'}`} type="submit" disabled={!isValid}/>
+                                <div className={`w-full flex items-end justify-end m-b-0 ${isSended !== null ? '!justify-between !items-center gap-4 flex-wrap' : ''}`}>
+                                    {
+                                        isSended !== null ? isSended === true ? <div className='bg-green-600 text-fifty text-[.85em] py-2 pl-4 pr-6 rounded-[.2em] relative flex-grow basis-[200px]'>Votre message à été envoyé avec succès. Laisser nous le temps de l'étudier et vous répondre dans les plus bref delais. <CloseButton onClose={closeBox} size='small' color='!text-fifty' className='absolute top-1 right-2'/></div> : <div className='bg-red-600 text-fifty text-[.85em] py-2 pl-4 pr-6 rounded-[.2em] relative flex-grow basis-[200px]'>Une erreur s'est produit lors de l'envois du message. Nous vous recommendons de pentienter quelques instants et retanter à nouveau. <CloseButton onClose={closeBox} size='small' color='!text-fifty' className='absolute top-1 right-2'/></div> : null
+                                    }
+                                    <button className={`btn btn-primary text-fifty ${isValid ? 'cursor-pointer opacity-100' : 'cursor-not-allowed opacity-45'} ${loader ? 'flex justify-center items-center gap-1' :''}`} type="submit" disabled={!isValid}>send message{loader && <Icon name='bx bx-loader-alt bx-spin' size='1em' color='#fff'/>}</button>
                                 </div>
                             </form>
                         </div>
