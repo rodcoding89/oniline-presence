@@ -7,7 +7,8 @@ export default {
         primary: 'var(--color-primary)',
         secondary: 'var(--color-secondary)',
         thirty: 'var(--color-thirty)',
-        fifty: 'var(--color-fifty)'
+        fifty: 'var(--color-fifty)',
+        link: 'var(--color-link)'
       },
       screens: {
         'max-920':{'max': '920px'},
@@ -17,6 +18,7 @@ export default {
         'max-420':{'max': '420px'},
         'max-330':{'max': '330px'},
         'max-520':{'max': '520px'},
+        'max-640':{'max': '640px'},
       }
     },
   },
