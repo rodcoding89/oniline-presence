@@ -21,7 +21,7 @@ const stat = [
 ]
 const About:React.FC<AboutProps> = ()=>{
     return (
-        <Element className="min-h-[200px] mt-[75px]" name="about">
+        <Element className="mt-[110px]" name="about">
             <div className='w-[85%] mx-auto'>
                 <h1 className='text-center uppercase text-thirty mb-10'>A propos</h1>
                 <div className='flex justify-around items-center gap-8 max-920:flex-col'>

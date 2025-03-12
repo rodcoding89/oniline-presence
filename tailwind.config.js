@@ -10,6 +10,16 @@ export default {
         fifty: 'var(--color-fifty)',
         link: 'var(--color-link)'
       },
+      fontFamily:{
+        regular: 'var(--family-poppins-regular)',
+        black: 'var(--family-poppins-black)',
+        bold: 'var(--family-poppins-bold)',
+        extratlight: 'var(--family-poppins-extratlight)',
+        light: 'var(--family-poppins-light)',
+        medium: 'var(--family-poppins-medium)',
+        thin: 'var(--family-poppins-thin)',
+        extrabold: 'var(--family-poppins-extrabold)'
+      },
       screens: {
         'max-920':{'max': '920px'},
         'max-810':{'max': '810px'},

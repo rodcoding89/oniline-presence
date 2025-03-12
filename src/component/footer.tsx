@@ -1,5 +1,4 @@
 import { Link } from 'react-router-dom';
-import { Element } from 'react-scroll';
 import Icon from './Icon';
 interface FooterProps{
 
@@ -9,7 +8,7 @@ const Footer:React.FC<FooterProps> = ()=>{
     return (
         <footer className='bg-primary w-full flex justify-start items-center gap-8 flex-col py-10 mt-10 px-[8%] '>
             <div className='flex justify-between items-start w-full gap-4 max-520:flex-col max-520:justify-center max-640:items-center max-520:w-full'>
-                <div className='text-fifty w-1/4'>LOGO</div>
+                <div className='text-fifty w-1/4'><img src="assets/images/logo.webp" alt="logo" className='w-auto h-[100px] rounded-full'/></div>
                 <div className='flex justify-end items-end flex-1'>
                     <div className='flex justify-start items-start flex-col gap-5'>
                         <h4 className='text-fifty uppercase font-semibold'>Partager sur les reseaux sociaux</h4>

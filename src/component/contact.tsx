@@ -47,7 +47,7 @@ const Contact:React.FC<ContactProps> = ()=>{
     }
     console.log(errors,'isSended',isSended)
     return (
-        <Element className="min-h-[200px] mt-[75px]" name="contact">
+        <Element className="mt-[110px]" name="contact">
             <div className="w-[85%] mx-auto">
                 <div className="section-heading  text-center"> 
                     <h2 className='uppercase text-thirty'>Nous contacter</h2> 

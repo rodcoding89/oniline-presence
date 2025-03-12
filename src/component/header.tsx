@@ -40,7 +40,8 @@ const Header:React.FC<HeaderProps> = ()=>{
             setLanguage(location.pathname.split("/")[1]);
             // Changer la langue dans i18next
             navigate("/"+location.pathname.split("/")[1])
-            i18n.changeLanguage(location.pathname.split("/")[1]);scroller.scrollTo(1, {
+            i18n.changeLanguage(location.pathname.split("/")[1]);
+            scroller.scrollTo(1, {
                 duration: 500,
                 smooth: true,
                 offset: 0, // Scrolls to element + 50 pixels down the page
@@ -72,24 +73,24 @@ const Header:React.FC<HeaderProps> = ()=>{
         setContextData({state:"show",value:true,size:costomeWidth,mode:"mobile"})
     } 
     return (
-        <header className='header w-full h-[65px] fixed top-0 left-0 bottom-0 right-0 z-10 flex items-center'>
+        <header className='header w-full h-[100px] fixed top-0 left-0 bottom-0 right-0 z-10 flex items-center'>
             <div className='mx-auto flex justify-between items-center w-[85%]'>
                 <Link
                 className='cursor-pointer'
                 activeClass="active" 
                 spy={true} 
                 smooth={true} 
-                offset={-65} 
+                offset={-100} 
                 duration={500}
                 to={`home`}
-                >LOGO</Link>
+                ><img src="/assets/images/logo.webp" alt="logo" className='w-auto h-[80px] rounded-full'/></Link>
                 <nav className='navi flex justify-start items-center gap-4 max-920:hidden'>
                     <Link
                     className='cursor-pointer text-primary'
                     activeClass="active" 
                     spy={true} 
                     smooth={true} 
-                    offset={-65} 
+                    offset={-100} 
                     duration={500}
                     to={`home`}>{t("home")}</Link>
                     <Link 
@@ -97,7 +98,7 @@ const Header:React.FC<HeaderProps> = ()=>{
                     activeClass="active"
                     spy={true} 
                     smooth={true} 
-                    offset={-65} 
+                    offset={-100} 
                     duration={500} 
                     to={`about`}>A propos</Link>
                     <Link
@@ -105,7 +106,7 @@ const Header:React.FC<HeaderProps> = ()=>{
                     activeClass="active"
                     spy={true} 
                     smooth={true} 
-                    offset={-65} 
+                    offset={-100} 
                     duration={500} 
                     to={`services`}>Services</Link>
                     <Link
@@ -113,7 +114,7 @@ const Header:React.FC<HeaderProps> = ()=>{
                     activeClass="active"
                     spy={true} 
                     smooth={true} 
-                    offset={-65} 
+                    offset={-100} 
                     duration={500} 
                     to={`reference`}>Reférence</Link>
                     <Link
@@ -121,7 +122,7 @@ const Header:React.FC<HeaderProps> = ()=>{
                     activeClass="active"
                     spy={true} 
                     smooth={true} 
-                    offset={-65} 
+                    offset={-100} 
                     duration={500} 
                     to={`price`}>Tarif</Link>
                     <Link
@@ -129,7 +130,7 @@ const Header:React.FC<HeaderProps> = ()=>{
                     activeClass="active"
                     spy={true} 
                     smooth={true} 
-                    offset={-65} 
+                    offset={-100} 
                     duration={500} 
                     to={`contact`}>Contact</Link>
                 </nav>

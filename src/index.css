@@ -4,7 +4,6 @@
 @tailwind utilities;
 
 :root {
-  font-family: Inter, system-ui, Avenir, Helvetica, Arial, sans-serif;
   line-height: 1.5;
   font-weight: 400;
   --color-link: #535bf2;
@@ -12,7 +11,15 @@
   --color-secondary: #8E1616;
   --color-thirty:#D84040;
   --color-fifty: #EEEEEE;
-  color-scheme: light dark;
+  --family-poppins-regular: 'Poppins Regular', sans-serif;
+  --family-poppins-black: 'Poppins Black', sans-serif;
+  --family-poppins-semibold: 'Poppins SemiBold', sans-serif;
+  --family-poppins-bold: 'Poppins Bold', sans-serif;
+  --family-poppins-extralight: 'Poppins ExtraLight', sans-serif;
+  --family-poppins-light: 'Poppins Light', sans-serif;
+  --family-poppins-medium: 'Poppins Medium', sans-serif;
+  --family-poppins-thin: 'Poppins Thin', sans-serif;
+  --family-poppins-extrabold: 'Poppins ExtraBold', sans-serif;
 }
 *{
   box-sizing: border-box;
@@ -21,6 +28,10 @@ img{
   width: 100%;
   height: 100%;
   object-fit: cover;
+}
+html,body{
+  font-family: var(--family-poppins-regular) !important;
+  font-weight: 500;
 }
 body{
   overflow-x: hidden;
@@ -56,6 +67,20 @@ ul{
   p{
     display: block;
   }
+}
+h1,h2,h3,h4,h5,h6{
+  font-family: var(--family-poppins-bold);
+  font-weight: bold;
+}
+p,div,button,td,input,textarea{
+  font-family: var(--family-poppins-regular);
+  font-weight: 400;
+  font-size: 16px;
+}
+span,li,em,a{
+  font-family: var(--family-poppins-light);
+  font-weight: 400;
+  font-size: 15px;
 }
 .language-picker__button .icon {
   height: 16px;

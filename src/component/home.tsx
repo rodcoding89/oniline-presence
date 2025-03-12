@@ -8,7 +8,7 @@ interface HomeProps{
 const Home:React.FC<HomeProps> = ()=>{
     const { t } = useTranslation();
     return (
-        <Element className="mt-[65px]" name="home">
+        <Element className="mt-[100px]" name="home">
             <div className='w-full bg-secondary'>
                 <div className='w-full flex gap-[40px] justify-center items-start relative'>
                     <div className='flex flex-col justify-center items-center self-stretch ml-[calc(15%/2)] max-920:absolute max-920:bg-[rgba(0,0,0,.5)] max-920:ml-0 max-920:w-full max-920:h-full max-920:top-[50%] max-920:translate-y-[-50%] max-920:left-0 max-920:px-[10%]'>
