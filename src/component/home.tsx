@@ -44,7 +44,7 @@ const Home:React.FC<HomeProps> = ()=>{
                                     offset={-65} 
                                     duration={500} 
                                     to={`services`} 
-                                    >Nos services
+                                    >{t("ourServices")}
                                 </Link>
                             </span>
                         </div>

@@ -17,6 +17,7 @@ const Header:React.FC<HeaderProps> = ()=>{
     const {setContextData} = useContext(AppContext)
     const [language, setLanguage] = useState('');
     const [isShowLang, setIsShowLang] = useState(false);
+    const [hasChangeLanguage, setHasChangeLanguage] = useState(false);
     useEffect(() => {
         // Détecter la langue du navigateur
         const location = new URL(window.location.href);
@@ -28,27 +29,34 @@ const Header:React.FC<HeaderProps> = ()=>{
             setLanguage(langCode);
             
             // Changer la langue dans i18next
-            i18n.changeLanguage(langCode);
-            scroller.scrollTo(1, {
-                duration: 500,
-                smooth: true,
-                offset: 0, // Scrolls to element + 50 pixels down the page
-                // ... other options
-            });
+            if (!hasChangeLanguage) {
+                i18n.changeLanguage(langCode);
+                scroller.scrollTo(1, {
+                    duration: 500,
+                    smooth: true,
+                    offset: 0, // Scrolls to element + 50 pixels down the page
+                    // ... other options
+                }); 
+            }
             navigate("/"+langCode)
         }else{
             setLanguage(location.pathname.split("/")[1]);
             // Changer la langue dans i18next
             navigate("/"+location.pathname.split("/")[1])
-            i18n.changeLanguage(location.pathname.split("/")[1]);
-            scroller.scrollTo(1, {
-                duration: 500,
-                smooth: true,
-                offset: 0, // Scrolls to element + 50 pixels down the page
-                // ... other options
-            });
+            if (!hasChangeLanguage) {
+                i18n.changeLanguage(location.pathname.split("/")[1]);
+                scroller.scrollTo(1, {
+                    duration: 500,
+                    smooth: true,
+                    offset: 0, // Scrolls to element + 50 pixels down the page
+                    // ... other options
+                }); 
+            }
         }
-      }, [navigate]);
+        if (!hasChangeLanguage) {
+            setHasChangeLanguage(false);
+        }
+      }, [navigate,hasChangeLanguage]);
     const handleChangeLanguage = (lang: string) => {
         const newLang = lang;
         //setLanguage(newLang);
@@ -100,7 +108,7 @@ const Header:React.FC<HeaderProps> = ()=>{
                     smooth={true} 
                     offset={-100} 
                     duration={500} 
-                    to={`about`}>A propos</Link>
+                    to={`about`}>{t("about")}</Link>
                     <Link
                     className='cursor-pointer text-primary'
                     activeClass="active"
@@ -108,7 +116,7 @@ const Header:React.FC<HeaderProps> = ()=>{
                     smooth={true} 
                     offset={-100} 
                     duration={500} 
-                    to={`services`}>Services</Link>
+                    to={`services`}>{t("services")}</Link>
                     <Link
                     className='cursor-pointer text-primary'
                     activeClass="active"
@@ -116,7 +124,7 @@ const Header:React.FC<HeaderProps> = ()=>{
                     smooth={true} 
                     offset={-100} 
                     duration={500} 
-                    to={`reference`}>Reférence</Link>
+                    to={`reference`}>{t("references")}</Link>
                     <Link
                     className='cursor-pointer text-primary'
                     activeClass="active"
@@ -124,7 +132,7 @@ const Header:React.FC<HeaderProps> = ()=>{
                     smooth={true} 
                     offset={-100} 
                     duration={500} 
-                    to={`price`}>Tarif</Link>
+                    to={`price`}>{t("price")}</Link>
                     <Link
                     className='cursor-pointer text-primary'
                     activeClass="active"
@@ -132,7 +140,8 @@ const Header:React.FC<HeaderProps> = ()=>{
                     smooth={true} 
                     offset={-100} 
                     duration={500} 
-                    to={`contact`}>Contact</Link>
+                    to={`contact`}>{t("contact")}</Link>
+                    <a href="https://portfolio.rodcoding.tech" className='cursor-pointer text-primary' target="_blank">{t("portfolio")}</a>
                 </nav>
                 <div className='relative flex justify-start items-center gap-6'>
                     <div className='flex justify-start items-center gap-2 max-485:hidden'>
@@ -142,9 +151,9 @@ const Header:React.FC<HeaderProps> = ()=>{
                     <button onClick={()=>setIsShowLang(!isShowLang)} className="language-picker__button menu focus:outline-none hover:border-0" aria-label="english Select your language" aria-expanded="false" aria-controls="language-picker-select-dropdown"><span aria-hidden="true" className="language-picker__label language-picker__flag language-picker__flag--english"><svg viewBox="0 0 16 16" className="icon"><path d="M8,0C3.6,0,0,3.6,0,8s3.6,8,8,8s8-3.6,8-8S12.4,0,8,0z M13.9,7H12c-0.1-1.5-0.4-2.9-0.8-4.1 C12.6,3.8,13.6,5.3,13.9,7z M8,14c-0.6,0-1.8-1.9-2-5H10C9.8,12.1,8.6,14,8,14z M6,7c0.2-3.1,1.3-5,2-5s1.8,1.9,2,5H6z M4.9,2.9 C4.4,4.1,4.1,5.5,4,7H2.1C2.4,5.3,3.4,3.8,4.9,2.9z M2.1,9H4c0.1,1.5,0.4,2.9,0.8,4.1C3.4,12.2,2.4,10.7,2.1,9z M11.1,13.1 c0.5-1.2,0.7-2.6,0.8-4.1h1.9C13.6,10.7,12.6,12.2,11.1,13.1z"></path></svg><em className='not-italic'>{language === 'fr' ? 'FR' : language === 'de' ? 'DE' : 'EN'}</em><svg viewBox="0 0 16 16" className="icon"><polygon points="3,5 8,11 13,5 "></polygon></svg></span></button>
                     <div className={`languages absolute top-[35px] left-[114px] rounded-lg w-[120px] my-2 bg-white overflow-hidden ${isShowLang ? 'opacity-1' : 'opacity-0'}`}>
                         <ul className={`${isShowLang ? 'h-[95px]' : 'h-0'}`}>
-                            <li onClick={()=>handleChangeLanguage("de")} className={`py-1 cursor-pointer ${language === 'de' ? 'bg-thirty flex justify-between items-center text-white' : 'hover:bg-[#aaa]'}`}><span className='px-2'>Deutsch</span> {language === 'de' && <Icon name="bx-check mr-2" size='1.2' color='#fff'/>}</li>
-                            <li onClick={()=>handleChangeLanguage("en")} className={`py-1 cursor-pointer ${language === 'en' ? 'bg-thirty flex justify-between items-center text-white' : 'hover:bg-[#aaa]'}`}><span className='px-2'>English</span> {language === 'en' && <Icon name="bx-check mr-2" size='1.2' color='#fff'/>}</li>
-                            <li onClick={()=>handleChangeLanguage("fr")} className={`py-1 cursor-pointer ${language === 'fr' ? 'bg-thirty flex justify-between items-center text-white' : 'hover:bg-[#aaa]'}`}><span className='px-2'>Français</span> {language === 'fr' && <Icon name="bx-check mr-2" size='1.2' color='#fff'/>}</li>
+                            <li onClick={()=>{handleChangeLanguage("de");setHasChangeLanguage(true)}} className={`py-1 cursor-pointer ${language === 'de' ? 'bg-thirty flex justify-between items-center text-white' : 'hover:bg-[#aaa]'}`}><span className='px-2'>Deutsch</span> {language === 'de' && <Icon name="bx-check mr-2" size='1.2' color='#fff'/>}</li>
+                            <li onClick={()=>{handleChangeLanguage("en");setHasChangeLanguage(true)}} className={`py-1 cursor-pointer ${language === 'en' ? 'bg-thirty flex justify-between items-center text-white' : 'hover:bg-[#aaa]'}`}><span className='px-2'>English</span> {language === 'en' && <Icon name="bx-check mr-2" size='1.2' color='#fff'/>}</li>
+                            <li onClick={()=>{handleChangeLanguage("fr");setHasChangeLanguage(true)}} className={`py-1 cursor-pointer ${language === 'fr' ? 'bg-thirty flex justify-between items-center text-white' : 'hover:bg-[#aaa]'}`}><span className='px-2'>Français</span> {language === 'fr' && <Icon name="bx-check mr-2" size='1.2' color='#fff'/>}</li>
                         </ul>
                     </div>
                     <div className='flex w-[40px] h-[40px] justify-center items-center cursor-pointer rounded-full bg-fifty' onClick={handleShowMore}>

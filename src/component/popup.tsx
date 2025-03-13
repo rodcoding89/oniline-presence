@@ -131,6 +131,7 @@ const PopUp:React.FC<PopupProps> = ({windowSize,mode,id})=>{
                                     offset={-65} 
                                     duration={500} 
                                     to={`contact`}>Contact</Link>
+                                    <a href="https://portfolio.rodcoding.tech" className='cursor-pointer text-primary' target="_blank">Portfolio</a>
                                 </nav>
                             </div>
                             <div className="w-full">

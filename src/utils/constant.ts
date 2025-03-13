@@ -50,7 +50,7 @@ export const services = [
     {
         id:1,
         service:{
-            serviceName:"Creation site vitrine",
+            serviceName:"showcaseWebsite",
             shortDescript:"Lorem ipsum dolor sit amet, consectetur adipisicing elit. Provident, unde culpa. Dolores tenetur neque esse fugit provident? Earum quam vero nostrum dolorem sequi error facilis autem iure, quo eum ratione?",
             icon:"bx-code-alt"
         }   

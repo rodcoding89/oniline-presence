@@ -1,6 +1,19 @@
 {
     "home": "Home",
-    "devi": "Hello",
-    "goodbye": "Goodbye"
+    "devi": "Request a deviation",
+    "about": "About us",
+    "contact": "Contact",
+    "services": "Services",
+    "references": "References",
+    "price":"Price List",
+    "portfolio": "Portfolio",
+    "ourServices":"Our Services",
+    "pathway":"Pathway",
+    "expiriences":"Experiences",
+    "yearExperiences":"Years of Experience",
+    "realiseProject":"Completed web projects",
+    "satisfiedCustomer":"Satisfied Customer",
+    "showcaseWebsite":"Showcase website creation",
+    "learnMore":"Learn more"
   }
   

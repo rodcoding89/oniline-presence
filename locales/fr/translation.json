@@ -1,6 +1,19 @@
 {
     "home": "Accueil",
-    "devi": "Demaner un devis",
-    "goodbye": "Goodbye"
+    "devi": "Demander un dévi",
+    "about": "À propos",
+    "contact": "Contact",
+    "services": "Services",
+    "references": "Références",
+    "price": "Tarif",
+    "portfolio": "Portfolio",
+    "ourServices":"Nos services",
+    "pathway":"Parcours",
+    "expiriences":"Expériences",
+    "yearExperiences":"Années d'expérience",
+    "realiseProject":"Projets web réalisés",
+    "satisfiedCustomer":"Client Satisfait",
+    "showcaseWebsite":"Création site vitrine",
+    "learnMore":"En savoir plus"
   }
   

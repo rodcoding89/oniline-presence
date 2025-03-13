@@ -1,6 +1,19 @@
 {
-    "home": "Starseite",
-    "devi": "Hello",
-    "goodbye": "Goodbye"
+    "home": "Startseite",
+    "devi": "Eine Abweichung beantragen",
+    "about": "Über uns",
+    "contact": "Kontakt",
+    "services": "Dienstleistungen",
+    "references": "Referenzen",
+    "price":"Preisliste",
+    "portfolio": "Portfolio",
+    "ourServices":"Unsere Dienstleistungen",
+    "pathway":"Werdegang",
+    "expiriences":"Erfahrungen",
+    "yearExperiences":"Jahre an Erfahrung",
+    "realiseProject":"Durchgeführte Webprojekte",
+    "satisfiedCustomer":"Zufriedener Kunde",
+    "showcaseWebsite":"Erstellung einer Schaufenster-Website",
+    "learnMore":"Mehr erfahren"
   }
   
