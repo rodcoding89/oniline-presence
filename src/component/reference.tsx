@@ -4,18 +4,20 @@ import { useContext, useEffect, useRef, useState } from 'react';
 import { reference } from '../utils/constant';
 import Icon from './Icon';
 import { AppContext } from '../app-context';
+import { useTranslation } from 'react-i18next';
 
 interface ReferenceProps{
 
 }
   
 const Reference:React.FC<ReferenceProps> = ()=>{
+    const {t} = useTranslation()
     const nav = [
-        { name: "Tous" ,label:"all"},
-        { name: "Site internet",label:"website" },
-        { name: "Site E-commerce",label:"ecommerce" },
-        { name: "Application mobile",label:"app" },
-        { name: "Logiciel metiès / Saas",label:"saas" }
+        { name: t("all") ,label:"all"},
+        { name: t("website"),label:"website" },
+        { name: t("ecommerce"),label:"ecommerce" },
+        { name: t("mobileApp"),label:"app" },
+        { name: t("saas"),label:"saas" }
     ];
     const [selectedCategory, setSelectedCategory] = useState<string>("all");
     const [cardsLayout,setCardsLayout] = useState<any[]>([])
@@ -54,7 +56,7 @@ const Reference:React.FC<ReferenceProps> = ()=>{
     return (
         <Element className="mt-[110px]" name="reference">
             <div className='bg-secondary pb-8'>
-                <h1 className='mb-5 mx-[calc(15%/2)] pt-[30px] uppercase text-fifty'>Nos références</h1>
+                <h1 className='mb-5 mx-[calc(15%/2)] pt-[30px] uppercase text-fifty'>{t("ourReferences")}</h1>
                 <p className='mx-[calc(15%/2)] text-fifty mb-10'>Lorem ipsum dolor sit amet consectetur adipisicing elit. Quo inventore sunt tenetur. Lorem ipsum dolor sit amet consectetur adipisicing elit. Quo inventore sunt tenetur.</p>
                 <nav className='flex justify-center items-center gap-4 bg-white p-2 flex-wrap mx-auto w-[85%]'>
                     {

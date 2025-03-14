@@ -8,7 +8,7 @@ import CloseButton from './close-btn';
 interface ContactProps{
 
 }
-const RESEND_API_KEY = "re_hosg2ASF_GRrpk9V6EFAKQjcoTk9RnCKg";
+//const RESEND_API_KEY = "re_hosg2ASF_GRrpk9V6EFAKQjcoTk9RnCKg";
 const Contact:React.FC<ContactProps> = ()=>{
     const [loader,setLoader] = useState<boolean>(false)
     const [isSended,setIsSended] = useState<boolean|null>(null)
@@ -18,11 +18,11 @@ const Contact:React.FC<ContactProps> = ()=>{
         formState: { errors,isValid },reset
       } = useForm({ mode: 'onChange'});
     const sendMessage = async(data:any)=>{
-        const resend = new Resend(RESEND_API_KEY);
+        //const resend = new Resend(RESEND_API_KEY);
         setLoader(true)
         setIsSended(null)
         try {
-            const response = await resend.emails.send({
+            /*const response = await resend.emails.send({
                 from: data.email,
                 to: 'rodriguekwayep.freelance@hotmail.com',
                 subject: data.subject,
@@ -32,7 +32,7 @@ const Contact:React.FC<ContactProps> = ()=>{
                 setIsSended(true)
                 reset()
                 return
-            }
+            }*/
             setIsSended(false)
             return
         } catch (error) {

@@ -1,34 +1,34 @@
 export const priceList = [
     {
-        title:"Site vitrine standard",
-        devMethode:["Wordpress","Sur mesure"],
+        title:"standartWebsite",
+        devMethode:["Wordpress","ofHand"],
         content:[{
                 price:"999.99",
-                devType:{type:"Développé sous WORDPRESS",outil:"(Outil de gestion de contenu)"},
+                devType:{type:"devOn",outil:"outilTool"},
                 options:["Sélection d'une palette de couleur","Domaine + hébergement + e-mail pendant 12 mois","Interface administrateur STANDARD","Site responsive (adapté tous supports)","Mise en place du contenu (textes & images)","Formulaire de contact","Liens de partage sur les réseaux sociaux","Optimisation du référencement","Statistiques de visite","Mise en ligne du site","Formation utilisation du site"]
             },{
                 price:"1500",
-                devType:{type:"Développé SUR-MESURE",outil:"(Codage à la main)"},
+                devType:{type:"handDev",outil:"handOutil"},
                 options:["Sélection d'une palette de couleur","Domaine + hébergement + e-mail pendant 12 mois","Site responsive (adapté tous supports)","Mise en place du contenu (textes & images)","Formulaire de contact","Liens de partage sur les réseaux sociaux","Optimisation du référencement","Statistiques de visite","Mise en ligne du site","Formation utilisation du site"]
             }
         ]
     },
     {
-        title:"Plateforme e-commerce",
-        devMethode:["Wordpress","Sur mesure"],
+        title:"ecommerce",
+        devMethode:["Wordpress","ofHand"],
         content:[{
                 price:"2500",
-                devType:{type:"Développé sous WORDPRESS",outil:"(Outil de gestion de contenu)"},
+                devType:{type:"devOn",outil:"outilTool"},
                 options:["Sélection d'une palette de couleur","Domaine + hébergement + e-mail pendant 12 mois","Interface administrateur STANDARD","Site responsive (adapté tous supports)","Mise en place du contenu (textes & images)","Formulaire de contact","Liens de partage sur les réseaux sociaux","Optimisation du référencement","Statistiques de visite","Mise en ligne du site","Formation utilisation du site"]
             },{
                 price:"4000",
-                devType:{type:"Développé SUR-MESURE",outil:"(Codage à la main)"},
+                devType:{type:"handDev",outil:"handOutil"},
                 options:["Sélection d'une palette de couleur","Domaine + hébergement + e-mail pendant 12 mois","Site responsive (adapté tous supports)","Mise en place du contenu (textes & images)","Formulaire de contact","Liens de partage sur les réseaux sociaux","Optimisation du référencement","Statistiques de visite","Mise en ligne du site","Formation utilisation du site"]
             }
         ],
     },
     {
-        title:"Application mobile",
+        title:"mobileApp",
         content:[{
                 price:"2500",
                 devType:{type:"Développé sous WORDPRESS",outil:"(Outil de gestion de contenu)"},
@@ -37,7 +37,7 @@ export const priceList = [
         ]
     },
     {
-        title:"Logiciel métiers / Saas",
+        title:"saas",
         content:[{
                 price:"2500",
                 devType:{type:"Développé sous WORDPRESS",outil:"(Outil de gestion de contenu)"},
@@ -58,7 +58,7 @@ export const services = [
     {
         id:2,
         service:{
-            serviceName:"Refonte site",
+            serviceName:"reworkWebsite",
             shortDescript:"Lorem ipsum dolor sit amet, consectetur adipisicing elit. Provident, unde culpa. Dolores tenetur neque esse fugit provident? Earum quam vero nostrum dolorem sequi error facilis autem iure, quo eum ratione?",
             icon:"bx-edit"
         }   
@@ -66,7 +66,7 @@ export const services = [
     {
         id:3,
         service:{
-            serviceName:"Creation site e-commerce",
+            serviceName:"ecommerceWebste",
             shortDescript:"Lorem ipsum dolor sit amet, consectetur adipisicing elit. Provident, unde culpa. Dolores tenetur neque esse fugit provident? Earum quam vero nostrum dolorem sequi error facilis autem iure, quo eum ratione?",
             icon:"bx-shopping-bag"
         }   
@@ -74,7 +74,7 @@ export const services = [
     {
         id:4,
         service:{
-            serviceName:"Logiciel métiers / Saas",
+            serviceName:"saas",
             shortDescript:"Lorem ipsum dolor sit amet, consectetur adipisicing elit. Provident, unde culpa. Dolores tenetur neque esse fugit provident? Earum quam vero nostrum dolorem sequi error facilis autem iure, quo eum ratione?",
             icon:"bx-desktop"
         }   
@@ -82,7 +82,7 @@ export const services = [
     {
         id:5,
         service:{
-            serviceName:"Application mobile",
+            serviceName:"mobileApp",
             shortDescript:"Lorem ipsum dolor sit amet, consectetur adipisicing elit. Provident, unde culpa. Dolores tenetur neque esse fugit provident? Earum quam vero nostrum dolorem sequi error facilis autem iure, quo eum ratione?",
             icon:"bx-devices"
         }   
