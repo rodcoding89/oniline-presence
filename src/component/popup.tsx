@@ -1,12 +1,12 @@
 import { useContext, useEffect, useState } from "react"
-import i18n from '../i18n';
+
 import { Link } from 'react-scroll';
 import { AppContext } from "../app-context";
 import CloseButton from "./close-btn";
 import { useTranslation } from 'react-i18next';
 import { refDetailContent, reference, serviceDetail } from "../utils/constant";
 import Icon from "./Icon";
-import { div } from "motion/react-client";
+
 interface PopupProps{
     windowSize:string,
     mode:string,
@@ -73,15 +73,15 @@ const PopUp:React.FC<PopupProps> = ({windowSize,mode,id})=>{
                                 offset={-65} 
                                 duration={500}
                                 to={`home`}
-                                >LOGO</Link>
+                                ><img src="/assets/images/logo.webp" alt="logo" className='w-auto h-[45px] rounded-full'/></Link>
                                 <span className=" cursor-pointer"><CloseButton size="large" onClose={handlePopUp}/></span>
                             </div>
                             <div className="w-full">
-                                <h4 className="uppercase text-[1.15em] mb-2 font-semibold">A propos<span className='w-1/6 block h-[2px] bg-thirty mb-2'></span></h4>
-                                <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Corrupti, obcaecati at. Ipsum eum explicabo eaque!</p>
+                                <h4 className="uppercase text-[1.15em] mb-2 font-semibold">{t("about")}<span className='w-1/6 block h-[2px] bg-thirty mb-2'></span></h4>
+                                <p>Lorem ipsum dolor sit amet consectetur adipisicing elit.</p>
                             </div>
                             <div className="w-full">
-                                <h4 className="uppercase text-[1.15em] mb-2 font-semibold">Navigation<span className='w-1/6 block h-[2px] bg-thirty mb-2'></span></h4>
+                                <h4 className="uppercase text-[1.15em] mb-2 font-semibold">{t("navigation")}<span className='w-1/6 block h-[2px] bg-thirty mb-2'></span></h4>
                                 <nav className='navi flex justify-start items-start gap-3 flex-col'>
                                     <Link
                                     className='cursor-pointer text-primary'
@@ -98,7 +98,7 @@ const PopUp:React.FC<PopupProps> = ({windowSize,mode,id})=>{
                                     smooth={true} 
                                     offset={-65} 
                                     duration={500} 
-                                    to={`about`}>A propos</Link>
+                                    to={`about`}>{t("about")}</Link>
                                     <Link
                                     className='cursor-pointer text-primary'
                                     activeClass="active"
@@ -106,7 +106,7 @@ const PopUp:React.FC<PopupProps> = ({windowSize,mode,id})=>{
                                     smooth={true} 
                                     offset={-65} 
                                     duration={500} 
-                                    to={`services`}>Services</Link>
+                                    to={`services`}>{t("services")}</Link>
                                     <Link
                                     className='cursor-pointer text-primary'
                                     activeClass="active"
@@ -114,7 +114,7 @@ const PopUp:React.FC<PopupProps> = ({windowSize,mode,id})=>{
                                     smooth={true} 
                                     offset={-65} 
                                     duration={500} 
-                                    to={`reference`}>Reférence</Link>
+                                    to={`reference`}>{t("references")}</Link>
                                     <Link
                                     className='cursor-pointer text-primary'
                                     activeClass="active"
@@ -122,7 +122,7 @@ const PopUp:React.FC<PopupProps> = ({windowSize,mode,id})=>{
                                     smooth={true} 
                                     offset={-65} 
                                     duration={500} 
-                                    to={`price`}>Tarif</Link>
+                                    to={`price`}>{t("price")}</Link>
                                     <Link
                                     className='cursor-pointer text-primary'
                                     activeClass="active"
@@ -130,12 +130,12 @@ const PopUp:React.FC<PopupProps> = ({windowSize,mode,id})=>{
                                     smooth={true} 
                                     offset={-65} 
                                     duration={500} 
-                                    to={`contact`}>Contact</Link>
-                                    <a href="https://portfolio.rodcoding.tech" className='cursor-pointer text-primary' target="_blank">Portfolio</a>
+                                    to={`contact`}>{t("contact")}</Link>
+                                    <a href="https://portfolio.rodcoding.tech" className='cursor-pointer text-primary' target="_blank">{t("protfolio")}</a>
                                 </nav>
                             </div>
                             <div className="w-full">
-                                <h4 className="uppercase text-[1.15em] mb-2 font-semibold">Contact<span className='w-1/6 block h-[2px] bg-thirty mb-2'></span></h4>
+                                <h4 className="uppercase text-[1.15em] mb-2 font-semibold">{t("contact")}<span className='w-1/6 block h-[2px] bg-thirty mb-2'></span></h4>
                                 <p className="mb-2">Lorem, ipsum dolor sit amet consectetur adipisicing.</p>
                                 <div className='flex justify-start items-center gap-2'>
                                     <a className='flex justify-center items-center gap-1 w-[40px] h-[40px] rounded-[.2em] bg-white'  href='tel:+33751025598'><Icon name='bx-phone' size='1.4em' color='var(--color-secondary)'/></a>
@@ -146,7 +146,7 @@ const PopUp:React.FC<PopupProps> = ({windowSize,mode,id})=>{
                     ): popupMode === 'service' ? (
                         <div className="flex flex-col justify-between items-start h-[100vh] gap-3 py-3 px-8 overflow-y-auto ">
                             <div className="flex justify-between items-center gap-3 w-full">
-                                <h3 className="text-[1.5em] font-bold uppercase text-thirty">Services</h3>
+                                <h3 className="text-[1.5em] font-bold uppercase text-thirty">{t("services")}</h3>
                                 <span className=" cursor-pointer"><CloseButton size="large" onClose={handlePopUp}/></span>
                             </div>
                             <div className="mt-3">
@@ -183,7 +183,7 @@ const PopUp:React.FC<PopupProps> = ({windowSize,mode,id})=>{
                                     }
                                 </div>
                                 <div className="mt-10 mb-3">
-                                    <h2 className="mb-3 text-[2em] text-thirty font-semibold">Nos réalisation</h2>
+                                    <h2 className="mb-3 text-[2em] text-thirty font-semibold">{t("realisation")}</h2>
                                     <h4 className="mb-3 text-[1.5em] text-primary font-semibold">{serviceSiteReference?.title}</h4>
                                     <div className="flex justify-between items-start gap-3 max-810:flex-col-reverse">
                                         <div className="overflow-hidden w-4/5 max-810:w-full">
@@ -221,7 +221,7 @@ const PopUp:React.FC<PopupProps> = ({windowSize,mode,id})=>{
                     ) : (
                         <div className="flex flex-col justify-start items-start h-[100vh] gap-3 py-3 px-8 overflow-y-auto">
                             <div className="flex justify-between items-center gap-3 w-full">
-                                <h3 className="text-[1.5em] font-bold uppercase text-thirty">Références</h3>
+                                <h3 className="text-[1.5em] font-bold uppercase text-thirty">{t("references")}</h3>
                                 <span className=" cursor-pointer"><CloseButton size="large" onClose={handlePopUp}/></span>
                             </div>
                             <div className="mt-4">
@@ -235,19 +235,19 @@ const PopUp:React.FC<PopupProps> = ({windowSize,mode,id})=>{
                                             <div className="flex justify-between items-center gap-1 w-full flex-wrap">
                                                 <span className="flex justify-start items-center gap-1">
                                                     <Icon name="bx-calendar" size="1em" color="var(--color-thirty)"/>
-                                                    Année
+                                                    {t("yeare")}
                                                 </span> 
                                                 <span className="font-medium flex-1 text-right">{refDetail?.infoSite.year}</span>
                                             </div>
                                             <div className="flex justify-between items-center gap-1 w-full flex-wrap">
                                                 <span className="flex justify-start items-center gap-1">
                                                     <Icon name="bx-category" size="1em" color="var(--color-thirty)"/>
-                                                    Catégorie</span>
+                                                    {t("categorie")}</span>
                                                 <span className="font-medium flex-1 text-right">{refDetail?.infoSite.cat}</span>
                                             </div>
                                             <div className="flex justify-between items-center gap-2 w-full flex-wrap">
                                                 <span className="flex justify-start items-center gap-1">
-                                                    <Icon name="bx-code-alt" size="1.1em" color="var(--color-thirty)"/>Technologies
+                                                    <Icon name="bx-code-alt" size="1.1em" color="var(--color-thirty)"/>{t("techno")}
                                                 </span>
                                                 <div className="mt-4 flex justify-end items-center flex-wrap gap-2">
                                                 {
@@ -258,7 +258,7 @@ const PopUp:React.FC<PopupProps> = ({windowSize,mode,id})=>{
                                             </div>
                                             </div>
                                             {
-                                                refDetail?.infoSite.link !== '' ? <div className="mt-4 flex justify-end items-end w-full"><a href={refDetail?.infoSite.link} className="py-1 px-4 outline outline-1 outline-thirty rounded-lg" target="__blanc">Lien du site </a></div> : <div className="mt-4 w-full flex justify-end items-end"><span className="py-1 px-4 outline outline-1 outline-thirty rounded-lg">Site en maintenance</span></div>
+                                                refDetail?.infoSite.link !== '' ? <div className="mt-4 flex justify-end items-end w-full"><a href={refDetail?.infoSite.link} className="py-1 px-4 outline outline-1 outline-thirty rounded-lg" target="__blanc">{t("websiteLink")} </a></div> : <div className="mt-4 w-full flex justify-end items-end"><span className="py-1 px-4 outline outline-1 outline-thirty rounded-lg">{t("websiteOnMaintenance")}</span></div>
                                             }
                                         </div>
                                     </div>
@@ -282,7 +282,7 @@ const PopUp:React.FC<PopupProps> = ({windowSize,mode,id})=>{
                                     </div>
                                 </div>
                                 <div className="mt-10">
-                                    <h4 className="text-[1.4em] font-semibold text-thirty mb-3 uppercase">Tâches réalisés sur le site</h4>
+                                    <h4 className="text-[1.4em] font-semibold text-thirty mb-3 uppercase">{t("tasksOnWebsite")}</h4>
                                     <hr  className="border-thirty mb-5"/>
                                     <ul className="flex justify-start items-center !list-decimal gap-2 flex-wrap w-full pl-5 max-792:flex-col">
                                         {

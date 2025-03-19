@@ -15,7 +15,7 @@ const Home:React.FC<HomeProps> = ()=>{
                         <h1 className='text-fifty mb-3 uppercase text-[3em] max-485:text-[2em] max-485:mb-5'>Lorem ipsum dolor sit amet.</h1>
                         <p className='mb-3 text-fifty'>Lorem ipsum, dolor sit amet consectetur adipisicing elit. Pariatur laudantium blanditiis natus error.</p>
                         <div className='flex justify-center items-center gap-2 h-[116px] w-full mb-4 bg-primary p-4 flex-col'>
-                            <h4 className='text-fifty uppercase text-[1em] dev'>Spécialisé dans le Développement</h4>
+                            <h4 className='text-fifty uppercase text-[1em] dev'>{t("domainTitle")}</h4>
                             <div className="dropping-texts w-full">
                                 <div className='text-center w-full'>Site Web Wordpress</div>
                                 <div className='text-center w-full'>Site Web From scratch</div>
