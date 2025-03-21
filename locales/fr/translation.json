@@ -13,7 +13,7 @@
     "yearExperiences":"Années d'expérience",
     "realiseProject":"Projets web réalisés",
     "satisfiedCustomer":"Client Satisfait",
-    "showcaseWebsite":"Création site vitrine",
+    "showcaseWebsite":"Création site web",
     "learnMore":"En savoir plus",
     "reworkWebsite":"Refonte site",
     "ecommerceWebste":"Creation site e-commerce",
@@ -63,6 +63,7 @@
     "yourName":"Votre nom complet",
     "shareOn":"Partager sur les réseaux sociaux",
     "devTitle":"Développeur Web et Mobile Indépendant",
+    "devDescription":"Développeur web et mobile indépendant, expert en Angular, React, Node.js, etc. Expérience depuis 2018, projets professionnels, personnels et freelance depuis décembre 2024.",
     "legalNotice":"Mentions légales",
     "right":"Tous droits réservés",
     "domainTitle":"Spécialisé dans le Développement",
@@ -73,6 +74,22 @@
     "techno":"Technologies",
     "websiteLink":"Lien du site",
     "websiteOnMaintenance":"Site en maintenance",
-    "tasksOnWebsite":"Tâches réalisés sur le site"
+    "tasksOnWebsite":"Tâches réalisés sur le site",
+    "ecommerceWebSite":"Site Web E-commerce",
+    "web":"Site Web",
+    "title1": "Bachelor en Informatique",
+    "countryDe": "Allemagne",
+    "periode1": "Octobre 2017 - Juillet 2020",
+    "description1": "J'ai commencé mes études universitaires en informatique en Allemagne, où j'ai suivi un cycle de Bachelor pendant trois ans.",
+    "title2": "Bac +4 (RNCP) Développeur web et mobile",
+    "countryFr": "France",
+    "periode2": "Janvier 2021 - Novembre 2021",
+    "description2": "Après avoir obtenu mon diplôme de Bachelor, j'ai migré vers la France pour poursuivre mes études à un niveau Bac +4 Développeur web et mobile.",
+    "title3": "Bac +5 (RNCP) Expert informatique et système d'information",
+    "periode3": "Janvier 2022 - Février 2023",
+    "description3": "J'ai continué mes études en France pour atteindre le niveau Bac +5 Expert informatique et système d'information, consolidant ainsi mes compétences et connaissances en informatique.",
+    "periode":"Période",
+    "country":"Lieu"
+      
   }
   

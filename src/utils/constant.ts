@@ -336,4 +336,25 @@ export const reference: Reference = {
         ]
     }
 };
+
+export const pathwayData = [
+    {
+        title:'title1',
+        country:'countryDe',
+        periode:"periode1",
+        description:"description1"
+    },
+    {
+        title:'title2',
+        country:'countryFr',
+        periode:"periode2",
+        description:"description2"
+    },
+    {
+        title:'title3',
+        country:'countryFr',
+        periode:"periode3",
+        description:"description3"
+    }
+]
   
