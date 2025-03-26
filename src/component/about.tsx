@@ -1,7 +1,7 @@
 import { Element } from 'react-scroll';
 import Icon from './Icon';
 import { useTranslation } from 'react-i18next';
-import { pathwayData } from '../utils/constant';
+import { pathwayData,experienceData } from '../utils/constant';
 interface AboutProps{
 
 }
@@ -10,6 +10,9 @@ const About:React.FC<AboutProps> = ()=>{
     const { t } = useTranslation();
     const pathway = pathwayData.map((item:any)=>{
         return {title:t(item.title),country:t(item.country),periode:t(item.periode),description:t(item.description)}
+    })
+    const experience = experienceData.map((item)=>{
+        return {title:t(item.title),country:t(item.country),periode:t(item.periode),enterprice:t(item.enterprice),description:t(item.description)}
     })
     const stat = [
         {
@@ -31,35 +34,58 @@ const About:React.FC<AboutProps> = ()=>{
         <Element className="mt-[110px]" name="about">
             <div className='w-[85%] mx-auto'>
                 <h1 className='text-center uppercase text-thirty mb-10'>{t("about")}</h1>
-                <div className='flex justify-around items-center gap-8 max-920:flex-col'>
-                    <div className="parcours w-1/3 max-920:w-full">
-                        <h3 className='text-[#aaa] text-[1.5em] mb-4'>{t("pathway")}</h3>
-                        <div className='flex flex-col gap-y-4 ml-4'>
-                        {
-                            pathway.map((item,index)=>{
-                                return (
-                                    <div key={index}
-                                    >
-                                        <h4 className='mb-3 text-secondary'>{item.title}</h4>
-                                        <div className='ml-4'>
-                                            <p className='flex justify-start items-center gap-2 mb-1'>
-                                                <span><strong>{t("periode")}</strong>:</span>{item.periode}</p>
-                                            <p className='flex justify-start items-center gap-2 mb-2'>
-                                                <span><strong>{t("country")}</strong>:</span>{item.country}</p>
-                                            <p>{item.description}</p>
+                <div className='flex justify-start items-center gap-20 flex-col'>
+                    <div className='w-full flex justify-center items-center gap-8'>
+                        <div className="parcours w-2/3 max-920:w-full">
+                            <h3 className='text-[#aaa] text-[1.5em] mb-4'>{t("pathway")}</h3>
+                            <div className='flex flex-col gap-y-4 ml-4'>
+                            {
+                                pathway.map((item,index)=>{
+                                    return (
+                                        <div key={index}
+                                        >
+                                            <h4 className='mb-3 text-secondary'>{item.title}</h4>
+                                            <div className='ml-4'>
+                                                <p className='flex justify-start items-center gap-2 mb-1'>
+                                                    <span><strong>{t("periode")}</strong>:</span>{item.periode}</p>
+                                                <p className='flex justify-start items-center gap-2 mb-2'>
+                                                    <span><strong>{t("country")}</strong>:</span>{item.country}</p>
+                                                <p>{item.description}</p>
+                                            </div>
                                         </div>
-                                    </div>
-                                )
-                            })
-                        }
+                                    )
+                                })
+                            }
+                            </div>
                         </div>
+                        <img className='w-1/3 max-920:w-2/3 max-485:w-full' src="/assets/images/about.svg" alt="about" />
                     </div>
-                    <img className='w-1/3 max-920:w-2/3 max-485:w-full' src="/assets/images/about.svg" alt="about" />
-                    <div className="experience w-1/3 max-920:w-full">
-                        <h3 className='text-[#aaa] text-[1.5em] mb-4'>{t("expiriences")}</h3>
-                        <p>Lorem, ipsum dolor sit amet consectetur adipisicing elit. Deserunt debitis tenetur magni minima minus consequuntur aut aperiam autem, consequatur in.</p>
-                        <p>Lorem, ipsum dolor sit amet consectetur adipisicing elit. Deserunt debitis tenetur magni minima minus consequuntur aut aperiam autem, consequatur in.</p>
-                        <p>Lorem, ipsum dolor sit amet consectetur adipisicing elit. Deserunt debitis tenetur magni minima minus consequuntur aut aperiam autem, consequatur in.</p>
+                    <div className='w-full flex justify-center items-start gap-8'>
+                        <img className='w-1/3 max-920:w-2/3 max-485:w-full' src="/assets/images/about.svg" alt="about" />
+                        <div className="experience w-2/3 max-920:w-full">
+                            <h3 className='text-[#aaa] text-[1.5em] mb-4 text-right'>{t("expiriences")}</h3>
+                            <div className='flex justify-end items-end flex-col gap-y-4 ml-4'>
+                            {
+                                experience.map((item,index)=>{
+                                    return (
+                                        <div key={index}
+                                        >
+                                            <h4 className='mb-3 text-secondary text-right'>{item.title}</h4>
+                                            <div className='ml-4 w-full'>
+                                                <p className='flex justify-end items-center gap-2 mb-1'>
+                                                    <span><strong>{t("periode")}</strong>:</span>{item.periode}</p>
+                                                <p className='flex justify-end items-center gap-2 mb-2'>
+                                                    <span><strong>{t("country")}</strong>:</span>{item.country}</p>
+                                                <p className='flex justify-end items-center gap-2 mb-2 uppercase'>
+                                                    <span><strong>{t("enterprice")}</strong>:</span>{item.enterprice}</p>
+                                                <p className='text-right ml-[20%]'>{item.description}</p>
+                                            </div>
+                                        </div>
+                                    )
+                                })
+                            }
+                            </div>
+                        </div>
                     </div>
                 </div>
                 <div className='w-full flex justify-center items-center'>

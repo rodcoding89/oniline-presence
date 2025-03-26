@@ -357,4 +357,41 @@ export const pathwayData = [
         description:"description3"
     }
 ]
+export const experienceData = [
+    {
+        title:'exTitle1',
+        country:'countryDe',
+        periode:"exPeriode1",
+        enterprice:"enterprice1",
+        description:"exDescription1"
+    },
+    {
+        title:'exTitle2',
+        country:'countryDe',
+        periode:"exPeriode2",
+        enterprice:"enterprice2",
+        description:"exDescription2"
+    },
+    {
+        title:'exTitle3',
+        country:'countryFr',
+        periode:"exPeriode3",
+        enterprice:"enterprice3",
+        description:"exDescription3"
+    },
+    {
+        title:'exTitle4',
+        country:'countryFr',
+        periode:"exPeriode4",
+        enterprice:"enterprice4",
+        description:"exDescription4"
+    },
+    {
+        title:'exTitle5',
+        country:'countryFr',
+        periode:"exPeriode5",
+        enterprice:"enterprice5",
+        description:"exDescription5"
+    }
+]
   

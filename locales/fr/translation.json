@@ -89,7 +89,27 @@
     "periode3": "Janvier 2022 - Février 2023",
     "description3": "J'ai continué mes études en France pour atteindre le niveau Bac +5 Expert informatique et système d'information, consolidant ainsi mes compétences et connaissances en informatique.",
     "periode":"Période",
-    "country":"Lieu"
-      
+    "country":"Lieu",
+    "enterprice":"Entreprise",
+    "enterprice1":"udg",
+    "enterprice2":"graphicon",
+    "enterprice3":"waveconnect",
+    "enterprice4":"avlis formation",
+    "enterprice5":"contrat freelance",
+    "exTitle1":"Stage d'étude (Développeur web)",
+    "exTitle2":"Job étudiant (Développeur web)",
+    "exTitle3":"Stage Bac +4 (Développeur web/mobile)",
+    "exTitle4":"Alternance Bac +5 (Expert informatique et système d'information)",
+    "exTitle5":"Freelance",
+    "exPeriode1":"Mars 2015 - Septembre 2015",
+    "exPeriode2":"Février 2018 - Juillet 2019",
+    "exPeriode3":"Juin 2021 - Octobre 2021",
+    "exPeriode4":"Février 2022 - Février 2023",
+    "exPeriode5":"Décembre 2024 - Janvier 2025",
+    "exDescription1":"Durant ce stage, j'ai appris les pratiques de développement de l'entreprise, telles que les différents environnements (développement, staging, production) et le système de versioning. Par la suite, j'ai été intégré à des projets concrets, comme la modification et l'ajout d'images, de formulaires de contact, de templates d'emails, ainsi que l'ajout de fonctionnalités en JavaScript (JQuery) et l'intégration de Google Maps.",
+    "exDescription2":"Chez Graphicon, mes tâches ont porté sur le développement de sites web en utilisant Angular 2+, Vue.js, PHP et WordPress. J'ai effectué des mises à jour et ajouté de nouvelles fonctionnalités, tout en assurant les tests et le déploiement des sites créés ou mis à jour.",
+    "exDescription3":"En tant que stagiaire chez WaveConnect, j'ai travaillé sur deux projets : un site e-commerce sans CMS et une application web. Le premier projet, réalisé en PHP, JavaScript et MySQL, était destiné à un restaurant avec plusieurs points de vente, avec pour principal objectif de permettre aux clients de commander en ligne. Le second projet, également en PHP, JavaScript et MySQL, visait à déterminer la distance entre le lieu de livraison et le restaurant pour établir un prix.",
+    "exDescription4":"Durant mon alternance chez Avlis, j'ai principalement travaillé sur un CRM composé de plusieurs branches (espace étudiant, back-office, site vitrine). Mes tâches consistaient à corriger les bugs, ajouter de nouvelles fonctionnalités, proposer des améliorations et étudier la possibilité de refaire le CRM avec des technologies actuelles pour une meilleure compréhension de l'outil par les étudiants, les employés et les développeurs.",
+    "exDescription5":"Ma première mission en tant que freelance était pour une cliente qui recherchait un site offrant des fonctionnalités lui permettant d'ajouter et de modifier ses services et ateliers de manière dynamique depuis un back-office, selon ses besoins. Elle souhaitait également un système de blog dont la gestion se ferait également depuis le back-office. *Back-office : Espace personnel où le client peut gérer le site (ex. : blog, services,ateliers, etc.)"
   }
   

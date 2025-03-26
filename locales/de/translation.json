@@ -89,6 +89,27 @@
     "periode3": "Januar 2022 - Februar 2023",
     "description3": "Ich habe mein Studium in Frankreich fortgesetzt, um den Abschluss Bac +5 IT-Experte und Informationssysteme zu erreichen und damit meine Fähigkeiten und Kenntnisse in der Informatik zu festigen.",
     "periode": "Zeitraum",
-    "country": "Ort"
+    "country": "Ort",
+    "enterprice":"Unternehmen",
+    "enterprice1":"udg",
+    "enterprice2":"graphicon",
+    "enterprice3":"waveconnect",
+    "enterprice4":"avlis formation",
+    "enterprice5":"Freelance-Vertrag",
+    "exTitle1":"Studienstage (Webentwickler)",
+    "exTitle2":"Studenten Job (Webentwickler)",
+    "exTitle3":"Bac +4 (Webentwickler/Mobile)",
+    "exTitle4":"Bac +5 (IT-Experte und Informationssysteme)",
+    "exTitle5":"Freelancer",
+    "exPeriode1":"März 2015 - September 2015",
+    "exPeriode2":"Februar 2018 - Juli 2019",
+    "exPeriode3":"Juni 2021 - Oktober 2021",
+    "exPeriode4":"Februar 2022 - Februar 2023",
+    "exPeriode5":"Dezember 2024 - Januar 2025",
+    "exDescription1": "Während dieses Praktikums habe ich die Entwicklungspraktiken des Unternehmens kennengelernt, wie die verschiedenen Umgebungen (Entwicklung, Staging, Produktion) und das Versionskontrollsystem. Anschließend wurde ich in konkrete Projekte eingebunden, wie die Änderung und Hinzufügung von Bildern, Kontaktformularen, E-Mail-Vorlagen sowie die Hinzufügung von Funktionen in JavaScript (JQuery) und die Integration von Google Maps.",
+    "exDescription2": "Bei Graphicon bestanden meine Aufgaben darin, Websites mit Angular 2+, Vue.js, PHP und WordPress zu entwickeln. Ich habe Updates durchgeführt und neue Funktionen hinzugefügt, während ich gleichzeitig Tests und die Bereitstellung der erstellten oder aktualisierten Websites sicherstellte.",
+    "exDescription3": "Als Praktikant bei WaveConnect habe ich an zwei Projekten gearbeitet: einer E-Commerce-Website ohne CMS und einer Webanwendung. Das erste Projekt, das in PHP, JavaScript und MySQL erstellt wurde, war für ein Restaurant mit mehreren Verkaufsstellen bestimmt und hatte das Hauptziel, Kunden das Online-Bestellen zu ermöglichen. Das zweite Projekt, ebenfalls in PHP, JavaScript und MySQL, zielte darauf ab, die Entfernung zwischen dem Lieferort und dem Restaurant zu bestimmen, um einen Preis festzulegen.",
+    "exDescription4": "Während meiner Ausbildung bei Avlis habe ich hauptsächlich an einem CRM gearbeitet, das aus mehreren Zweigen besteht (Studentenbereich, Backoffice, Schaufenster-Website). Meine Aufgaben bestanden darin, Fehler zu beheben, neue Funktionen hinzuzufügen, Verbesserungen vorzuschlagen und die Möglichkeit zu untersuchen, das CRM mit aktuellen Technologien neu zu gestalten, um das Tool für Studenten, Mitarbeiter und Entwickler besser verständlich zu machen.",
+    "exDescription5": "Mein erster Auftrag als Freelancer war für eine Kundin, die eine Website suchte, die ihr ermöglichte, ihre Dienstleistungen und Workshops dynamisch über ein Backoffice hinzuzufügen und zu ändern, je nach ihren Bedürfnissen. Sie wünschte sich auch ein Blogsystem, das ebenfalls über das Backoffice verwaltet werden sollte. *Backoffice: Persönlicher Bereich, in dem der Kunde die Website verwalten kann (z.B. Blog, Dienstleistungen, Workshops usw.)."
   }
   
