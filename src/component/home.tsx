@@ -29,7 +29,7 @@ const Home:React.FC<HomeProps> = ()=>{
                                     activeClass="active"
                                     spy={true} 
                                     smooth={true} 
-                                    offset={-65} 
+                                    offset={-100} 
                                     duration={500} 
                                     to={`contact`} 
                                     >{t("devi")}
@@ -40,7 +40,7 @@ const Home:React.FC<HomeProps> = ()=>{
                                     activeClass="active"
                                     spy={true} 
                                     smooth={true} 
-                                    offset={-65} 
+                                    offset={-100} 
                                     duration={500} 
                                     to={`services`} 
                                     >{t("ourServices")}

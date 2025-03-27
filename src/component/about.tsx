@@ -2,6 +2,7 @@ import { Element } from 'react-scroll';
 import Icon from './Icon';
 import { useTranslation } from 'react-i18next';
 import { pathwayData,experienceData } from '../utils/constant';
+import { Link } from 'react-router-dom';
 interface AboutProps{
 
 }
@@ -88,6 +89,7 @@ const About:React.FC<AboutProps> = ()=>{
                         </div>
                     </div>
                 </div>
+                <span className='block text-left italic text-[.8em] mt-5'>{t('moreEx')}<Link className='text-[#535bf2] hover:underline text-[14px] not-italic' to={'https://portfolio.rodcoding.com'}>{t('portfolio')}</Link></span>
                 <div className='w-full flex justify-center items-center'>
                     <div className="stat flex justify-start items-center flex-wrap gap-5 mt-4 max-485:justify-center">
                         {

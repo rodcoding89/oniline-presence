@@ -51,7 +51,7 @@ export const services = [
         id:1,
         service:{
             serviceName:"showcaseWebsite",
-            shortDescript:"Lorem ipsum dolor sit amet, consectetur adipisicing elit. Provident, unde culpa. Dolores tenetur neque esse fugit provident? Earum quam vero nostrum dolorem sequi error facilis autem iure, quo eum ratione?",
+            shortDescript:"serviceWebsite",
             icon:"bx-code-alt"
         }   
     },
@@ -59,7 +59,7 @@ export const services = [
         id:2,
         service:{
             serviceName:"reworkWebsite",
-            shortDescript:"Lorem ipsum dolor sit amet, consectetur adipisicing elit. Provident, unde culpa. Dolores tenetur neque esse fugit provident? Earum quam vero nostrum dolorem sequi error facilis autem iure, quo eum ratione?",
+            shortDescript:"serviceWebsiteRework",
             icon:"bx-edit"
         }   
     },
@@ -67,7 +67,7 @@ export const services = [
         id:3,
         service:{
             serviceName:"ecommerceWebste",
-            shortDescript:"Lorem ipsum dolor sit amet, consectetur adipisicing elit. Provident, unde culpa. Dolores tenetur neque esse fugit provident? Earum quam vero nostrum dolorem sequi error facilis autem iure, quo eum ratione?",
+            shortDescript:"serviceEcommerce",
             icon:"bx-shopping-bag"
         }   
     },
@@ -75,7 +75,7 @@ export const services = [
         id:4,
         service:{
             serviceName:"saas",
-            shortDescript:"Lorem ipsum dolor sit amet, consectetur adipisicing elit. Provident, unde culpa. Dolores tenetur neque esse fugit provident? Earum quam vero nostrum dolorem sequi error facilis autem iure, quo eum ratione?",
+            shortDescript:"serviceSaas",
             icon:"bx-desktop"
         }   
     },
@@ -83,7 +83,7 @@ export const services = [
         id:5,
         service:{
             serviceName:"mobileApp",
-            shortDescript:"Lorem ipsum dolor sit amet, consectetur adipisicing elit. Provident, unde culpa. Dolores tenetur neque esse fugit provident? Earum quam vero nostrum dolorem sequi error facilis autem iure, quo eum ratione?",
+            shortDescript:"serviceApp",
             icon:"bx-devices"
         }   
     }
