@@ -24,7 +24,7 @@
     "ecommerce": "Site E-commerce",
     "ourReferences":"Mes références",
     "priceTitle":"Un tarif adapté à un site internet de qualité!",
-    "standartWebsite":"Site vitrine standard",
+    "standartWebsite":"Site web standard",
     "ofHand":"Sur mesure",
     "devOn":"Développé sous WORDPRESS",
     "outilTool":"(Outil de gestion de contenu)",
@@ -117,6 +117,24 @@
     "serviceWebsiteRework":"La refonte d’un site web modernise votre présence en ligne pour améliorer l’expérience utilisateur, le référencement et l’efficacité commerciale. J’optimise le design, la performance et la sécurité, tout en adaptant votre site aux dernières tendances et technologies. Un site actualisé renforce votre crédibilité, attire plus de visiteurs et convertit mieux. Cette refonte concerne les sites vitrines, e-commerce ou applications web.",
     "serviceEcommerce":"Un site e-commerce est une boutique en ligne qui permet de vendre vos produits 24h/24, partout dans le monde. Contrairement à un magasin physique, il réduit les coûts fixes, attire plus de clients et augmente vos ventes grâce à un canal digital performant. Je vous accompagne dans la création d’un site sur mesure, optimisé pour la conversion, sécurisé et adapté à vos besoins. Boostez votre business avec une vitrine professionnelle qui convertit vos visiteurs en acheteurs !",
     "serviceSaas":"Un logiciel métier (ou SaaS) est une solution digitale sur mesure, conçue pour automatiser et optimiser vos processus métiers. Accessible en ligne, il simplifie vos opérations, améliore la productivité et s'adapte à vos besoins spécifiques, tout en réduisant les coûts d'infrastructure. Idéal pour gagner en efficacité et en compétitivité.",
-    "serviceApp":"Une application mobile est un logiciel conçu pour smartphones et tablettes, offrant une expérience utilisateur optimisée. Elle permet d’améliorer l’engagement client, automatiser des processus, ou proposer des services innovants (e-commerce, réservation, suivi en temps réel…). Je développe des applications sur mesure, performantes et intuitives, adaptées à vos besoins métiers. Boostez votre visibilité et votre efficacité avec une solution mobile personnalisée !"
-  }
+    "serviceApp":"Une application mobile est un logiciel conçu pour smartphones et tablettes, offrant une expérience utilisateur optimisée. Elle permet d’améliorer l’engagement client, automatiser des processus, ou proposer des services innovants (e-commerce, réservation, suivi en temps réel…). Je développe des applications sur mesure, performantes et intuitives, adaptées à vos besoins métiers. Boostez votre visibilité et votre efficacité avec une solution mobile personnalisée !",
+    "serviceSiteVitrineTitle": "Création de site vitrine",
+  "serviceSiteVitrineDescrip": "Vous avez besoin d'un site internet pour présenter votre entreprise, association ou collectivité ? Voici tout ce que vous devez savoir sur la création de site vitrine : \n Il existe deux façons de créer un site vitrine. La première méthode, la plus populaire, est d'utiliser un CMS (Outil de gestion de contenu), et la deuxième est de le développer à la main.",
+  "serviceSiteVitrineAvantageTitel1": "Visibilité 24/7",
+  "serviceSiteVitrineAvantageDescrip1": "Votre entreprise reste accessible à tout moment, même hors heures d'ouverture, élargissant vos opportunités commerciales.",
+  "serviceSiteVitrineAvantageTitel2": "Crédibilité professionnelle",
+  "serviceSiteVitrineAvantageDescrip2": "Un site bien conçu renforce l'image de marque et inspire confiance aux prospects (75 % jugent la crédibilité d'une entreprise sur son site).",
+  "serviceSiteVitrineAvantageTitel3": "Référencement local (SEO)",
+  "serviceSiteVitrineAvantageDescrip3": "Apparaître dans les résultats Google Maps et recherches locales ('plombier près de moi').",
+  "serviceSiteVitrineAvantageTitel4": "Support marketing polyvalent",
+  "serviceSiteVitrineAvantageDescrip4": "Intégrable à vos cartes de visite, signatures mail et réseaux sociaux pour une communication unifiée.",
+  "serviceSiteVitrineAvantageTitel5": "Analyse des visiteurs",
+  "serviceSiteVitrineAvantageDescrip5": "Outils comme Google Analytics révèlent le comportement de votre audience pour optimiser vos offres.",
+  "serviceSiteVitrineDef": "Qu'est-ce que la création de site internet ?",
+  "serviceSiteVitrineSubTitle": "Les différents modes de création de site vitrine",
+  "websiteVitrineCostTitle": "Combien coûte la création d'un site internet ?",
+  "websiteVitrineCostPara": "Les tarifs pour la création d'un site internet dépendront directement des fonctionnalités et de la structure souhaitées. Ainsi, selon la complexité de votre projet, le budget à prévoir sera plus ou moins élevé.",
+  "websiteVitrineCostSubPara": "Pour une estimation du coût de votre projet de création de site internet, contactez-nous via notre formulaire. Une chef de projet étudiera votre demande et vous fera parvenir un devis.",
+  "websiteVitrineAvantgeTitle": "La création de sites internet présente de nombreux avantages, notamment :"
+}
   

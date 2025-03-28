@@ -24,7 +24,7 @@
     "ecommerce": "E-Commerce-Website",
     "ourReferences":"Meine Referenzen",
     "priceTitle":"Ein angepasster Tarif für eine qualitativ hochwertige Website!",
-    "standartWebsite":"Standard-Schaufenster-Website",
+    "standartWebsite":"Standard-Website",
     "ofHand":"Maßgeschneidert",
     "devOn":"Entwickelt mit WORDPRESS",
     "outilTool":"Inhaltsverwaltungswerkzeug",
@@ -117,6 +117,24 @@
     "serviceWebsiteRework": "Ein Website-Relaunch modernisiert Ihren Online-Auftritt, verbessert Nutzererfahrung, SEO und Verkaufserfolg. Ich optimiere Design, Geschwindigkeit und Sicherheit und passe Ihre Seite an aktuelle Trends an. Ein modernisierter Auftritt stärkt Ihre Glaubwürdigkeit, zieht mehr Besucher an und erhöht die Conversion. Geeignet für Visitenkarten-Websites, Online-Shops oder Web-Apps.",
     "serviceEcommerce": "Ein E-Commerce-Shop ist ein Online-Geschäft, das Ihnen ermöglicht, Produkte weltweit 24/7 zu verkaufen. Im Vergleich zu einem Ladengeschäft reduziert es Fixkosten, gewinnt mehr Kunden und steigert Ihren Umsatz durch einen leistungsstarken digitalen Kanal. Ich entwickle einen maßgeschneiderten, conversionsoptimierten und sicheren Shop – perfekt auf Ihre Bedürfnisse zugeschnitten. Steigern Sie Ihren Umsatz mit einem professionellen Online-Store!",
     "serviceSaas": "Eine Business-Software (oder SaaS) ist eine maßgeschneiderte digitale Lösung zur Automatisierung und Optimierung Ihrer Arbeitsabläufe. Online verfügbar vereinfacht sie Prozesse, steigert die Produktivität und passt sich Ihren Anforderungen an – bei reduzierten Infrastrukturkosten. Ideal für mehr Effizienz und Wettbewerbsfähigkeit.",
-    "serviceApp": "Eine Mobile App ist eine Software für Smartphones und Tablets mit optimierter Benutzeroberfläche. Sie steigert Kundenbindung, automatisiert Prozesse oder bietet innovative Services (E-Commerce, Buchungen, Echtzeit-Tracking…). Ich entwickle individuelle, leistungsstarke und intuitive Apps für Ihre Geschäftsanforderungen. Steigern Sie Sichtbarkeit und Effizienz mit einer maßgeschneiderten Mobile-Lösung!"
-  }
+    "serviceApp": "Eine Mobile App ist eine Software für Smartphones und Tablets mit optimierter Benutzeroberfläche. Sie steigert Kundenbindung, automatisiert Prozesse oder bietet innovative Services (E-Commerce, Buchungen, Echtzeit-Tracking…). Ich entwickle individuelle, leistungsstarke und intuitive Apps für Ihre Geschäftsanforderungen. Steigern Sie Sichtbarkeit und Effizienz mit einer maßgeschneiderten Mobile-Lösung!",
+    "serviceSiteVitrineTitle": "Erstellung einer Webseite",
+  "serviceSiteVitrineDescrip": "Benötigen Sie eine Webseite, um Ihr Unternehmen, Ihre Organisation oder Gemeinde zu präsentieren? Hier ist alles, was Sie über die Erstellung einer Webseite wissen müssen: \n Es gibt zwei Möglichkeiten, eine Webseite zu erstellen. Die erste und beliebteste Methode ist die Verwendung eines CMS (Content-Management-Systems), und die zweite ist die manuelle Entwicklung.",
+  "serviceSiteVitrineAvantageTitel1": "24/7 Sichtbarkeit",
+  "serviceSiteVitrineAvantageDescrip1": "Ihr Unternehmen ist jederzeit erreichbar, auch außerhalb der Öffnungszeiten, was Ihre Geschäftsmöglichkeiten erweitert.",
+  "serviceSiteVitrineAvantageTitel2": "Professionelle Glaubwürdigkeit",
+  "serviceSiteVitrineAvantageDescrip2": "Eine gut gestaltete Webseite stärkt das Markenimage und schafft Vertrauen bei potenziellen Kunden (75 % beurteilen die Glaubwürdigkeit eines Unternehmens anhand seiner Webseite).",
+  "serviceSiteVitrineAvantageTitel3": "Lokale Suchmaschinenoptimierung (SEO)",
+  "serviceSiteVitrineAvantageDescrip3": "Erscheinen Sie in den Ergebnissen von Google Maps und lokalen Suchanfragen ('Klempner in meiner Nähe').",
+  "serviceSiteVitrineAvantageTitel4": "Vielseitige Marketingunterstützung",
+  "serviceSiteVitrineAvantageDescrip4": "Integrierbar in Ihre Visitenkarten, E-Mail-Signaturen und sozialen Netzwerke für eine einheitliche Kommunikation.",
+  "serviceSiteVitrineAvantageTitel5": "Besucheranalyse",
+  "serviceSiteVitrineAvantageDescrip5": "Tools wie Google Analytics zeigen das Verhalten Ihrer Zielgruppe, um Ihre Angebote zu optimieren.",
+  "serviceSiteVitrineDef": "Was ist die Erstellung einer Webseite?",
+  "serviceSiteVitrineSubTitle": "Verschiedene Methoden zur Erstellung einer Webseite",
+  "websiteVitrineCostTitle": "Was kostet die Erstellung einer Webseite?",
+  "websiteVitrineCostPara": "Die Kosten für die Erstellung einer Webseite hängen direkt von den gewünschten Funktionen und der Struktur ab. Je nach Komplexität Ihres Projekts wird das Budget höher oder niedriger ausfallen.",
+  "websiteVitrineCostSubPara": "Für eine Kostenschätzung Ihres Webseiten-Projekts kontaktieren Sie uns bitte über unser Formular. Ein Projektleiter wird Ihre Anfrage prüfen und Ihnen ein Angebot zusenden.",
+  "websiteVitrineAvantgeTitle": "Die Erstellung von Websites bietet zahlreiche Vorteile, insbesondere:"
+}
   

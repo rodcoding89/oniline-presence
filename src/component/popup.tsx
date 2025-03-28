@@ -149,38 +149,47 @@ const PopUp:React.FC<PopupProps> = ({windowSize,mode,id})=>{
                                 <h3 className="text-[1.5em] font-bold uppercase text-thirty">{t("services")}</h3>
                                 <span className=" cursor-pointer"><CloseButton size="large" onClose={handlePopUp}/></span>
                             </div>
-                            <div className="mt-3">
-                                <h2 className="text-[1.8em] text-thirty font-semibold mb-3">{data?.title}</h2>
-                                <p className="mb-3">{data?.info}</p>
+                            <div className="mt-3 w-full">
+                                <h2 className="text-[1.8em] text-thirty font-semibold mb-3">{t(data?.title)}</h2>
                                 <div className="flex flex-col justify-start items-center gap-5">
-                                    {
-                                        data?.content.map((item:any,index:number)=>{
-                                            
-                                            return <div key={index} className={`${item.contentPara === undefined ? 'flex justify-start items-center max-810:flex-col gap-5 flex-row-reverse' : ''}`}>
-                                                <div className="mt-3 mb-5 w-full block">
-                                                    <h4 className="font-semibold mb-1">{item.title}</h4>
-                                                    <p className="whitespace-pre-wrap mb-2">{item.para}</p>
-                                                    <p className="whitespace-pre-wrap font-bold text-blue-950">{item.souspara}</p>
-                                                </div>
-                                                {
-                                                    item.contentPara === undefined ? <img className="w-1/2 aspect-[4/2] max-810:w-full" src={item.img} alt={item.title} /> : (
-                                                        <div className={`w-full flex items-center gap-5 max-810:flex-col ${index%2 === 0 ? '':'flex-row-reverse'}`}>
-                                                        <img className="w-1/2 max-810:w-full aspect-[4/2]" src={item.img} alt={item.title} />
-                                                        <div className="flex-1">
-                                                        {item.contentPara.map((para:any, j:number) => (
-                                                                <div className="" key={`${index}_${j}`}>
-                                                                <h5 className=" text-thirty mb-2 font-semibold text-[1.3em]">{para.title}</h5>
-                                                                <p className="whitespace-pre-wrap mb-3">{para.text}</p>
-                                                                </div>
-                                                            ))}
-                                                        </div>
-                                                    </div>
-                                                    )
-                                                }
-
+                                    <div className="mt-3 mb-5 w-full block">
+                                        <h4 className="font-semibold mb-1">{t(data?.content.title)}</h4>
+                                        <p className="whitespace-pre-wrap mb-2">{t(data?.content.para)}</p>
+                                        <p className="whitespace-pre-wrap font-bold text-blue-950">{t(data?.content.souspara)}</p>
+                                    </div>
+                                    <div className={`w-full flex items-center gap-5 max-810:flex-col flex-row-reverse`}>
+                                        <img className="w-1/2 max-810:w-full aspect-[4/3]" src={data?.img} alt={t(data?.content.title)} />
+                                        <div className="flex-1">
+                                        {data?.content.contentPara.map((para:any, j:number) => (
+                                            <div className="" key={j}>
+                                                <h5 className=" text-thirty mb-2 font-semibold text-[1.3em]">{t(para.title)}</h5>
+                                                <p className="whitespace-pre-wrap mb-3">{t(para.text)}</p>
                                             </div>
+                                        ))}
+                                        </div>
+                                    </div> 
+                                </div>
+                                <h2 className="text-[1.8em] text-thirty font-semibold mb-3 mt-10">{t(data?.subtitle)}</h2>
+                                <p className="mb-3">{t(data?.info)}</p>
+                                <div>
+                                    <div className='flex justify-around items-center gap-3 py-2 px-3 bg-white'>
+                                    {
+                                        data?.category?.map((m:any,i:number)=>{
+                                            return(
+                                                <p className={`relative cursor-pointer uppercase text-[.67em] text-ellipsis whitespace-nowrap overflow-hidden before:w-0 
+                                                before:transition-all before:duration-700 before:ease-in-out z-0 ${1 === i ? ' py-1 px-2 before:absolute before:left-0 before:top-0 before:bg-thirty before:!w-full before:h-full before:rounded-xl before:z-[-1] font-semibold text-fifty':''}`} key={i}>{t(m)}</p>
+                                            )
                                         })
                                     }
+                                    </div>
+                                </div>
+                                <h2 className="text-[1.8em] text-thirty font-semibold mb-3 mt-10">{t(data?.cost.title)}</h2>
+                                <div className="flex max-810:flex-col justify-start items-center gap-5">
+                                    <img className="w-1/2 max-810:w-full aspect-[4/2]" src={data?.img} alt={t(t(data?.cost.title))} />
+                                    <div className="mt-3 mb-5 w-full block">
+                                        <p className="whitespace-pre-wrap mb-2">{t(data?.cost.para)}</p>
+                                        <p className="whitespace-pre-wrap font-bold text-blue-950">{t(data?.cost.souspara)}</p>
+                                    </div> 
                                 </div>
                                 <div className="mt-10 mb-3">
                                     <h2 className="mb-3 text-[2em] text-thirty font-semibold">{t("realisation")}</h2>

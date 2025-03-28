@@ -28,7 +28,7 @@ const Footer:React.FC<FooterProps> = ()=>{
             <div className='flex justify-center items-start gap-x-[13vw] gap-y-4 w-full max-640:flex-col'>
                 <div className='w-1/2 max-640:w-full'>
                     <h4 className='text-fifty uppercase font-semibold mb-5'>{t("devTitle")}</h4>
-                    <p className='text-[#aaa]'>Lorem ipsum dolor sit amet consectetur, adipisicing elit. Quae distinctio quas obcaecati aliquid, possimus corrupti provident a reiciendis voluptatum voluptas perspiciatis voluptates minima expedita, minus magnam, eligendi ad placeat quibusdam.</p>
+                    <p className='text-[#aaa]'>{t("devDescription")}</p>
                 </div>
                 <div className='w-1/2 flex flex-col justify-start items-start max-640:w-full max-640:justify-start max-640:items-start'>
                     <h5 className='text-fifty uppercase font-semibold mb-5'>{t("contactMe")}</h5>

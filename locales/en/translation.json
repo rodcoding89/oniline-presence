@@ -24,7 +24,7 @@
     "ecommerce": "E-commerce website",
     "ourReferences":"My References",
     "priceTitle":"A rate tailored to a high-quality website!",
-    "standartWebsite":"Standard showcase website",
+    "standartWebsite":"Standard website",
     "ofHand":"Custom-made",
     "devOn":"Developed with WORDPRESS",
     "outilTool":"(Content Management Tool)",
@@ -117,6 +117,25 @@
     "serviceWebsiteRework": "A website redesign modernizes your online presence to enhance user experience, SEO, and sales performance. I optimize design, speed, and security while adapting your site to the latest trends and technologies. An updated site strengthens credibility, attracts more visitors, and improves conversions. This applies to showcase sites, e-commerce, or web apps.",
     "serviceEcommerce": "An e-commerce site is an online store that lets you sell products 24/7, worldwide. Unlike a physical store, it reduces fixed costs, attracts more customers, and increases sales through a high-performing digital channel. I help you build a custom, conversion-optimized, and secure store tailored to your needs. Boost your business with a professional store that turns visitors into buyers!",
     "serviceSaas": "A business software (or SaaS) is a custom digital solution designed to automate and optimize your workflows. Accessible online, it simplifies operations, improves productivity, and adapts to your specific needs while cutting infrastructure costs. Ideal for boosting efficiency and competitiveness.",
-    "serviceApp": "A mobile app is software designed for smartphones and tablets, offering an optimized user experience. It enhances customer engagement, automates processes, or provides innovative services (e-commerce, bookings, real-time tracking…). I develop custom, high-performance, and intuitive apps tailored to your business needs. Boost visibility and efficiency with a personalized mobile solution!"
-  }
+    "serviceApp": "A mobile app is software designed for smartphones and tablets, offering an optimized user experience. It enhances customer engagement, automates processes, or provides innovative services (e-commerce, bookings, real-time tracking…). I develop custom, high-performance, and intuitive apps tailored to your business needs. Boost visibility and efficiency with a personalized mobile solution!",
+    "serviceSiteVitrineTitle": "Website Creation",
+  "serviceSiteVitrineDescrip": "Do you need a website to present your business, association, or community? Here's everything you need to know about creating a showcase website: \n There are two ways to create a showcase website. The first and most popular method is to use a CMS (Content Management System), and the second is to develop it manually.",
+  "serviceSiteVitrineAvantageTitel1": "24/7 Visibility",
+  "serviceSiteVitrineAvantageDescrip1": "Your business remains accessible at all times, even outside of opening hours, expanding your business opportunities.",
+  "serviceSiteVitrineAvantageTitel2": "Professional Credibility",
+  "serviceSiteVitrineAvantageDescrip2": "A well-designed website strengthens brand image and inspires confidence in prospects (75% judge a company's credibility based on its website).",
+  "serviceSiteVitrineAvantageTitel3": "Local SEO",
+  "serviceSiteVitrineAvantageDescrip3": "Appear in Google Maps results and local searches ('plumber near me').",
+  "serviceSiteVitrineAvantageTitel4": "Versatile Marketing Support",
+  "serviceSiteVitrineAvantageDescrip4": "Integrate with your business cards, email signatures, and social networks for unified communication.",
+  "serviceSiteVitrineAvantageTitel5": "Visitor Analysis",
+  "serviceSiteVitrineAvantageDescrip5": "Tools like Google Analytics reveal your audience's behavior to optimize your offers.",
+  "serviceSiteVitrineDef": "What is website creation?",
+  "serviceSiteVitrineSubTitle": "Different methods of creating a showcase website",
+  "websiteVitrineCostTitle": "How much does website creation cost?",
+  "websiteVitrineCostPara": "The rates for creating a website will depend directly on the desired features and structure. Thus, depending on the complexity of your project, the budget will be more or less substantial.",
+  "websiteVitrineCostSubPara": "For an estimate of the cost of your website creation project, please contact us via our form. A project manager will review your request and send you a quote.",
+  "websiteVitrineAvantgeTitle": "Creating websites offers numerous advantages, such as:"
+}
+
   
