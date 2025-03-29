@@ -94,7 +94,7 @@ export const serviceDetail = {
         title:"serviceSiteVitrineTitle",
         info:"serviceSiteVitrineDescrip",
         subtitle:"serviceSiteVitrineSubTitle",
-        category:["WORDPRESS","ofHand"],
+        category:["WORDPRESS","ofHand","hybride"],
         img:'/assets/images/fieger.png',
         content:{
             title:"serviceSiteVitrineDef",
@@ -112,6 +112,60 @@ export const serviceDetail = {
             title:"websiteVitrineCostTitle",
             para:"websiteVitrineCostPara",
             souspara:"websiteVitrineCostSubPara",
+        },
+        devMode:{
+            1:{
+                def:"defworpress",
+                notion:"notionwordpress",
+                advantage:[
+                    {title:"avworpresstitle1",text:"avworpresstext1"},
+                    {title:"avworpresstitle2",text:"avworpresstext2"},
+                    {title:"avworpresstitle3",text:"avworpresstext3"},
+                    {title:"avworpresstitle4",text:"avworpresstext4"},
+                    {title:"avworpresstitle5",text:"avworpresstext5"}
+                ],
+                disadvantage:[
+                    {title:"disworpresstitle1",text:"disworpresstext1"},
+                    {title:"disworpresstitle2",text:"disworpresstext2"},
+                    {title:"disworpresstitle3",text:"disworpresstext3"},
+                    {title:"disworpresstitle4",text:"disworpresstext4"},
+                    {title:"disworpresstitle5",text:"disworpresstext5"}
+                ]
+            },
+            2:{
+                def:"defWebsiteFromHand",
+                notion:"notionWebsiteFromHand",
+                advantage:[
+                    {title:"avOfHandTitle1",text:"avOfHandText1"},
+                    {title:"avOfHandTitle2",text:"avOfHandText2"},
+                    {title:"avOfHandTitle3",text:"avOfHandText3"},
+                    {title:"avOfHandTitle4",text:"avOfHandText4"},
+                    {title:"avOfHandTitle5",text:"avOfHandText5"}
+                ],
+                disadvantage:[
+                    {title:"disOfHandTitle1",text:"disOfHandText1"},
+                    {title:"disOfHandTitle2",text:"disOfHandText2"},
+                    {title:"disOfHandTitle3",text:"disOfHandText3"},
+                    {title:"disOfHandTitle4",text:"disOfHandText4"},
+                    {title:"disOfHandTitle5",text:"disOfHandText5"}
+                ]
+            },
+            3:{
+                def:"wordpressAndDevofHand",
+                notion:"notionwordpressAndDevofHand",
+                advantage:[
+                    {title:"avHybrideTitle1",text:"avHybrideText1"},
+                    {title:"avHybrideTitle2",text:"avHybrideText2"},
+                    {title:"avHybrideTitle3",text:"avHybrideText3"},
+                    {title:"avHybrideTitle4",text:"avHybrideText4"},
+                    {title:"avHybrideTitle5",text:"avHybrideText5"}
+                ],
+                disadvantage:[
+                    {title:"disHybrideTitle1",text:"disHybrideText1"},
+                    {title:"disHybrideTitle2",text:"disHybrideText2"},
+                    {title:"disHybrideTitle3",text:"disHybrideText3"}
+                ]
+            }
         }
     }
 }

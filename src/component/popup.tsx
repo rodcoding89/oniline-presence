@@ -20,6 +20,7 @@ const PopUp:React.FC<PopupProps> = ({windowSize,mode,id})=>{
     const [serviceSiteReference,setServiceSiteReference] = useState<any>()
     const {contextData,setContextData} = useContext(AppContext)
     const data:any = id !== null ? serviceDetail[id as keyof typeof serviceDetail] : null;
+    const [switchIndex,setSwitchIndex] = useState<number>(0)
     //const refenrence = id !== null && mode === 'service' ? reference[id] : null
     //= id !== null ? refDetailContent[id] : null
     const [popupMode,setMode] = useState<string>('')
@@ -41,6 +42,44 @@ const PopUp:React.FC<PopupProps> = ({windowSize,mode,id})=>{
         }else{
             setCurrentIndex((prev)=> prev === serviceSiteReference?.referenceContent.length! - 1 ? prev : prev + 1)
         }
+    }
+    const switchDevMode = (devModeContent:any)=>{
+        console.log("devModeContent",devModeContent)
+        if(!devModeContent) return
+        return (
+            <div>
+                <p className="text-[14px] my-3" dangerouslySetInnerHTML={{ __html: t(devModeContent[switchIndex + 1].def) }}/>
+                <span className="text-[11px] text-primary font-regular mb-5 italic block" dangerouslySetInnerHTML={{ __html: t(devModeContent[switchIndex + 1].notion) }}/>
+                <div className="flex justify-start items-start gap-3">
+                    <div className="w-1/2">
+                        <h4 className="mb-5 text-[1.15em] font-semibold uppercase">{t('advantage')}</h4>
+                        <div className="flex flex-col justify-start items-start gap-3">
+                            {
+                                devModeContent[switchIndex + 1].advantage.map((item:any,index:number)=>{
+                                    return <div key={index} className="">
+                                        <h6 className="text-[14px] font-semibold ">{t(item.title)} : </h6>
+                                        <p className="text-[13px]" dangerouslySetInnerHTML={{ __html: t(item.text) }}/>
+                                    </div>
+                                })
+                            }
+                        </div>
+                    </div>
+                    <div className="w-1/2">
+                        <h4 className="mb-5 text-[1.15em] font-semibold uppercase">{t('disadvantage')}</h4>
+                        <div className="flex flex-col justify-start items-start gap-3">
+                            {
+                                devModeContent[switchIndex + 1].disadvantage.map((item:any,index:number)=>{
+                                    return <div key={index} className="">
+                                        <h6 className="text-[14px] font-semibold ">{t(item.title)} : </h6>
+                                        <p className="text-[13px]" dangerouslySetInnerHTML={{ __html: t(item.text) }}/>
+                                    </div>
+                                })
+                            }
+                        </div>
+                    </div>
+                </div>
+            </div>
+        )
     }
     useEffect(()=>{
         if (contextData && contextData.state === "show") {
@@ -171,17 +210,20 @@ const PopUp:React.FC<PopupProps> = ({windowSize,mode,id})=>{
                                 </div>
                                 <h2 className="text-[1.8em] text-thirty font-semibold mb-3 mt-10">{t(data?.subtitle)}</h2>
                                 <p className="mb-3">{t(data?.info)}</p>
-                                <div>
+                                <div className="my-5">
                                     <div className='flex justify-around items-center gap-3 py-2 px-3 bg-white'>
                                     {
                                         data?.category?.map((m:any,i:number)=>{
                                             return(
-                                                <p className={`relative cursor-pointer uppercase text-[.67em] text-ellipsis whitespace-nowrap overflow-hidden before:w-0 
-                                                before:transition-all before:duration-700 before:ease-in-out z-0 ${1 === i ? ' py-1 px-2 before:absolute before:left-0 before:top-0 before:bg-thirty before:!w-full before:h-full before:rounded-xl before:z-[-1] font-semibold text-fifty':''}`} key={i}>{t(m)}</p>
+                                                <p onClick={()=>setSwitchIndex(i)} className={`relative cursor-pointer uppercase text-[.67em] text-ellipsis whitespace-nowrap overflow-hidden before:w-0 
+                                                before:transition-all before:duration-700 before:ease-in-out z-0 ${switchIndex === i ? ' py-1 px-2 before:absolute before:left-0 before:top-0 before:bg-thirty before:!w-full before:h-full before:rounded-xl before:z-[-1] font-semibold text-fifty':''}`} key={i}>{t(m)}</p>
                                             )
                                         })
                                     }
                                     </div>
+                                    {
+                                        switchDevMode(data?.devMode)
+                                    }
                                 </div>
                                 <h2 className="text-[1.8em] text-thirty font-semibold mb-3 mt-10">{t(data?.cost.title)}</h2>
                                 <div className="flex max-810:flex-col justify-start items-center gap-5">
