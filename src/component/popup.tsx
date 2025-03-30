@@ -21,6 +21,7 @@ const PopUp:React.FC<PopupProps> = ({windowSize,mode,id})=>{
     const {contextData,setContextData} = useContext(AppContext)
     const data:any = id !== null ? serviceDetail[id as keyof typeof serviceDetail] : null;
     const [switchIndex,setSwitchIndex] = useState<number>(0)
+    const serviceAvDistage = serviceDetail.avdistage;
     //const refenrence = id !== null && mode === 'service' ? reference[id] : null
     //= id !== null ? refDetailContent[id] : null
     const [popupMode,setMode] = useState<string>('')
@@ -44,18 +45,18 @@ const PopUp:React.FC<PopupProps> = ({windowSize,mode,id})=>{
         }
     }
     const switchDevMode = (devModeContent:any)=>{
-        console.log("devModeContent",devModeContent)
-        if(!devModeContent) return
+        console.log("devModeContent",devModeContent,"avdistage",serviceAvDistage)
+        if(!devModeContent || !serviceAvDistage) return
         return (
             <div>
                 <p className="text-[14px] my-3" dangerouslySetInnerHTML={{ __html: t(devModeContent[switchIndex + 1].def) }}/>
                 <span className="text-[11px] text-primary font-regular mb-5 italic block" dangerouslySetInnerHTML={{ __html: t(devModeContent[switchIndex + 1].notion) }}/>
                 <div className="flex justify-start items-start gap-3">
                     <div className="w-1/2">
-                        <h4 className="mb-5 text-[1.15em] font-semibold uppercase">{t('advantage')}</h4>
+                        <h4 className="mb-5 text-[1.15em] font-semibold uppercase text-secondary">{t('advantage')}</h4>
                         <div className="flex flex-col justify-start items-start gap-3">
                             {
-                                devModeContent[switchIndex + 1].advantage.map((item:any,index:number)=>{
+                                serviceAvDistage[switchIndex + 1 as keyof typeof serviceAvDistage].advantage.map((item:any,index:number)=>{
                                     return <div key={index} className="">
                                         <h6 className="text-[14px] font-semibold ">{t(item.title)} : </h6>
                                         <p className="text-[13px]" dangerouslySetInnerHTML={{ __html: t(item.text) }}/>
@@ -65,10 +66,10 @@ const PopUp:React.FC<PopupProps> = ({windowSize,mode,id})=>{
                         </div>
                     </div>
                     <div className="w-1/2">
-                        <h4 className="mb-5 text-[1.15em] font-semibold uppercase">{t('disadvantage')}</h4>
+                        <h4 className="mb-5 text-[1.15em] font-semibold uppercase text-secondary">{t('disadvantage')}</h4>
                         <div className="flex flex-col justify-start items-start gap-3">
                             {
-                                devModeContent[switchIndex + 1].disadvantage.map((item:any,index:number)=>{
+                                serviceAvDistage[switchIndex + 1 as keyof typeof serviceAvDistage].disadvantage.map((item:any,index:number)=>{
                                     return <div key={index} className="">
                                         <h6 className="text-[14px] font-semibold ">{t(item.title)} : </h6>
                                         <p className="text-[13px]" dangerouslySetInnerHTML={{ __html: t(item.text) }}/>
@@ -185,30 +186,31 @@ const PopUp:React.FC<PopupProps> = ({windowSize,mode,id})=>{
                     ): popupMode === 'service' ? (
                         <div className="flex flex-col justify-between items-start h-[100vh] gap-3 py-3 px-8 overflow-y-auto ">
                             <div className="flex justify-between items-center gap-3 w-full">
-                                <h3 className="text-[1.5em] font-bold uppercase text-thirty">{t("services")}</h3>
+                                <h3 className="text-[1.8em] font-bold uppercase text-thirty">{t("services")}</h3>
                                 <span className=" cursor-pointer"><CloseButton size="large" onClose={handlePopUp}/></span>
                             </div>
                             <div className="mt-3 w-full">
-                                <h2 className="text-[1.8em] text-thirty font-semibold mb-3">{t(data?.title)}</h2>
+                                <h2 className="text-[1.5em] text-thirty font-semibold mb-3">{t(data?.title)}</h2>
                                 <div className="flex flex-col justify-start items-center gap-5">
                                     <div className="mt-3 mb-5 w-full block">
                                         <h4 className="font-semibold mb-1">{t(data?.content.title)}</h4>
                                         <p className="whitespace-pre-wrap mb-2">{t(data?.content.para)}</p>
                                         <p className="whitespace-pre-wrap font-bold text-blue-950">{t(data?.content.souspara)}</p>
+                                        <span className="text-[11px] text-primary font-regular mb-5 italic block mt-4" dangerouslySetInnerHTML={{ __html: t(data?.content.notion) }}/>
                                     </div>
                                     <div className={`w-full flex items-center gap-5 max-810:flex-col flex-row-reverse`}>
                                         <img className="w-1/2 max-810:w-full aspect-[4/3]" src={data?.img} alt={t(data?.content.title)} />
                                         <div className="flex-1">
                                         {data?.content.contentPara.map((para:any, j:number) => (
                                             <div className="" key={j}>
-                                                <h5 className=" text-thirty mb-2 font-semibold text-[1.3em]">{t(para.title)}</h5>
+                                                <h5 className=" text-secondary mb-2 font-semibold text-[1.15em]">{t(para.title)}</h5>
                                                 <p className="whitespace-pre-wrap mb-3">{t(para.text)}</p>
                                             </div>
                                         ))}
                                         </div>
                                     </div> 
                                 </div>
-                                <h2 className="text-[1.8em] text-thirty font-semibold mb-3 mt-10">{t(data?.subtitle)}</h2>
+                                <h2 className="text-[1.5em] text-thirty font-semibold mb-3 mt-10">{t(data?.subtitle)}</h2>
                                 <p className="mb-3">{t(data?.info)}</p>
                                 <div className="my-5">
                                     <div className='flex justify-around items-center gap-3 py-2 px-3 bg-white'>
@@ -225,7 +227,7 @@ const PopUp:React.FC<PopupProps> = ({windowSize,mode,id})=>{
                                         switchDevMode(data?.devMode)
                                     }
                                 </div>
-                                <h2 className="text-[1.8em] text-thirty font-semibold mb-3 mt-10">{t(data?.cost.title)}</h2>
+                                <h2 className="text-[1.5em] text-thirty font-semibold mb-3 mt-10">{t(data?.cost.title)}</h2>
                                 <div className="flex max-810:flex-col justify-start items-center gap-5">
                                     <img className="w-1/2 max-810:w-full aspect-[4/2]" src={data?.img} alt={t(t(data?.cost.title))} />
                                     <div className="mt-3 mb-5 w-full block">
@@ -234,8 +236,8 @@ const PopUp:React.FC<PopupProps> = ({windowSize,mode,id})=>{
                                     </div> 
                                 </div>
                                 <div className="mt-10 mb-3">
-                                    <h2 className="mb-3 text-[2em] text-thirty font-semibold">{t("realisation")}</h2>
-                                    <h4 className="mb-3 text-[1.5em] text-primary font-semibold">{serviceSiteReference?.title}</h4>
+                                    <h2 className="mb-3 text-[1.5em] text-thirty font-semibold">{t("realisation")}</h2>
+                                    <h4 className="mb-3 text-[1.2em] text-primary font-semibold">{t(serviceSiteReference?.title)}</h4>
                                     <div className="flex justify-between items-start gap-3 max-810:flex-col-reverse">
                                         <div className="overflow-hidden w-4/5 max-810:w-full">
                                             <div className={`flex justify-start transition-transform duration-700 ease-in-out items-center`} style={{width:`${serviceSiteReference?.referenceContent.length!*100}%`,transform: `translateX(-${currentIndex*100/serviceSiteReference?.referenceContent.length!}%)`}}>
@@ -250,7 +252,7 @@ const PopUp:React.FC<PopupProps> = ({windowSize,mode,id})=>{
                                                             <div className={`bg-fifty group-hover:bg-secondary py-2`}>
                                                                 <div className='flex justify-between items-start gap-2 mx-4'>
                                                                     <h4 className='text-secondary font-semibold text-[18px] mb-2 w-fit uppercase group-hover:text-fifty relative before:w-2/5 before:h-1 before:bg-secondary before:bottom-[-4px] before:left-[1px] before:block before:group-hover:bg-fifty before:absolute'>{item.projet}</h4>
-                                                                    <span className='text-[11px] text-[#aaa]'>{item.mode}</span>
+                                                                    <span className='text-[11px] text-[#aaa]'>{t(item.mode)}</span>
                                                                 </div>
                                                                 <p className='uppercase text-[14px] font-medium mx-4 mt-1 text-primary group-hover:text-fifty'>{item.name}</p>
                                                                 <p className='mx-4 mt-1 text-[13px] text-primary uppercase group-hover:text-fifty'>{item.shortText}</p>

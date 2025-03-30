@@ -94,12 +94,13 @@ export const serviceDetail = {
         title:"serviceSiteVitrineTitle",
         info:"serviceSiteVitrineDescrip",
         subtitle:"serviceSiteVitrineSubTitle",
-        category:["WORDPRESS","ofHand","hybride"],
+        category:["WORDPRESS (CMS)","ofHand","hybride"],
         img:'/assets/images/fieger.png',
         content:{
             title:"serviceSiteVitrineDef",
             para:"serviceWebsite",
             souspara:"websiteVitrineAvantgeTitle",
+            notion:"notionvitrine",
             contentPara:[
                 {title:"serviceSiteVitrineAvantageTitel1",text:"serviceSiteVitrineAvantageDescrip1"},
                 {title:"serviceSiteVitrineAvantageTitel2",text:"serviceSiteVitrineAvantageDescrip2"},
@@ -111,61 +112,148 @@ export const serviceDetail = {
         cost:{
             title:"websiteVitrineCostTitle",
             para:"websiteVitrineCostPara",
-            souspara:"websiteVitrineCostSubPara",
+            souspara:"websiteCostSubPara",
         },
         devMode:{
             1:{
                 def:"defworpress",
                 notion:"notionwordpress",
-                advantage:[
-                    {title:"avworpresstitle1",text:"avworpresstext1"},
-                    {title:"avworpresstitle2",text:"avworpresstext2"},
-                    {title:"avworpresstitle3",text:"avworpresstext3"},
-                    {title:"avworpresstitle4",text:"avworpresstext4"},
-                    {title:"avworpresstitle5",text:"avworpresstext5"}
-                ],
-                disadvantage:[
-                    {title:"disworpresstitle1",text:"disworpresstext1"},
-                    {title:"disworpresstitle2",text:"disworpresstext2"},
-                    {title:"disworpresstitle3",text:"disworpresstext3"},
-                    {title:"disworpresstitle4",text:"disworpresstext4"},
-                    {title:"disworpresstitle5",text:"disworpresstext5"}
-                ]
             },
             2:{
                 def:"defWebsiteFromHand",
                 notion:"notionWebsiteFromHand",
-                advantage:[
-                    {title:"avOfHandTitle1",text:"avOfHandText1"},
-                    {title:"avOfHandTitle2",text:"avOfHandText2"},
-                    {title:"avOfHandTitle3",text:"avOfHandText3"},
-                    {title:"avOfHandTitle4",text:"avOfHandText4"},
-                    {title:"avOfHandTitle5",text:"avOfHandText5"}
-                ],
-                disadvantage:[
-                    {title:"disOfHandTitle1",text:"disOfHandText1"},
-                    {title:"disOfHandTitle2",text:"disOfHandText2"},
-                    {title:"disOfHandTitle3",text:"disOfHandText3"},
-                    {title:"disOfHandTitle4",text:"disOfHandText4"},
-                    {title:"disOfHandTitle5",text:"disOfHandText5"}
-                ]
+                
             },
             3:{
                 def:"wordpressAndDevofHand",
                 notion:"notionwordpressAndDevofHand",
-                advantage:[
-                    {title:"avHybrideTitle1",text:"avHybrideText1"},
-                    {title:"avHybrideTitle2",text:"avHybrideText2"},
-                    {title:"avHybrideTitle3",text:"avHybrideText3"},
-                    {title:"avHybrideTitle4",text:"avHybrideText4"},
-                    {title:"avHybrideTitle5",text:"avHybrideText5"}
-                ],
-                disadvantage:[
-                    {title:"disHybrideTitle1",text:"disHybrideText1"},
-                    {title:"disHybrideTitle2",text:"disHybrideText2"},
-                    {title:"disHybrideTitle3",text:"disHybrideText3"}
-                ]
             }
+        }
+    },
+    2:{
+        title:"serviceReworkWebsiteTitle",
+        info:"serviceReworkWebsiteDescrip",
+        subtitle:"serviceReworkWebsiteSubTitle",
+        img:'/assets/images/fieger.png',
+        category:["WORDPRESS (CMS)","ofHand","hybride"],
+        content:{
+            title:"serviceReworkWebsiteDef",
+            para:"serviceWebsiteRework",
+            souspara:"websiteReworkWebsiteAvantgeTitle",
+            notion:"notionrework",
+            contentPara:[
+                {title:"serviceReworkWebsiteAvantageTitel1",text:"serviceReworkWebsiteAvantageDescrip1"},
+                {title:"serviceReworkWebsiteAvantageTitel2",text:"serviceReworkWebsiteAvantageDescrip2"},
+                {title:"serviceReworkWebsiteAvantageTitel3",text:"serviceReworkWebsiteAvantageDescrip3"},
+                {title:"serviceReworkWebsiteAvantageTitel4",text:"serviceReworkWebsiteAvantageDescrip4"},
+                {title:"serviceReworkWebsiteAvantageTitel5",text:"serviceReworkWebsiteAvantageDescrip5"}
+            ],
+        },
+        cost:{
+            title:"websiteReworkWebsiteCostTitle",
+            para:"websiteReworkWebsiteCostPara",
+            souspara:"websiteCostSubPara",
+        },
+        devMode:{
+            1:{
+                def:"defreworkworpress",
+                notion:"notionwordpress",
+            },
+            2:{
+                def:"defReworkWebsiteFromHand",
+                notion:"notionWebsiteReworkFromHand",
+            },
+            3:{
+                def:"wordpressAndDevofHandRework",
+                notion:"notionwordpressAndDevofHand",
+            }
+        }   
+    },
+    3:{
+        title:"serviceEcommerceWebsiteTitle",
+        info:"serviceEcommerceWebsiteDescrip",
+        subtitle:"serviceEcommerceWebsiteSubTitle",
+        img:'/assets/images/fieger.png',
+        category:["WORDPRESS (CMS)","ofHand","hybride"],
+        content:{
+            title:"serviceEcommerceWebsiteDef",
+            para:"serviceEcommerce",
+            souspara:"websiteEcommerceWebsiteAvantgeTitle",
+            notion:"notionecommerce",
+            contentPara:[
+                {title:"serviceEcommerceWebsiteAvantageTitel1",text:"serviceEcommerceWebsiteAvantageDescrip1"},
+                {title:"serviceEcommerceWebsiteAvantageTitel2",text:"serviceEcommerceWebsiteAvantageDescrip2"},
+                {title:"serviceEcommerceWebsiteAvantageTitel3",text:"serviceEcommerceWebsiteAvantageDescrip3"},
+                {title:"serviceEcommerceWebsiteAvantageTitel4",text:"serviceEcommerceWebsiteAvantageDescrip4"},
+                {title:"serviceEcommerceWebsiteAvantageTitel5",text:"serviceEcommerceWebsiteAvantageDescrip5"}
+            ],
+        },
+        cost:{
+            title:"websiteEcommerceWebsiteCostTitle",
+            para:"websiteEcommerceWebsiteCostPara",
+            souspara:"websiteCostSubPara",
+        },
+        devMode:{
+            1:{
+                def:"defecommerceworpress",
+                notion:"notionwordpress",
+            },
+            2:{
+                def:"defEcommerceWebsiteFromHand",
+                notion:"notionEcommerceFromHand",
+            },
+            3:{
+                def:"wordpressAndDevofHandEcommerce",
+                notion:"notionwordpressAndDevofHandEcommerce",
+            }
+        }   
+    },
+    avdistage:{
+        1:{
+            advantage:[
+                {title:"avworpresstitle1",text:"avworpresstext1"},
+                {title:"avworpresstitle2",text:"avworpresstext2"},
+                {title:"avworpresstitle3",text:"avworpresstext3"},
+                {title:"avworpresstitle4",text:"avworpresstext4"},
+                {title:"avworpresstitle5",text:"avworpresstext5"}
+            ],
+            disadvantage:[
+                {title:"disworpresstitle1",text:"disworpresstext1"},
+                {title:"disworpresstitle2",text:"disworpresstext2"},
+                {title:"disworpresstitle3",text:"disworpresstext3"},
+                {title:"disworpresstitle4",text:"disworpresstext4"},
+                {title:"disworpresstitle5",text:"disworpresstext5"}
+            ]
+        },
+        2:{
+            advantage:[
+                {title:"avOfHandTitle1",text:"avOfHandText1"},
+                {title:"avOfHandTitle2",text:"avOfHandText2"},
+                {title:"avOfHandTitle3",text:"avOfHandText3"},
+                {title:"avOfHandTitle4",text:"avOfHandText4"},
+                {title:"avOfHandTitle5",text:"avOfHandText5"}
+            ],
+            disadvantage:[
+                {title:"disOfHandTitle1",text:"disOfHandText1"},
+                {title:"disOfHandTitle2",text:"disOfHandText2"},
+                {title:"disOfHandTitle3",text:"disOfHandText3"},
+                {title:"disOfHandTitle4",text:"disOfHandText4"},
+                {title:"disOfHandTitle5",text:"disOfHandText5"}
+            ]
+        },
+        3:{
+            advantage:[
+                {title:"avHybrideTitle1",text:"avHybrideText1"},
+                {title:"avHybrideTitle2",text:"avHybrideText2"},
+                {title:"avHybrideTitle3",text:"avHybrideText3"},
+                {title:"avHybrideTitle4",text:"avHybrideText4"},
+                {title:"avHybrideTitle5",text:"avHybrideText5"}
+            ],
+            disadvantage:[
+                {title:"disHybrideTitle1",text:"disHybrideText1"},
+                {title:"disHybrideTitle2",text:"disHybrideText2"},
+                {title:"disHybrideTitle3",text:"disHybrideText3"}
+            ]
         }
     }
 }
@@ -230,7 +318,7 @@ export const refDetailContent:refContent = {
 }
 export const reference: Reference = {
     1: {
-      title: "Quelques créations site vitrine",
+      title: "websiteVitrineReferenceTitle",
       referenceContent: [
         {
           img: '/assets/images/fieger.png',
@@ -275,7 +363,7 @@ export const reference: Reference = {
       ]
     },
     2: {
-        title: "Quelques créations site vitrine",
+        title: "websiteReworkReferenceTitle",
         referenceContent: [
           {
             img: '/assets/images/fieger.png',
@@ -320,7 +408,7 @@ export const reference: Reference = {
         ]
     },
     3: {
-        title: "Quelques créations site vitrine",
+        title: "websiteEcommerReferenceTitle",
         referenceContent: [
           {
             img: '/assets/images/fieger.png',
