@@ -208,6 +208,45 @@ export const serviceDetail = {
             }
         }   
     },
+    5:{
+        title:"serviceAppTitle",
+        info:"serviceAppDescrip",
+        subtitle:"serviceAppSubTitle",
+        img:'/assets/images/fieger.png',
+        category:["apphybride","appcross","appnative"],
+        content:{
+            title:"serviceAppDef",
+            para:"serviceApp",
+            souspara:"appAvantgeTitle",
+            notion:"appnotion",
+            contentPara:[
+                {title:"serviceAppAvantageTitel1",text:"serviceAppAvantageDescrip1"},
+                {title:"serviceAppAvantageTitel2",text:"serviceAppAvantageDescrip2"},
+                {title:"serviceAppAvantageTitel3",text:"serviceAppAvantageDescrip3"},
+                {title:"serviceAppAvantageTitel4",text:"serviceAppAvantageDescrip4"},
+                {title:"serviceAppAvantageTitel5",text:"serviceAppAvantageDescrip5"}
+            ],
+        },
+        cost:{
+            title:"serviceAppCostTitle",
+            para:"serviceAppCostPara",
+            souspara:"serviceCostSubPara",
+        },
+        devMode:{
+            1:{
+                def:"defapphybride",
+                notion:"notionhybride",
+            },
+            2:{
+                def:"defappcrossplatform",
+                notion:"notioncrossplatform",
+            },
+            3:{
+                def:"defappnatif",
+                notion:"notionnatif",
+            }
+        }
+    },
     avdistage:{
         1:{
             advantage:[
