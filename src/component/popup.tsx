@@ -21,7 +21,7 @@ const PopUp:React.FC<PopupProps> = ({windowSize,mode,id})=>{
     const {contextData,setContextData} = useContext(AppContext)
     const data:any = id !== null ? serviceDetail[id as keyof typeof serviceDetail] : null;
     const [switchIndex,setSwitchIndex] = useState<number>(0)
-    const serviceAvDistage = serviceDetail.avdistage;
+    const serviceAvDistage = id && id < 4 ? serviceDetail.avdistage : id === 5 ? serviceDetail.avdistageApp : serviceDetail.avdistageApp;
     //const refenrence = id !== null && mode === 'service' ? reference[id] : null
     //= id !== null ? refDetailContent[id] : null
     const [popupMode,setMode] = useState<string>('')

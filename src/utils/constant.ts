@@ -208,6 +208,44 @@ export const serviceDetail = {
             }
         }   
     },
+    4:{
+        title:"serviceSaasTitle",
+        info:"serviceSaasDescrip",
+        subtitle:"serviceAppSubTitle",
+        img:'/assets/images/fieger.png',
+        category:["ofHand","progiciel"],
+        content:{
+            title:"serviceSaasDef",
+            para:"serviceSaas",
+            souspara:"saasAvantgeTitle",
+            notion:"saasnotion",
+            contentPara:[
+                {title:"serviceSaasAvantageTitel1",text:"serviceSaasAvantageDescrip1"},
+                {title:"serviceSaasAvantageTitel2",text:"serviceSaasAvantageDescrip2"},
+                {title:"serviceSaasAvantageTitel3",text:"serviceSaasAvantageDescrip3"},
+                {title:"serviceSaasAvantageTitel4",text:"serviceSaasAvantageDescrip4"}
+            ],
+        },
+        cost:{
+            title:"serviceSaasCostTitle",
+            para:"serviceSaasCostPara",
+            souspara:"serviceCostSubPara",
+        },
+        devMode:{
+            1:{
+                def:"defapphybride",
+                notion:"notionhybride",
+            },
+            2:{
+                def:"defappcrossplatform",
+                notion:"notioncrossplatform",
+            },
+            3:{
+                def:"defappnatif",
+                notion:"notionnatif",
+            }
+        }
+    },
     5:{
         title:"serviceAppTitle",
         info:"serviceAppDescrip",
@@ -247,21 +285,71 @@ export const serviceDetail = {
             }
         }
     },
+    avdistageApp:{
+        1:{
+            advantage:[
+                {title:"avAppHybrideTitle1",text:"avAppHybrideText1"},
+                {title:"avAppHybrideTitle2",text:"avAppHybrideText2"},
+                {title:"avAppHybrideTitle3",text:"avAppHybrideText3"},
+                {title:"avAppHybrideTitle4",text:"avAppHybrideText4"},
+                {title:"avAppHybrideTitle5",text:"avAppHybrideText5"}
+            ],
+            disadvantage:[
+                {title:"disAppHybrideTitle1",text:"disAppHybrideText1"},
+                {title:"disAppHybrideTitle2",text:"disAppHybrideText2"},
+                {title:"disAppHybrideTitle3",text:"disAppHybrideText3"},
+                {title:"disAppHybrideTitle4",text:"disAppHybrideText4"},
+                {title:"disAppHybrideTitle5",text:"disAppHybrideText5"}
+            ]
+        },
+        2:{
+            advantage:[
+                {title:"avAppCrossPlatformTitle1",text:"avAppCrossPlatformText1"},
+                {title:"avAppCrossPlatformTitle2",text:"avAppCrossPlatformText2"},
+                {title:"avAppCrossPlatformTitle3",text:"avAppCrossPlatformText3"},
+                {title:"avAppCrossPlatformTitle4",text:"avAppCrossPlatformText4"},
+                {title:"avAppCrossPlatformTitle5",text:"avAppCrossPlatformText5"}
+            ],
+            disadvantage:[
+                {title:"disAppCrossPlatformTitle1",text:"disAppCrossPlatformText1"},
+                {title:"disAppCrossPlatformTitle2",text:"disAppCrossPlatformText2"},
+                {title:"disAppCrossPlatformTitle3",text:"disAppCrossPlatformText3"},
+                {title:"disAppCrossPlatformTitle4",text:"disAppCrossPlatformText4"},
+                {title:"disAppCrossPlatformTitle5",text:"disAppCrossPlatformText5"}
+            ]
+        },
+        3:{
+            advantage:[
+                {title:"avAppNatifTitle1",text:"avAppNatifText1"},
+                {title:"avAppNatifTitle2",text:"avAppNatifText2"},
+                {title:"avAppNatifTitle3",text:"avAppNatifText3"},
+                {title:"avAppNatifTitle4",text:"avAppNatifText4"},
+                {title:"avAppNatifTitle5",text:"avAppNatifText5"}
+            ],
+            disadvantage:[
+                {title:"disAppNatifTitle1",text:"disAppNatifText1"},
+                {title:"disAppNatifTitle2",text:"disAppNatifText2"},
+                {title:"disAppNatifTitle3",text:"disAppNatifText3"},
+                {title:"disAppNatifTitle4",text:"disAppNatifText4"},
+                {title:"disAppNatifTitle4",text:"disAppNatifText4"}
+            ]
+        }
+    },
     avdistage:{
         1:{
             advantage:[
-                {title:"avworpresstitle1",text:"avworpresstext1"},
-                {title:"avworpresstitle2",text:"avworpresstext2"},
-                {title:"avworpresstitle3",text:"avworpresstext3"},
-                {title:"avworpresstitle4",text:"avworpresstext4"},
-                {title:"avworpresstitle5",text:"avworpresstext5"}
+                {title:"avWorpressTitle1",text:"avWorpressText1"},
+                {title:"avWorpressTitle2",text:"avWorpressText2"},
+                {title:"avWorpressTitle3",text:"avWorpressText3"},
+                {title:"avWorpressTitle4",text:"avWorpressText4"},
+                {title:"avWorpressTitle5",text:"avWorpressText5"}
             ],
             disadvantage:[
-                {title:"disworpresstitle1",text:"disworpresstext1"},
-                {title:"disworpresstitle2",text:"disworpresstext2"},
-                {title:"disworpresstitle3",text:"disworpresstext3"},
-                {title:"disworpresstitle4",text:"disworpresstext4"},
-                {title:"disworpresstitle5",text:"disworpresstext5"}
+                {title:"disWorpressTitle1",text:"disWorpressText1"},
+                {title:"disWorpressTitle2",text:"disWorpressText2"},
+                {title:"disWorpressTitle3",text:"disWorpressText3"},
+                {title:"disWorpressTitle4",text:"disWorpressText4"},
+                {title:"disWorpressTitle5",text:"disWorpressText5"}
             ]
         },
         2:{
