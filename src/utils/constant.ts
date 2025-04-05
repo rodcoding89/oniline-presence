@@ -211,7 +211,7 @@ export const serviceDetail = {
     4:{
         title:"serviceSaasTitle",
         info:"serviceSaasDescrip",
-        subtitle:"serviceAppSubTitle",
+        subtitle:"serviceSaasSubTitle",
         img:'/assets/images/fieger.png',
         category:["ofHand","progiciel"],
         content:{
@@ -229,20 +229,16 @@ export const serviceDetail = {
         cost:{
             title:"serviceSaasCostTitle",
             para:"serviceSaasCostPara",
-            souspara:"serviceCostSubPara",
+            souspara:"serviceSaasCostSubPara",
         },
         devMode:{
             1:{
-                def:"defapphybride",
-                notion:"notionhybride",
+                def:"defsaasofhand",
+                notion:"notionsaasofhand",
             },
             2:{
-                def:"defappcrossplatform",
-                notion:"notioncrossplatform",
-            },
-            3:{
-                def:"defappnatif",
-                notion:"notionnatif",
+                def:"defsaasprogiciel",
+                notion:"notionsaasprogiciel",
             }
         }
     },
@@ -268,7 +264,7 @@ export const serviceDetail = {
         cost:{
             title:"serviceAppCostTitle",
             para:"serviceAppCostPara",
-            souspara:"serviceCostSubPara",
+            souspara:"serviceAppCostSubPara",
         },
         devMode:{
             1:{
@@ -332,6 +328,40 @@ export const serviceDetail = {
                 {title:"disAppNatifTitle3",text:"disAppNatifText3"},
                 {title:"disAppNatifTitle4",text:"disAppNatifText4"},
                 {title:"disAppNatifTitle4",text:"disAppNatifText4"}
+            ]
+        }
+    },
+    avdistageSaas:{
+        1:{
+            advantage:[
+                {title:"avSaasOfHandTitle1",text:"avSaasOfHandText1"},
+                {title:"avSaasOfHandTitle2",text:"avSaasOfHandText2"},
+                {title:"avSaasOfHandTitle3",text:"avSaasOfHandText3"},
+                {title:"avSaasOfHandTitle4",text:"avSaasOfHandText4"},
+                {title:"avSaasOfHandTitle5",text:"avSaasOfHandText5"}
+            ],
+            disadvantage:[
+                {title:"disSaasOfHandTitle1",text:"disSaasOfHandText1"},
+                {title:"disSaasOfHandTitle2",text:"disSaasOfHandText2"},
+                {title:"disSaasOfHandTitle3",text:"disSaasOfHandText3"},
+                {title:"disSaasOfHandTitle4",text:"disSaasOfHandText4"},
+                {title:"disSaasOfHandTitle5",text:"disSaasOfHandText5"}
+            ]
+        },
+        2:{
+            advantage:[
+                {title:"avSaasProgicielTitle1",text:"avSaasProgicielText1"},
+                {title:"avSaasProgicielTitle2",text:"avSaasProgicielText2"},
+                {title:"avSaasProgicielTitle3",text:"avSaasProgicielText3"},
+                {title:"avSaasProgicielTitle4",text:"avSaasProgicielText4"},
+                {title:"avSaasProgicielTitle5",text:"avSaasProgicielText5"}
+            ],
+            disadvantage:[
+                {title:"disSaasProgicielTitle1",text:"disSaasProgicielText1"},
+                {title:"disSaasProgicielTitle2",text:"disSaasProgicielText2"},
+                {title:"disSaasProgicielTitle3",text:"disSaasProgicielText3"},
+                {title:"disSaasProgicielTitle4",text:"disSaasProgicielText4"},
+                {title:"disSaasProgicielTitle5",text:"disSaasProgicielText5"}
             ]
         }
     },
@@ -560,7 +590,42 @@ export const reference: Reference = {
         ]
     },
     4: {
-        title: "Quelques créations site vitrine",
+        title: "referenceSaasTitle",
+        referenceContent: [
+          {
+            img: '/assets/images/fieger.png',
+            projet: 'LovSid',
+            refId: 1,
+            index:11,
+            name:"Dimina Mbal",
+            mode:"Codé de A à Z",
+            shortText:"Site de rencontre",
+            cat:'saas'
+          },
+          {
+            img: '/assets/images/fieger.png',
+            projet: 'Location de salle',
+            refId: 1,
+            index:12,
+            name:"Dimina Mbal",
+            mode:"Codé de A à Z",
+            shortText:"Site E-commerce",
+            cat:'saas'
+          },
+          {
+            img: '/assets/images/fieger.png',
+            projet: 'Miror Soul',
+            refId: 1,
+            index:13,
+            name:"Dimina Mbal",
+            mode:"Codé de A à Z",
+            shortText:"Site reseaux social",
+            cat:'saas'
+          }
+        ]
+    },
+    5: {
+        title: "referenceAppTitle",
         referenceContent: [
           {
             img: '/assets/images/fieger.png',

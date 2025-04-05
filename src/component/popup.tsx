@@ -21,7 +21,7 @@ const PopUp:React.FC<PopupProps> = ({windowSize,mode,id})=>{
     const {contextData,setContextData} = useContext(AppContext)
     const data:any = id !== null ? serviceDetail[id as keyof typeof serviceDetail] : null;
     const [switchIndex,setSwitchIndex] = useState<number>(0)
-    const serviceAvDistage = id && id < 4 ? serviceDetail.avdistage : id === 5 ? serviceDetail.avdistageApp : serviceDetail.avdistageApp;
+    const serviceAvDistage = id && id < 4 ? serviceDetail.avdistage : id === 5 ? serviceDetail.avdistageApp : serviceDetail.avdistageSaas;
     //const refenrence = id !== null && mode === 'service' ? reference[id] : null
     //= id !== null ? refDetailContent[id] : null
     const [popupMode,setMode] = useState<string>('')
@@ -118,11 +118,11 @@ const PopUp:React.FC<PopupProps> = ({windowSize,mode,id})=>{
                             </div>
                             <div className="w-full">
                                 <h4 className="uppercase text-[1.15em] mb-2 font-semibold">{t("about")}<span className='w-1/6 block h-[2px] bg-thirty mb-2'></span></h4>
-                                <p>Lorem ipsum dolor sit amet consectetur adipisicing elit.</p>
+                                <p>{t("devTitle")}</p>
                             </div>
                             <div className="w-full">
-                                <h4 className="uppercase text-[1.15em] mb-2 font-semibold">{t("navigation")}<span className='w-1/6 block h-[2px] bg-thirty mb-2'></span></h4>
-                                <nav className='navi flex justify-start items-start gap-3 flex-col'>
+                                <h4 className="uppercase text-[1.15em] mb-3 font-semibold">{t("navigation")}<span className='w-1/6 block h-[2px] bg-thirty mb-2'></span></h4>
+                                <nav className='navi flex justify-start items-start gap-2 flex-col'>
                                     <Link
                                     className='cursor-pointer text-primary'
                                     activeClass="active" 
@@ -176,10 +176,11 @@ const PopUp:React.FC<PopupProps> = ({windowSize,mode,id})=>{
                             </div>
                             <div className="w-full">
                                 <h4 className="uppercase text-[1.15em] mb-2 font-semibold">{t("contact")}<span className='w-1/6 block h-[2px] bg-thirty mb-2'></span></h4>
-                                <p className="mb-2">Lorem, ipsum dolor sit amet consectetur adipisicing.</p>
+                                <p className="mb-2">{t("devTitle")}</p>
                                 <div className='flex justify-start items-center gap-2'>
                                     <a className='flex justify-center items-center gap-1 w-[40px] h-[40px] rounded-[.2em] bg-white'  href='tel:+33751025598'><Icon name='bx-phone' size='1.4em' color='var(--color-secondary)'/></a>
                                     <a className='flex justify-center items-center gap-1 w-[40px] h-[40px] rounded-[.2em] bg-white'  href='mailto:rodriguekwayep.freelance@hotmail.com'><Icon name='bx-envelope' size='1.4em' color='var(--color-secondary)'/></a>
+                                    <span className='flex justify-center items-center gap-1 w-[40px] h-[40px] rounded-[.2em] bg-white cursor-pointer' title={t('shareOn')}><Icon name="bx-share-alt" size="1.4em" color="var(--color-secondary)"/></span>
                                 </div>
                             </div>
                         </div>
