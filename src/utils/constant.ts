@@ -1,49 +1,107 @@
 export const priceList = [
     {
-        title:"standartWebsite",
-        devMethode:["Wordpress","ofHand"],
-        content:[{
-                price:"999.99",
-                devType:{type:"devOn",outil:"outilTool"},
-                options:["Sélection d'une palette de couleur","Domaine + hébergement + e-mail pendant 12 mois","Interface administrateur STANDARD","Site responsive (adapté tous supports)","Mise en place du contenu (textes & images)","Formulaire de contact","Liens de partage sur les réseaux sociaux","Optimisation du référencement","Statistiques de visite","Mise en ligne du site","Formation utilisation du site"]
-            },{
-                price:"1500",
-                devType:{type:"handDev",outil:"handOutil"},
-                options:["Sélection d'une palette de couleur","Domaine + hébergement + e-mail pendant 12 mois","Site responsive (adapté tous supports)","Mise en place du contenu (textes & images)","Formulaire de contact","Liens de partage sur les réseaux sociaux","Optimisation du référencement","Statistiques de visite","Mise en ligne du site","Formation utilisation du site"]
+        bloc:{
+            title:"standartWebsite",
+            devMethode:["Wordpress","ofHand"],
+            content:[
+                {
+                    price:"999.99",
+                    devType:{type:"devOn",outil:"outilTool"},
+                    options:["optionWebSiteWordpress1","optionWebSiteWordpress2","optionWebSiteWordpress3","optionWebSiteWordpress4","optionWebSiteWordpress5","optionWebSiteWordpress6","optionWebSiteWordpress7","optionWebSiteWordpress8","optionWebSiteWordpress9","optionWebSiteWordpress10","optionWebSiteWordpress11","optionWebSiteWordpress12"]
+                },{
+                    price:"1500",
+                    devType:{type:"handDev",outil:"handOutil"},
+                    options:["optionWebSiteOfHand1","optionWebSiteOfHand2","optionWebSiteOfHand3","optionWebSiteOfHand4","optionWebSiteOfHand5","optionWebSiteOfHand6","optionWebSiteOfHand7","optionWebSiteOfHand8","optionWebSiteOfHand9","optionWebSiteOfHand10"]
+                }
+            ]
+        }
+    },
+    {
+        bloc:{
+            title:"ecommerce",
+            devMethode:["Wordpress","ofHand"],
+            content:[
+                {
+                    price:"2500",
+                    devType:{type:"devOn",outil:"outilTool"},
+                    options:["optionEcommerceWordPress1","optionEcommerceWordPress2","optionEcommerceWordPress3","optionEcommerceWordPress4","optionEcommerceWordPress5","optionEcommerceWordPress6","optionEcommerceWordPress7","optionEcommerceWordPress8","optionEcommerceWordPress9","optionEcommerceWordPress10","optionEcommerceWordPress11"]
+                },{
+                    price:"4000",
+                    devType:{type:"handDev",outil:"handOutil"},
+                    options:["optionEcommerceOfHand1","optionEcommerceOfHand2","optionEcommerceOfHand3","optionEcommerceOfHand4","optionEcommerceOfHand5","optionEcommerceOfHand6","optionEcommerceOfHand7","optionEcommerceOfHand8","optionEcommerceOfHand9","optionEcommerceOfHand10","optionEcommerceOfHand11"]
+                }
+            ]
+        }
+    },
+    {
+        bloc:[
+            {
+                title:"mobileApp",
+                devMethode:["devhybride","devcross","devnatif"],
+                content:[
+                    {
+                        noprice:"noprice",
+                        devType:{type:"devTypeAppHybride",outil:"defapphybride"},
+                    },
+                    {
+                        noprice:"noprice",
+                        devType:{type:"devTypeAppCross",outil:"defappcrossplatform"},
+                    },
+                    {
+                        noprice:"noprice",
+                        devType:{type:"devTypeAppNatif",outil:"defappnatif"},
+                    }
+                ]
+            },
+            {
+                title:"saas",
+                devMethode:["ofHand","progiciel"],
+                content:[
+                    {
+                        noprice:"noprice",
+                        devType:{type:"devTypeSaasOfHanf",outil:"defsaasofhand"},
+                    },
+                    {
+                        noprice:"noprice",
+                        devType:{type:"devTypeSaasProgiciel",outil:"defsaasprogiciel"},
+                    }
+                ]
             }
+        ]
+    }
+]
+export const maintenanceOption = [
+    {
+        hour:50,
+        year:500,
+        options:[
+            'optionWebSiteMaintenance1',
+            'optionWebSiteMaintenance2',
+            'optionWebSiteMaintenance3',
+            'optionWebSiteMaintenance4',
+            'optionWebSiteMaintenance5',
+            'optionWebSiteMaintenance6'
         ]
     },
     {
-        title:"ecommerce",
-        devMethode:["Wordpress","ofHand"],
-        content:[{
-                price:"2500",
-                devType:{type:"devOn",outil:"outilTool"},
-                options:["Sélection d'une palette de couleur","Domaine + hébergement + e-mail pendant 12 mois","Interface administrateur STANDARD","Site responsive (adapté tous supports)","Mise en place du contenu (textes & images)","Formulaire de contact","Liens de partage sur les réseaux sociaux","Optimisation du référencement","Statistiques de visite","Mise en ligne du site","Formation utilisation du site"]
-            },{
-                price:"4000",
-                devType:{type:"handDev",outil:"handOutil"},
-                options:["Sélection d'une palette de couleur","Domaine + hébergement + e-mail pendant 12 mois","Site responsive (adapté tous supports)","Mise en place du contenu (textes & images)","Formulaire de contact","Liens de partage sur les réseaux sociaux","Optimisation du référencement","Statistiques de visite","Mise en ligne du site","Formation utilisation du site"]
-            }
-        ],
-    },
-    {
-        title:"mobileApp",
-        content:[{
-                price:"2500",
-                devType:{type:"Développé sous WORDPRESS",outil:"(Outil de gestion de contenu)"},
-                options:["Sélection d'une palette de couleur","Domaine + hébergement + e-mail pendant 12 mois","Interface administrateur STANDARD","Site responsive (adapté tous supports)","Mise en place du contenu (textes & images)","Formulaire de contact","Liens de partage sur les réseaux sociaux","Optimisation du référencement","Statistiques de visite","Mise en ligne du site","Formation utilisation du site"]
-            }
+        hour:50,
+        year:500,
+        options:[
+            'optionEcommerceMaintenance1',
+            'optionEcommerceMaintenance2',
+            'optionEcommerceMaintenance3',
+            'optionEcommerceMaintenance4',
+            'optionEcommerceMaintenance5',
+            'optionEcommerceMaintenance6'
         ]
     },
     {
-        title:"saas",
-        content:[{
-                price:"2500",
-                devType:{type:"Développé sous WORDPRESS",outil:"(Outil de gestion de contenu)"},
-                options:["Sélection d'une palette de couleur","Domaine + hébergement + e-mail pendant 12 mois","Interface administrateur STANDARD","Site responsive (adapté tous supports)","Mise en place du contenu (textes & images)","Formulaire de contact","Liens de partage sur les réseaux sociaux","Optimisation du référencement","Statistiques de visite","Mise en ligne du site","Formation utilisation du site"]
-            }
-        ]
+        noprice:"noprice",
+        options:''
+    },
+    {
+        noprice:"noprice",
+        options:''
     }
 ]
 export const services = [
