@@ -1,5 +1,6 @@
 export const priceList = [
     {
+        id:1,
         bloc:{
             title:"standartWebsite",
             devMethode:["Wordpress","ofHand"],
@@ -17,6 +18,7 @@ export const priceList = [
         }
     },
     {
+        id:2,
         bloc:{
             title:"ecommerce",
             devMethode:["Wordpress","ofHand"],
@@ -34,6 +36,7 @@ export const priceList = [
         }
     },
     {
+        id:3,
         bloc:[
             {
                 title:"mobileApp",
@@ -79,8 +82,7 @@ export const maintenanceOption = [
             'optionWebSiteMaintenance2',
             'optionWebSiteMaintenance3',
             'optionWebSiteMaintenance4',
-            'optionWebSiteMaintenance5',
-            'optionWebSiteMaintenance6'
+            'optionWebSiteMaintenance5'
         ]
     },
     {
@@ -91,17 +93,16 @@ export const maintenanceOption = [
             'optionEcommerceMaintenance2',
             'optionEcommerceMaintenance3',
             'optionEcommerceMaintenance4',
-            'optionEcommerceMaintenance5',
-            'optionEcommerceMaintenance6'
+            'optionEcommerceMaintenance5'
         ]
     },
     {
         noprice:"noprice",
-        options:''
+        options:'saasMaintenance'
     },
     {
         noprice:"noprice",
-        options:''
+        options:'appMaintenance'
     }
 ]
 export const services = [

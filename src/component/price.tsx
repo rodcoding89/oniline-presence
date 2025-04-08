@@ -36,12 +36,13 @@ const Price:React.FC<PriceProps> = ()=>{
                     <h4 className='text-center text-[#aaa] text-[1.4em] mb-10'>{t("priceTitle")}</h4>
                     <div className='flex flex-wrap gap-5 justify-center w-full'>
                         {
-                            priceList.map((item:any,index)=>{
+                            priceList.map((item:any,index:number)=>{
+                                console.log("item.id+'-'+index",item.id+index)
                                 return (
                                     <>
                                     {
                                         !Array.isArray(item.bloc) ? (
-                                            <div key={index} className='self-stretch flex flex-col justify-between items-center py-4 bg-[#211f1f] basis-[200px] flex-grow max-w-[400px]'>
+                                            <div key={item.id+index} className='self-stretch flex flex-col justify-between items-center py-4 bg-[#211f1f] basis-[200px] flex-grow max-w-[400px]'>
                                             <div className='w-full px-[10px]'>
                                                 <h3 className='text-center uppercase font-bold text-[1em] flex flex-col justify-center text-fifty items-center mx-4'>{t(item.bloc.title)}<span className='w-1/5 h-[6px] bg-thirty mb-5 mt-3'></span></h3>
                                                 {
@@ -51,8 +52,8 @@ const Price:React.FC<PriceProps> = ()=>{
                                                             {
                                                                 item.bloc.devMethode.map((m:string,i:number)=>{
                                                                     return(
-                                                                        <p onClick={()=>handleContentSwitch(index, i)} className={` relative cursor-pointer uppercase text-[.67em] text-ellipsis whitespace-nowrap overflow-hidden before:w-0 
-                                                                        before:transition-all before:duration-700 before:ease-in-out z-0 ${activeContentIndex[index] === i ? ' py-1 px-2 before:absolute before:left-0 before:top-0 before:bg-thirty before:!w-full before:h-full before:rounded-xl before:z-[-1] font-semibold text-fifty':''}`} key={i}>{t(m)}</p>
+                                                                        <p key={`${m}-${i}`} onClick={()=>handleContentSwitch(index, i)} className={` relative cursor-pointer uppercase text-[.67em] text-ellipsis whitespace-nowrap overflow-hidden before:w-0 
+                                                                        before:transition-all before:duration-700 before:ease-in-out z-0 ${activeContentIndex[index] === i ? ' py-1 px-2 before:absolute before:left-0 before:top-0 before:bg-thirty before:!w-full before:h-full before:rounded-xl before:z-[-1] font-semibold text-fifty':''}`}>{t(m)}</p>
                                                                     )
                                                                 })
                                                             }
@@ -72,7 +73,7 @@ const Price:React.FC<PriceProps> = ()=>{
                                                 {
                                                     item.bloc.content[activeContentIndex[index] || 0].options.map((o:string,k:number)=>{
                                                         return (
-                                                            <li key={k} className={`flex justify-start items-center py-[6px] px-2 w-full gap-1 ${k%2 === 0 ? 'bg-primary text-fifty' : 'text-fifty'}`}><Icon name="bx-plus" size='1.3em' color='var(--color-thirty)'/><div className='option' dangerouslySetInnerHTML={{ __html: t(o) }}/></li>
+                                                            <li key={'option-'+k+'-'+index} className={`flex justify-start items-center py-[6px] px-2 w-full gap-1 ${k%2 === 0 ? 'bg-primary text-fifty' : 'text-fifty'}`}><Icon name="bx-plus" size='1.3em' color='var(--color-thirty)'/><div className='option' dangerouslySetInnerHTML={{ __html: t(o) }}/></li>
                                                         )
                                                     })
                                                 }
@@ -95,7 +96,7 @@ const Price:React.FC<PriceProps> = ()=>{
                                                 {
                                                     item.bloc.map((b:any,i:number)=>{
                                                         return (
-                                                            <div key={i} className='self-stretch flex flex-col justify-between items-center py-4 bg-[#211f1f] w-full h-1/2'>
+                                                            <div key={'bloc-'+i+'-'+index} className='self-stretch flex flex-col justify-between items-center py-4 bg-[#211f1f] w-full h-1/2'>
                                                                 <div className='w-full px-[10px]'>
                                                                     <h3 className='text-center uppercase font-bold text-[1em] flex flex-col justify-center text-fifty items-center mx-4'>{t(b.title)}<span className='w-1/5 h-[6px] bg-thirty mb-5 mt-3'></span></h3>
                                                                     {
@@ -103,10 +104,10 @@ const Price:React.FC<PriceProps> = ()=>{
                                                                             <div className='flex justify-center mx-2 w-[calc(100%-16px)]'>
                                                                                 <div className='flex justify-around items-center flex-wrap gap-3 w-full py-2 px-3 bg-white'>
                                                                                 {
-                                                                                    b.devMethode.map((m:string,i:number)=>{
+                                                                                    b.devMethode.map((m:string,o:number)=>{
                                                                                         return(
-                                                                                            <p onClick={()=>handleContentSwitch(index, i)} className={` relative cursor-pointer uppercase text-[.67em] text-ellipsis whitespace-nowrap overflow-hidden before:w-0 
-                                                                                            before:transition-all before:duration-700 before:ease-in-out z-0 ${activeContentIndex[index] === i ? ' py-1 px-2 before:absolute before:left-0 before:top-0 before:bg-thirty before:!w-full before:h-full before:rounded-xl before:z-[-1] font-semibold text-fifty':''}`} key={i}>{t(m)}</p>
+                                                                                            <p onClick={()=>handleContentSwitch(index, o)} className={` relative cursor-pointer uppercase text-[.67em] text-ellipsis whitespace-nowrap overflow-hidden before:w-0 
+                                                                                            before:transition-all before:duration-700 before:ease-in-out z-0 ${activeContentIndex[index] === o ? ' py-1 px-2 before:absolute before:left-0 before:top-0 before:bg-thirty before:!w-full before:h-full before:rounded-xl before:z-[-1] font-semibold text-fifty':''}`} key={'dev-'+i+'-'+o+'-'+index}>{t(m)}</p>
                                                                                         )
                                                                                     })
                                                                                 }
@@ -155,7 +156,7 @@ const Price:React.FC<PriceProps> = ()=>{
                                     maintenancePlateform.map((m:string,i:number)=>{
                                         return(
                                             <p onClick={()=>handleMaintenanceSwitch(i)} className={` relative cursor-pointer uppercase text-[.67em] text-ellipsis whitespace-nowrap overflow-hidden before:w-0 
-                                            before:transition-all before:duration-700 before:ease-in-out z-0 ${acitveIndex === i ? ' py-1 px-2 before:absolute before:left-0 before:top-0 before:bg-thirty before:!w-full before:h-full before:rounded-xl before:z-[-1] font-semibold text-fifty':''}`} key={i}>{t(m)}</p>
+                                            before:transition-all before:duration-700 before:ease-in-out z-0 ${acitveIndex === i ? ' py-1 px-2 before:absolute before:left-0 before:top-0 before:bg-thirty before:!w-full before:h-full before:rounded-xl before:z-[-1] font-semibold text-fifty':''}`} key={'maintenance-'+i}>{t(m)}</p>
                                         )
                                     })
                                 }
@@ -177,7 +178,7 @@ const Price:React.FC<PriceProps> = ()=>{
                                             {
                                                 maintenanceOption[acitveIndex].options.map((o:string,k:number)=>{
                                                     return (
-                                                        <li key={k} className={`flex justify-start items-center py-[6px] px-2 w-full gap-1 ${k%2 === 0 ? 'bg-primary text-fifty' : 'text-fifty'}`}><Icon name="bx-plus" size='1.3em' color='var(--color-thirty)'/><div className='option' dangerouslySetInnerHTML={{ __html: t(o) }}/></li>
+                                                        <li key={'mainOption'+k} className={`flex justify-start items-center py-[6px] px-2 w-full gap-1 ${k%2 === 0 ? 'bg-primary text-fifty' : 'text-fifty'}`}><Icon name="bx-plus" size='1.3em' color='var(--color-thirty)'/><div className='option' dangerouslySetInnerHTML={{ __html: t(o) }}/></li>
                                                     )
                                                 })
                                             }
@@ -185,8 +186,8 @@ const Price:React.FC<PriceProps> = ()=>{
                                     </div>
                                 ) : (
                                     <div>
-                                        <p className='noprice mt-6 mb-3 text-center mx-4'>{t(maintenanceOption[3]?.noprice ?? '')}</p>
-                                        <span>{t(maintenanceOption[3].options)}</span>
+                                        <p className='noprice mt-6 mb-3 text-center mx-4'>{t(maintenanceOption[acitveIndex]?.noprice ?? '')}</p>
+                                        <span className='block text-center text-[.8em] mb-3 text-fifty mx-4'>{t(maintenanceOption[acitveIndex].options)}</span>
                                     </div>
                                 )
                             }
@@ -205,8 +206,12 @@ const Price:React.FC<PriceProps> = ()=>{
                         <div className='basis-[200px] flex-grow max-w-[350px] py-4 bg-[#211f1f] self-start'>
                             <h3 className='text-center uppercase font-bold text-[1.3em] flex flex-col justify-center items-center text-fifty mx-4'>{t("specificDev")}<span className='w-1/5 h-[6px] bg-thirty mb-5 mt-3'></span></h3>
                             <h6 className='text-center text-[#aaa] uppercase mt-4 mb-[-4px] mx-4'>{t("dayPrice")}</h6>
-                            <div className='text-center px-4'>
-                                <span className='text-center text-[3em] relative text-fifty'>400<em className='absolute top-[3px] right-[-62px] !text-[.4em] text-fifty'>€/{t("day")}</em></span>
+                            <div className='flex justify-center items-start gap-1 px-4 mt-8 mb-4'>
+                                <div className='flex justify-center items-center flex-col relative'>
+                                                                                        <span           className='text-center text-[3em] relative text-fifty'>400</span>
+                                                    <span className='w-2/5 block h-[6px] bg-thirty mb-1 mt-0'></span>
+                                </div>
+                                <em className='text-[.8em] text-[#aaa]'>€/{t("day")}</em>
                             </div>
                             <span className='cursor-pointer px-6 mt-3 py-3 text-fifty bg-thirty hover:text-thirty hover:bg-white flex items-center justify-center transition-hover duration-500 ease-in mx-4'>
                                 <Link
