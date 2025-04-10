@@ -154,7 +154,7 @@ export const serviceDetail = {
         info:"serviceSiteVitrineDescrip",
         subtitle:"serviceSiteVitrineSubTitle",
         category:["WORDPRESS (CMS)","ofHand","hybride"],
-        img:'/assets/images/fieger.png',
+        img:'/assets/images/neue-groupe.png',
         content:{
             title:"serviceSiteVitrineDef",
             para:"serviceWebsite",
@@ -193,7 +193,7 @@ export const serviceDetail = {
         title:"serviceReworkWebsiteTitle",
         info:"serviceReworkWebsiteDescrip",
         subtitle:"serviceReworkWebsiteSubTitle",
-        img:'/assets/images/fieger.png',
+        img:'/assets/images/graphicon.png',
         category:["WORDPRESS (CMS)","ofHand","hybride"],
         content:{
             title:"serviceReworkWebsiteDef",
@@ -232,7 +232,7 @@ export const serviceDetail = {
         title:"serviceEcommerceWebsiteTitle",
         info:"serviceEcommerceWebsiteDescrip",
         subtitle:"serviceEcommerceWebsiteSubTitle",
-        img:'/assets/images/fieger.png',
+        img:'/assets/images/chicken-grill.png',
         category:["WORDPRESS (CMS)","ofHand","hybride"],
         content:{
             title:"serviceEcommerceWebsiteDef",
@@ -271,7 +271,7 @@ export const serviceDetail = {
         title:"serviceSaasTitle",
         info:"serviceSaasDescrip",
         subtitle:"serviceSaasSubTitle",
-        img:'/assets/images/fieger.png',
+        img:'/assets/images/lovsid.png',
         category:["ofHand","progiciel"],
         content:{
             title:"serviceSaasDef",
@@ -514,7 +514,7 @@ export const refDetailContent:refContent = {
         title:"Site vitrine",
         1:{
             title:"Site internet pour",
-            proprio:"Madame Gisabel",
+            proprio:"Entrerpise Fieger",
             img: '/assets/images/fieger.png',
             description:{
                 title:'Domaine d\'activité de',
@@ -522,13 +522,67 @@ export const refDetailContent:refContent = {
             },
             infoSite:{
                 title:'Infos projet web',
-                year:"2024",
-                cat:"Site vitrine sous wordpress",
-                techno:['HTML5','Bootstrap','JavaScript',"JQuery","WordPress",'CSS3'],
-                mode:'WordPress',
-                link:'https://test.com'
+                year:"2019",
+                cat:"devModeWordpress",
+                techno:['HTML5','Bootstrap','JavaScript',"JQuery","WordPress (CMS)",'CSS3'],
+                mode:'devModeWordpress',
+                link:'https://www.fieger-lamellenfenster.de/'
             },
-            task:['Définition de la charte graphique (palette couleur,typographie...)','mise en place du template','correction du style',"Ajout de composant & plugins & images & pages & fonctionnalités","Ajustement nécessaire","Test","Dépliement"]
+            task:['Mise à jour du contenu (text/image...)','Correction du style',"Ajout de composant & images","Test final","Publication"]
+        },
+        2:{
+            title:"Site internet pour",
+            proprio:"Entreprise Neue-gruppe",
+            img: '/assets/images/neue-groupe.png',
+            description:{
+                title:'Domaine d\'activité de',
+                para:[]
+            },
+            infoSite:{
+                title:'Infos projet web',
+                year:"2019",
+                cat:"devModeOfHand",
+                techno:['HTML5','JavaScript',"JQuery","JQuery",'CSS3'],
+                mode:'devModeOfHand',
+                link:'https://www.neue-gruppe.com/'
+            },
+            task:['Ajout de nouvelle fonctionnalité','Ajout du contenu (text/image...)','Modification du désign (style/apparence)',"Test final","Déploiement (mise en ligne)"]
+        },
+        3:{
+            title:"Site internet pour",
+            proprio:"Entreprise Avlis",
+            img: '/assets/images/avlis.png',
+            description:{
+                title:'Domaine d\'activité de',
+                para:[]
+            },
+            infoSite:{
+                title:'Infos projet web',
+                year:"2022-2023",
+                cat:"devModeOfHand",
+                techno:['HTML5','Bootstrap','JavaScript',"JQuery","PHP",'CSS3','MySQL'],
+                mode:'devModeOfHand',
+                link:'https://www.avlis.fr'
+            },
+            task:['Correction des bugs','Mise à jour du contenu (text/image...)','Ajout de nouvelle fonctionnalité',"Amélioration du code produit","Tests final","Déploiement (mise en ligne)"]
+        },
+        4:{
+            title:"Site internet pour",
+            proprio:"Entreprise Charlotte Consulting",
+            img: '/assets/images/fieger.png',
+            description:{
+                title:'Domaine d\'activité de',
+                para:[]
+            },
+            infoSite:{
+                title:'Infos projet web',
+                year:"2024",
+                cat:"devModeOfHand",
+                techno:['HTML5','Bootstrap','JavaScript',"JQuery","MySql","PHP",'CSS3'],
+                mode:'WordPress',
+                link:'https://charlottekoona.com/'
+            },
+            task:['Définition de la charte graphique (palette couleur,typographie...)','Mise en place du template (pages/services/blog...)',"Création des différentes fonctionnalités","Création du backoffice (espace d'administration du site)","Tests final","Déploiement (mise en ligne)"]
         }
     }
 }
@@ -541,40 +595,40 @@ export const reference: Reference = {
           projet: 'Fieger',
           refId: 1,
           index:1,
-          name:"Dimina Mbal",
-          mode:"Fait sous WordPress",
+          name:"Entreprise Fieger",
+          mode:"devModeWordpress",
           shortText:"Refonte site",
           cat:'website'
         },
         {
-          img: '/assets/images/fieger.png',
-          projet: 'Gymrenat',
-          refId: 1,
+          img: '/assets/images/neue-groupe.png',
+          projet: 'Neue-gruppe',
+          refId: 2,
           index:2,
-          name:"Dimina Mbal",
-          mode:"Codé de A a Z",
+          name:"Entreprise Neue-gruppe",
+          mode:"devModeOfHand",
           shortText:"Crétion site vitrine",
           cat:'website'
         },
         {
-          img: '/assets/images/fieger.png',
-          projet: 'Charlotte consulting',
-          refId: 1,
-          index:3,
-          name:"Dimina Mbal",
-          mode:"Codé de A à Z",
-          shortText:"Création site plus blog",
-          cat:'website'
+            img: '/assets/images/avlis.png',
+            projet: 'Avlis formation',
+            refId: 3,
+            index:3,
+            name:"Entreprise Avlis",
+            mode:"devModeOfHand",
+            shortText:"Site pour un centre de formation médical",
+            cat:'website'
         },
         {
-          img: '/assets/images/fieger.png',
-          projet: 'Titre du projet',
-          refId: 1,
-          index:4,
-          name:"Dimina Mbal",
-          mode:"Fait sous WordPress",
-          shortText:"Refonte site",
-          cat:'website'
+            img: '/assets/images/avlis.png',
+            projet: 'Charlotte consulting',
+            refId: 4,
+            index:4,
+            name:"Entreprise Charlotte Consulting",
+            mode:"devModeOfHand",
+            shortText:"Site de présentation de services + blog",
+            cat:'website'
         }
       ]
     },
@@ -582,103 +636,73 @@ export const reference: Reference = {
         title: "websiteReworkReferenceTitle",
         referenceContent: [
           {
-            img: '/assets/images/fieger.png',
-            projet: 'Titre du projet',
+            img: '/assets/images/graphicon.png',
+            projet: 'Graphicon',
             refId: 1,
             index:5,
-            name:"Dimina Mbal",
-            mode:"Codé de A à Z",
-            shortText:"Site E-commerce",
-            cat:'ecommerce'
-          },
-          {
-            img: '/assets/images/fieger.png',
-            projet: 'Blog',
-            refId: 1,
-            index:6,
-            name:"Dimina Mbal",
-            mode:"Codé de A à Z",
-            shortText:"Site E-commerce",
-            cat:'ecommerce'
-          },
-          {
-            img: '/assets/images/fieger.png',
-            projet: 'Kebab 78',
-            refId: 1,
-            index:7,
-            name:"Dimina Mbal",
-            mode:"Codé de A à Z",
-            shortText:"Site E-commerce",
-            cat:'ecommerce'
-          },
-          {
-            img: '/assets/images/fieger.png',
-            projet: 'Chicken grill',
-            name:"Dimina Mbal",
-            refId: 1,
-            index:8,
-            mode:"Codé de A à Z",
-            shortText:"Site E-commerce",
-            cat:'ecommerce'
+            name:"Entreprise Graphicon",
+            mode:"devModeOfHand",
+            shortText:"Site de présentation de services.",
+            cat:'website'
           }
         ]
     },
     3: {
         title: "websiteEcommerReferenceTitle",
         referenceContent: [
-          {
-            img: '/assets/images/fieger.png',
-            projet: 'LovSid Android',
-            refId: 1,
-            name:"Dimina Mbal",
-            index:9,
-            mode:"Codé de A à Z",
-            shortText:"Appli de rencontre version android",
-            cat:'app'
-          },
-          {
-            img: '/assets/images/fieger.png',
-            projet: 'LovSid IOS',
-            refId: 1,
-            index:10,
-            name:"Dimina Mbal",
-            mode:"Codé de A à Z",
-            shortText:"Appli de rencontre version IOS",
-            cat:'app'
-          }
+            {
+                img: '/assets/images/kebab-gare.png',
+                projet: 'Kebab 78',
+                refId: 1,
+                index:7,
+                name:"Dimina Mbal",
+                mode:"devModeOfHand",
+                shortText:"Site E-commerce",
+                cat:'ecommerce'
+            },
+            {
+                img: '/assets/images/chicken-grill.png',
+                projet: 'Chicken grill',
+                name:"Dimina Mbal",
+                refId: 2,
+                index:8,
+                mode:"devModeOfHand",
+                shortText:"Site E-commerce",
+                cat:'ecommerce'
+            }
         ]
     },
     4: {
         title: "referenceSaasTitle",
         referenceContent: [
           {
-            img: '/assets/images/fieger.png',
+            img: '/assets/images/lovsid.png',
             projet: 'LovSid',
             refId: 1,
             index:11,
             name:"Dimina Mbal",
-            mode:"Codé de A à Z",
+            mode:"devModeOfHand",
             shortText:"Site de rencontre",
             cat:'saas'
           },
           {
-            img: '/assets/images/fieger.png',
+            img: '/assets/images/reservation-salle.png',
             projet: 'Location de salle',
             refId: 1,
             index:12,
             name:"Dimina Mbal",
-            mode:"Codé de A à Z",
-            shortText:"Site E-commerce",
+            mode:"devModeOfHand",
+            shortText:"Site de reservation de sale",
             cat:'saas'
           },
           {
-            img: '/assets/images/fieger.png',
-            projet: 'Miror Soul',
+            img: '/assets/images/avlis.png',
+            projet: 'Avlis backoffice',
             refId: 1,
             index:13,
             name:"Dimina Mbal",
-            mode:"Codé de A à Z",
-            shortText:"Site reseaux social",
+            mode:"devModeOfHand",
+            shortText:"Backoffice pour gestion des édutiants et administration du site",
             cat:'saas'
           }
         ]
@@ -688,33 +712,13 @@ export const reference: Reference = {
         referenceContent: [
           {
             img: '/assets/images/fieger.png',
-            projet: 'LovSid',
+            projet: 'LovSid App',
             refId: 1,
             index:11,
             name:"Dimina Mbal",
-            mode:"Codé de A à Z",
-            shortText:"Site de rencontre",
-            cat:'saas'
-          },
-          {
-            img: '/assets/images/fieger.png',
-            projet: 'Location de salle',
-            refId: 1,
-            index:12,
-            name:"Dimina Mbal",
-            mode:"Codé de A à Z",
-            shortText:"Site E-commerce",
-            cat:'saas'
-          },
-          {
-            img: '/assets/images/fieger.png',
-            projet: 'Miror Soul',
-            refId: 1,
-            index:13,
-            name:"Dimina Mbal",
-            mode:"Codé de A à Z",
-            shortText:"Site reseaux social",
-            cat:'saas'
+            mode:"devModeOfHand",
+            shortText:"Application mobile du site de rencontre LovSid",
+            cat:'app'
           }
         ]
     }

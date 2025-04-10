@@ -5,7 +5,7 @@
   "contact": "Contact",
   "services": "Services",
   "references": "Références",
-  "price": "Tarif",
+  "price": "Tarifs",
   "portfolio": "Portfolio",
   "ourServices":"Mes services",
   "pathway":"Parcours",
@@ -471,6 +471,8 @@
   "optionEcommerceMaintenance4": "<strong>Correction des bugs</strong><span style='display:block'>Correction des erreurs techniques (panier, paiement, affichage) pour une expérience utilisateur fluide.</span>",
   "optionEcommerceMaintenance5": "<div><span class='prix'>+50€</span><span class='text'>Renouvellement nom de domaine + Hébergement + e-mail pendant 12 mois.</span></div><div><span class='prix'>+50€</span><span class='text'>Mise en ligne du site sur un serveur.</span></div>",
   "appMaintenance": "Pour la maintenance de vos applications mobiles, veuillez nous contacter afin d'établir un devis et une procédure adaptée. En effet, pour les applications mobiles, un tarif précis ne peut être déterminé sans une compréhension approfondie des besoins spécifiques de votre application.",
-  "saasMaintenance": "Pour la maintenance de vos logiciels métiers ou SaaS, veuillez nous contacter afin d'établir un devis et une procédure adaptée. En effet, pour ce type de logiciel, un tarif précis ne peut être déterminé sans une compréhension approfondie des besoins spécifiques de votre logiciel."
+  "saasMaintenance": "Pour la maintenance de vos logiciels métiers ou SaaS, veuillez nous contacter afin d'établir un devis et une procédure adaptée. En effet, pour ce type de logiciel, un tarif précis ne peut être déterminé sans une compréhension approfondie des besoins spécifiques de votre logiciel.",
+  "devModeWordpress":"Fait sous WordPress",
+  "devModeOfHand":"Codé à la main"
 }
   

@@ -282,7 +282,7 @@ const PopUp:React.FC<PopupProps> = ({windowSize,mode,id})=>{
                                 <h3 className="text-[1.7em] font-semibold text-right uppercase mb-3 ml-[50%] max-810:ml-[35%] max-420:ml-0 max-792:ml-[10%]">{refDetail?.title+' '+refDetail?.proprio}</h3>
                                 <hr  className="border-thirty mb-10 ml-[50%]"/>
                                 <div className="flex justify-center items-center gap-4 max-810:flex-col max-810:gap-y-5">
-                                    <img className="w-1/2 aspect-[4/2] max-810:w-full" src={refDetail?.img} alt={refDetail?.proprio} />
+                                    <img className="w-1/2 aspect-[4/3] max-810:w-full" src={refDetail?.img} alt={refDetail?.proprio} />
                                     <div className="w-1/2 max-810:w-full">
                                         <h4 className="text-[1.4em] font-semibold text-thirty uppercase">{refDetail?.infoSite.title}</h4>
                                         <div className="flex flex-col justify-start items-start gap-2 mt-4">
@@ -297,7 +297,7 @@ const PopUp:React.FC<PopupProps> = ({windowSize,mode,id})=>{
                                                 <span className="flex justify-start items-center gap-1">
                                                     <Icon name="bx-category" size="1em" color="var(--color-thirty)"/>
                                                     {t("categorie")}</span>
-                                                <span className="font-medium flex-1 text-right">{refDetail?.infoSite.cat}</span>
+                                                <span className="font-medium flex-1 text-right">{t(refDetail?.infoSite.cat)}</span>
                                             </div>
                                             <div className="flex justify-between items-center gap-2 w-full flex-wrap">
                                                 <span className="flex justify-start items-center gap-1">

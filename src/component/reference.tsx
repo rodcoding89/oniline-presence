@@ -55,15 +55,17 @@ const Reference:React.FC<ReferenceProps> = ()=>{
             <div className='bg-secondary pb-8'>
                 <h1 className='mb-5 mx-[calc(15%/2)] pt-[30px] uppercase text-fifty'>{t("ourReferences")}</h1>
                 <p className='mx-[calc(15%/2)] text-fifty mb-10'>{t("referenceTitle")}</p>
-                <nav className='flex justify-center items-center gap-4 bg-white p-2 flex-wrap mx-auto w-[85%]'>
-                    {
-                        nav.map((item)=>{
-                            return (
-                              <div className={`cursor-pointer hover:underline hover:text-secondary ${selectedCategory === item.label ? 'text-secondary' : 'text-primary'}`} key={`${item.label}_key`} onClick={()=>setSelectedCategory(item.label)}>{item.name}</div> 
-                            )
-                        })
-                    }
-                </nav>
+                <div className='w-[85%] mx-auto'>
+                  <nav className='flex justify-center items-center gap-4 bg-white py-2 px-5 flex-wrap w-fit'>
+                      {
+                          nav.map((item)=>{
+                              return (
+                                <div className={`cursor-pointer hover:underline hover:text-secondary ${selectedCategory === item.label ? 'text-secondary' : 'text-primary'}`} key={`${item.label}_key`} onClick={()=>setSelectedCategory(item.label)}>{item.name}</div> 
+                              )
+                          })
+                      }
+                  </nav>
+                </div>
             </div>
             <div className='w-[85%] mx-auto'>
                 <div ref={containerRef} className="flex justify-center items-start gap-4 relative mt-5 w-full flex-wrap">
@@ -75,7 +77,7 @@ const Reference:React.FC<ReferenceProps> = ()=>{
                         animate={{ opacity: 1, y: 0 }}
                         exit={{ opacity: 0, y: -20 }}
                         transition={{ duration: 0.5 }}
-                        className="w-[350px] group max-420:w-[280px] max-330:w-[250px]" onClick={()=>showRefContent(card)}>
+                        className="w-[350px] group max-420:w-[280px] max-330:w-[250px] self-stretch" onClick={()=>showRefContent(card)}>
                         <div className='h-[300px] relative overflow-hidden group'>
                           <img className='h-full object-cover cursor-pointer' src={card.link} alt={card.title} />
                           <div className='h-full cursor-pointer w-full bg-[rgba(142,22,22,.5)] absolute top-0 left-0 flex justify-center items-center transition-transform duration-500 ease-in-out translate-y-[350px] group-hover:translate-y-0'><Icon name='bx-show' size='4em' color='#fff'/></div>
@@ -83,10 +85,10 @@ const Reference:React.FC<ReferenceProps> = ()=>{
                         <div className={`bg-fifty group-hover:bg-secondary py-2`}>
                             <div className='flex justify-between items-center gap-2 mx-4'>
                               <h4 className='text-secondary font-semibold text-[18px] mb-2 text-ellipsis whitespace-nowrap w-fit uppercase group-hover:text-fifty relative before:w-2/5 before:h-1 before:bg-secondary before:bottom-[-4px] before:left-[1px] before:block before:group-hover:bg-fifty before:absolute'>{card.projet}</h4>
-                              <span className='text-[11px] text-[#aaa]'>{card.mode}</span>
+                              <span className='text-[11px] text-[#aaa]'>{t(card.mode)}</span>
                             </div>
                             <p className='uppercase text-[14px] font-medium mx-4 mt-1 text-primary group-hover:text-fifty'>{card.name}</p>
-                            <p className='mx-4 mt-1 text-[13px] text-primary uppercase group-hover:text-fifty'>{card.shortText}</p>
+                            <p className='mx-4 mt-1 text-[13px] text-primary group-hover:text-fifty'>{card.shortText}</p>
                           </div>
                       </motion.div>
                     ))}
