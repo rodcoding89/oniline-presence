@@ -53,7 +53,7 @@ const Reference:React.FC<ReferenceProps> = ()=>{
     return (
         <Element className="mt-[110px]" name="reference">
             <div className='bg-secondary pb-8'>
-                <h1 className='mb-5 mx-[calc(15%/2)] pt-[30px] uppercase text-fifty'>{t("ourReferences")}</h1>
+                <h1 className='mb-5 mx-[calc(15%/2)] pt-[30px] uppercase text-fifty line-break'>{t("ourReferences")}</h1>
                 <p className='mx-[calc(15%/2)] text-fifty mb-10'>{t("referenceTitle")}</p>
                 <div className='w-[85%] mx-auto'>
                   <nav className='flex justify-center items-center gap-4 bg-white py-2 px-5 flex-wrap w-fit'>
@@ -83,7 +83,7 @@ const Reference:React.FC<ReferenceProps> = ()=>{
                           <div className='h-full cursor-pointer w-full bg-[rgba(142,22,22,.5)] absolute top-0 left-0 flex justify-center items-center transition-transform duration-500 ease-in-out translate-y-[350px] group-hover:translate-y-0'><Icon name='bx-show' size='4em' color='#fff'/></div>
                         </div>
                         <div className={`bg-fifty group-hover:bg-secondary py-2`}>
-                            <div className='flex justify-between items-center gap-2 mx-4'>
+                            <div className='flex justify-between items-center gap-2 mx-4 flex-wrap'>
                               <h4 className='text-secondary font-semibold text-[18px] mb-2 text-ellipsis whitespace-nowrap w-fit uppercase group-hover:text-fifty relative before:w-2/5 before:h-1 before:bg-secondary before:bottom-[-4px] before:left-[1px] before:block before:group-hover:bg-fifty before:absolute'>{card.projet}</h4>
                               <span className='text-[11px] text-[#aaa]'>{t(card.mode)}</span>
                             </div>

@@ -4,14 +4,16 @@ import { useTranslation } from 'react-i18next';
 interface FooterProps{
 
 }
-
+const location = new URL(window.location.href);
+const lang = location.pathname.split("/")[1];
+//console.log("lang",location.pathname)
 const Footer:React.FC<FooterProps> = ()=>{
     const { t } = useTranslation();
     return (
         <footer className='bg-primary w-full flex justify-start items-center gap-8 flex-col py-10 mt-10 px-[8%] '>
-            <div className='flex justify-center items-start w-full gap-x-[13vw] gap-y-4 max-520:flex-col max-520:justify-center max-640:items-center max-520:w-full'>
-                <div className='text-fifty w-1/2'><img src="assets/images/logo.webp" alt="logo" className='w-auto h-[100px] rounded-full'/></div>
-                <div className='flex justify-start items-start w-1/2'>
+            <div className='flex justify-center items-start w-full gap-x-[13vw] gap-y-7 max-520:flex-col max-520:justify-center max-520:w-full'>
+                <div className='text-fifty w-1/2 max-792:w-[100px] max-520:w-full max-520:flex max-520:justify-center max-520:items-center'><img src="/assets/images/logo.webp" alt="logo" className='w-auto h-[100px] rounded-full'/></div>
+                <div className='flex justify-start items-start w-1/2 max-792:flex-1 max-520:w-full max-520:justify-center max-520:items-center'>
                     <div className='flex justify-start items-start flex-col gap-5'>
                         <h4 className='text-fifty uppercase font-semibold'>{t("shareOn")}</h4>
                         <div className='flex justify-center items-center gap-6 max-420:gap-4'>
@@ -67,9 +69,14 @@ const Footer:React.FC<FooterProps> = ()=>{
                     </div>
                 </div>
             </div>
-            <div className='w-full flex justify-center items-center gap-x-[13vw] gap-y-4 max-520:flex-col max-520:w-full'>
-                <Link to={'/fr/legal-notice'} className='text-fifty underline hover:text-link w-1/2 text-left'>{t("legalNotice")}</Link>
-                <p className='text-fifty w-1/2 text-left max-520:text-center'>© Copyright {new Date().getFullYear()} {t("right")}</p>
+            <div className='w-full flex justify-between items-center gap-x-[13vw] gap-y-4 flex-wrap'>
+                <div className='flex items-center justify-start gap-2 flex-wrap'>
+                    <Link to={`/${lang}/legal-notice`} className='text-fifty underline hover:text-link text-left'>{t("legalNotice")}</Link>
+                    <Link to={`/${lang}/terms-of-services`} className='text-fifty underline hover:text-link text-left'>{t("termsOfUse")}</Link>
+                </div>
+                <div className='flex items-center justify-end gap-2 flex-1'>
+                    <p className='text-fifty text-right'>© Copyright {new Date().getFullYear()} {t("right")}</p>
+                </div>
             </div>
         </footer>
     )

@@ -21,6 +21,7 @@ export default {
         extrabold: 'var(--family-poppins-extrabold)'
       },
       screens: {
+        'max-1085':{'max': '1085px'},
         'max-920':{'max': '920px'},
         'max-810':{'max': '810px'},
         'max-792':{'max': '792px'},

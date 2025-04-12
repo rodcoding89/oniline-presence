@@ -254,7 +254,6 @@ h1 {
 }
 .dropping-texts {
   display: inline-block;
-  height: 100px;
   vertical-align: -2px;
   overflow-y: hidden;
   position: relative; /* Ajouté pour positionner les éléments correctement */
@@ -282,6 +281,34 @@ h1 {
   opacity: 0; /* Masquer par défaut */
   transform: translateY(-50px);
   animation: roll 12s linear infinite; /* Animation appliquée à tous les éléments */
+}
+
+@media (max-width:743px){
+  .dropping-texts > div {
+    font-size: 30px;
+  }
+}
+@media (max-width:627px){
+  .dropping-texts > div {
+    font-size: 20px;
+  }
+}
+@media (max-width:443px){
+  .dropping-texts > div {
+    color: #fff;
+    font-family: inherit;
+    font-size: 15px;
+  }
+}
+@media (max-width:421px){
+  .dev {
+    font-size: 13px;
+  }
+}
+@media (max-width:335px){
+  .dropping-texts > div {
+    font-size: 12px;
+  }
 }
 
 .dropping-texts > div:nth-child(1) {
@@ -317,6 +344,17 @@ h1 {
   100% {
     opacity: 0;
     transform: translateY(50px);
+  }
+}
+
+@media(max-width:640px){
+  .line-break{
+    font-size:35px;
+  }
+}
+@media(max-width:420px){
+  .line-break{
+    font-size:26px;
   }
 }
 .price{

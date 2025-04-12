@@ -32,7 +32,7 @@ const Price:React.FC<PriceProps> = ()=>{
         <Element className="mt-[110px] price" name="price">
             <div>
                 <div className='w-[85%] mx-auto'>
-                    <h1 className='text-center text-thirty font-semibold mb-4 uppercase'>{t("price")}</h1>
+                    <h1 className='text-center text-thirty font-semibold mb-4 uppercase line-break'>{t("price")}</h1>
                     <h4 className='text-center text-[#aaa] text-[1.4em] mb-10'>{t("priceTitle")}</h4>
                     <div className='flex flex-wrap gap-5 justify-center w-full'>
                         {

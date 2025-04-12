@@ -3,21 +3,24 @@ import { useContext, useEffect, useState } from "react"
 import { Link } from 'react-scroll';
 import { AppContext } from "../app-context";
 import CloseButton from "./close-btn";
+import { useNavigate } from 'react-router-dom';
 import { useTranslation } from 'react-i18next';
 import { refDetailContent, reference, serviceDetail } from "../utils/constant";
 import Icon from "./Icon";
 
 interface PopupProps{
-    windowSize:string,
-    mode:string,
+    /*windowSize:string,
+    mode:string,*/
     id:number|null
 }
 
-const PopUp:React.FC<PopupProps> = ({windowSize,mode,id})=>{
+const PopUp:React.FC<PopupProps> = ({id})=>{
     const { t } = useTranslation();
+    const navigate = useNavigate();
     const [hidePopUp,setHidePopUp] = useState<boolean>(false);
     const [refDetail,setRefDetail] = useState<any>()
     const [serviceSiteReference,setServiceSiteReference] = useState<any>()
+    const [windowSize,setWindowSize] = useState<string>('w-0')
     const {contextData,setContextData} = useContext(AppContext)
     const data:any = id !== null ? serviceDetail[id as keyof typeof serviceDetail] : null;
     const [switchIndex,setSwitchIndex] = useState<number>(0)
@@ -25,7 +28,7 @@ const PopUp:React.FC<PopupProps> = ({windowSize,mode,id})=>{
     //const refenrence = id !== null && mode === 'service' ? reference[id] : null
     //= id !== null ? refDetailContent[id] : null
     const [popupMode,setMode] = useState<string>('')
-    
+    const [wstate,setState] = useState<string>('')
     const [currentIndex,setCurrentIndex] = useState<number>(0)
     const handlePopUp = ()=>{
         setContextData({state:"hide",value:false,size:windowSize})
@@ -51,8 +54,8 @@ const PopUp:React.FC<PopupProps> = ({windowSize,mode,id})=>{
             <div>
                 <p className="text-[14px] my-3" dangerouslySetInnerHTML={{ __html: t(devModeContent[switchIndex + 1].def) }}/>
                 <span className="text-[11px] text-primary font-regular mb-5 italic block" dangerouslySetInnerHTML={{ __html: t(devModeContent[switchIndex + 1].notion) }}/>
-                <div className="flex justify-start items-start gap-3">
-                    <div className="w-1/2">
+                <div className="flex justify-start items-start gap-3 max-792:flex-col">
+                    <div className="w-1/2 max-792:w-full">
                         <h4 className="mb-5 text-[1.15em] font-semibold uppercase text-secondary">{t('advantage')}</h4>
                         <div className="flex flex-col justify-start items-start gap-3">
                             {
@@ -65,7 +68,7 @@ const PopUp:React.FC<PopupProps> = ({windowSize,mode,id})=>{
                             }
                         </div>
                     </div>
-                    <div className="w-1/2">
+                    <div className="w-1/2 max-792:w-full">
                         <h4 className="mb-5 text-[1.15em] font-semibold uppercase text-secondary">{t('disadvantage')}</h4>
                         <div className="flex flex-col justify-start items-start gap-3">
                             {
@@ -82,21 +85,29 @@ const PopUp:React.FC<PopupProps> = ({windowSize,mode,id})=>{
             </div>
         )
     }
+    const switchToStart = ()=>{
+        const location = new URL(window.location.href);
+        if (location.pathname.split("/").length > 2) {
+            navigate("/"+location.pathname.split("/")[1])
+        }
+    }
     useEffect(()=>{
         if (contextData && contextData.state === "show") {
             console.log("contextData.value",contextData.value)
+            if (contextData.mode === "service" && id) {
+                setServiceSiteReference(reference[id])
+            }else if(contextData.mode === "reference" && id){
+                //console.log("cat",cat,id)
+                setRefDetail(refDetailContent[contextData.cat][contextData.id])
+            }
             setHidePopUp(contextData.value)
+            setWindowSize(contextData.size)
+            setMode(contextData.mode)
+        }else{
+            setHidePopUp(false)
+            setWindowSize('w-0')
         }
     },[contextData])
-    useEffect(()=>{
-        if (mode === "service" && id) {
-            setServiceSiteReference(reference[id])
-        }else if(mode === "reference" && id){
-            //console.log("cat",cat,id)
-            setRefDetail(refDetailContent[contextData.cat][contextData.id])
-        }
-        setMode(mode)
-    },[mode])
     console.log("mode",hidePopUp,contextData)
     return (
         <div className={`fixed flex justify-end w-[100vw] h-[100vh] top-0 right-0 bottom-0 transition-all duration-500 ease-in-out ${hidePopUp ? 'z-[100] bg-[rgba(0,0,0,0.3)]':'z-[-1] bg-transparent'}`}>
@@ -113,7 +124,7 @@ const PopUp:React.FC<PopupProps> = ({windowSize,mode,id})=>{
                                 offset={-65} 
                                 duration={500}
                                 to={`home`}
-                                ><img src="/assets/images/logo.webp" alt="logo" className='w-auto h-[45px] rounded-full'/></Link>
+                                ><img src="/assets/images/logo.webp" alt="logo" className='w-auto h-[45px] rounded-full' onClick={switchToStart}/></Link>
                                 <span className=" cursor-pointer"><CloseButton size="large" onClose={handlePopUp}/></span>
                             </div>
                             <div className="w-full">
@@ -130,7 +141,7 @@ const PopUp:React.FC<PopupProps> = ({windowSize,mode,id})=>{
                                     smooth={true} 
                                     offset={-65} 
                                     duration={500}
-                                    to={`home`}>{t("home")}</Link>
+                                    to={`home`} onClick={switchToStart}>{t("home")}</Link>
                                     <Link 
                                     className='cursor-pointer text-primary'
                                     activeClass="active"
@@ -138,7 +149,7 @@ const PopUp:React.FC<PopupProps> = ({windowSize,mode,id})=>{
                                     smooth={true} 
                                     offset={-65} 
                                     duration={500} 
-                                    to={`about`}>{t("about")}</Link>
+                                    to={`about`} onClick={switchToStart}>{t("about")}</Link>
                                     <Link
                                     className='cursor-pointer text-primary'
                                     activeClass="active"
@@ -146,7 +157,7 @@ const PopUp:React.FC<PopupProps> = ({windowSize,mode,id})=>{
                                     smooth={true} 
                                     offset={-65} 
                                     duration={500} 
-                                    to={`services`}>{t("services")}</Link>
+                                    to={`services`} onClick={switchToStart}>{t("services")}</Link>
                                     <Link
                                     className='cursor-pointer text-primary'
                                     activeClass="active"
@@ -154,7 +165,7 @@ const PopUp:React.FC<PopupProps> = ({windowSize,mode,id})=>{
                                     smooth={true} 
                                     offset={-65} 
                                     duration={500} 
-                                    to={`reference`}>{t("references")}</Link>
+                                    to={`reference`} onClick={switchToStart}>{t("references")}</Link>
                                     <Link
                                     className='cursor-pointer text-primary'
                                     activeClass="active"
@@ -162,7 +173,7 @@ const PopUp:React.FC<PopupProps> = ({windowSize,mode,id})=>{
                                     smooth={true} 
                                     offset={-65} 
                                     duration={500} 
-                                    to={`price`}>{t("price")}</Link>
+                                    to={`price`} onClick={switchToStart}>{t("price")}</Link>
                                     <Link
                                     className='cursor-pointer text-primary'
                                     activeClass="active"
@@ -170,7 +181,7 @@ const PopUp:React.FC<PopupProps> = ({windowSize,mode,id})=>{
                                     smooth={true} 
                                     offset={-65} 
                                     duration={500} 
-                                    to={`contact`}>{t("contact")}</Link>
+                                    to={`contact`} onClick={switchToStart}>{t("contact")}</Link>
                                     <a href="https://portfolio.rodcoding.tech" className='cursor-pointer text-primary' target="_blank">{t("protfolio")}</a>
                                 </nav>
                             </div>
@@ -187,11 +198,11 @@ const PopUp:React.FC<PopupProps> = ({windowSize,mode,id})=>{
                     ): popupMode === 'service' ? (
                         <div className="flex flex-col justify-between items-start h-[100vh] gap-3 py-3 px-8 overflow-y-auto ">
                             <div className="flex justify-between items-center gap-3 w-full">
-                                <h3 className="text-[1.8em] font-bold uppercase text-thirty">{t("services")}</h3>
+                                <h3 className="text-[1.8em] font-bold uppercase text-thirty line-break max-420:text-[20px]">{t("services")}</h3>
                                 <span className=" cursor-pointer"><CloseButton size="large" onClose={handlePopUp}/></span>
                             </div>
                             <div className="mt-3 w-full">
-                                <h2 className="text-[1.5em] text-thirty font-semibold mb-3">{t(data?.title)}</h2>
+                                <h2 className="text-[1.5em] text-thirty font-semibold mb-3 max-420:text-[17px]">{t(data?.title)}</h2>
                                 <div className="flex flex-col justify-start items-center gap-5">
                                     <div className="mt-3 mb-5 w-full block">
                                         <h4 className="font-semibold mb-1">{t(data?.content.title)}</h4>
@@ -211,10 +222,10 @@ const PopUp:React.FC<PopupProps> = ({windowSize,mode,id})=>{
                                         </div>
                                     </div> 
                                 </div>
-                                <h2 className="text-[1.5em] text-thirty font-semibold mb-3 mt-10">{t(data?.subtitle)}</h2>
+                                <h2 className="text-[1.5em] text-thirty font-semibold mb-3 mt-10 max-420:text-[17px]">{t(data?.subtitle)}</h2>
                                 <p className="mb-3">{t(data?.info)}</p>
                                 <div className="my-5">
-                                    <div className='flex justify-around items-center gap-3 py-2 px-3 bg-white'>
+                                    <div className='flex justify-around items-center gap-3 py-2 px-3 bg-white flex-wrap'>
                                     {
                                         data?.category?.map((m:any,i:number)=>{
                                             return(
@@ -255,8 +266,8 @@ const PopUp:React.FC<PopupProps> = ({windowSize,mode,id})=>{
                                                                     <h4 className='text-secondary font-semibold text-[18px] mb-2 w-fit uppercase group-hover:text-fifty relative before:w-2/5 before:h-1 before:bg-secondary before:bottom-[-4px] before:left-[1px] before:block before:group-hover:bg-fifty before:absolute'>{item.projet}</h4>
                                                                     <span className='text-[11px] text-[#aaa]'>{t(item.mode)}</span>
                                                                 </div>
-                                                                <p className='uppercase text-[14px] font-medium mx-4 mt-1 text-primary group-hover:text-fifty'>{item.name}</p>
-                                                                <p className='mx-4 mt-1 text-[13px] text-primary uppercase group-hover:text-fifty'>{item.shortText}</p>
+                                                                <p className='uppercase text-[14px] font-medium mx-4 mt-1 text-primary group-hover:text-fifty'>{t(item.name)}</p>
+                                                                <p className='mx-4 mt-1 text-[13px] text-primary uppercase group-hover:text-fifty'>{t(item.shortText)}</p>
                                                             </div>
                                                         </div>
                                                     )
@@ -279,12 +290,12 @@ const PopUp:React.FC<PopupProps> = ({windowSize,mode,id})=>{
                                 <span className=" cursor-pointer"><CloseButton size="large" onClose={handlePopUp}/></span>
                             </div>
                             <div className="mt-4">
-                                <h3 className="text-[1.7em] font-semibold text-right uppercase mb-3 ml-[50%] max-810:ml-[35%] max-420:ml-0 max-792:ml-[10%]">{refDetail?.title+' '+refDetail?.proprio}</h3>
+                                <h3 className="text-[1.7em] font-semibold text-right uppercase mb-3 ml-[50%] max-810:ml-[35%] max-420:ml-0 max-792:ml-[10%]">{t(refDetail?.title)+' '+t(refDetail?.proprio)}</h3>
                                 <hr  className="border-thirty mb-10 ml-[50%]"/>
                                 <div className="flex justify-center items-center gap-4 max-810:flex-col max-810:gap-y-5">
-                                    <img className="w-1/2 aspect-[4/3] max-810:w-full" src={refDetail?.img} alt={refDetail?.proprio} />
+                                    <img className="w-1/2 aspect-[4/3] max-810:w-full" src={refDetail?.img} alt={t(refDetail?.proprio)} />
                                     <div className="w-1/2 max-810:w-full">
-                                        <h4 className="text-[1.4em] font-semibold text-thirty uppercase">{refDetail?.infoSite.title}</h4>
+                                        <h4 className="text-[1.4em] font-semibold text-thirty uppercase">{t(refDetail?.infoSite.title)}</h4>
                                         <div className="flex flex-col justify-start items-start gap-2 mt-4">
                                             <div className="flex justify-between items-center gap-1 w-full flex-wrap">
                                                 <span className="flex justify-start items-center gap-1">
@@ -318,13 +329,13 @@ const PopUp:React.FC<PopupProps> = ({windowSize,mode,id})=>{
                                     </div>
                                 </div>
                                 <div className="mt-10">
-                                    <h4 className="text-[1.4em] font-semibold text-thirty uppercase mb-3">{refDetail?.description.title + ' '+refDetail?.proprio}</h4>
+                                    <h4 className="text-[1.4em] font-semibold text-thirty uppercase mb-3">{t(refDetail?.description.title) + ' '+t(refDetail?.proprio)}</h4>
                                     <hr  className="border-thirty mb-5"/>
                                     <div className="mt-4">
                                         {
                                             refDetail?.description.para.map((item:any, index:number) => {
                                                 const modifiedItem = item
-                                                  .replace(/{name}/g, refDetail?.proprio)
+                                                  .replace(/{name}/g, t(refDetail?.proprio))
                                                   .replace(/{open}/g, '<strong>')
                                                   .replace(/{close}/g, '</strong>');
                                         
@@ -344,7 +355,7 @@ const PopUp:React.FC<PopupProps> = ({windowSize,mode,id})=>{
                                                 return <li className="w-[calc(50%-4px)] max-792:w-[calc(100%-4px)]" key={index}>
                                                 <div className="flex justify-start items-center gap-1">
                                                   <Icon name="bx-check" size=".9em" />
-                                                  {item}
+                                                  {t(item)}
                                                 </div>
                                               </li>
                                             })

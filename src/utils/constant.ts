@@ -511,80 +511,140 @@ interface Reference {
 
 export const refDetailContent:refContent = {
     website: {
-        title:"Site vitrine",
+        title:"websiteTitle",
         1:{
-            title:"Site internet pour",
-            proprio:"Entrerpise Fieger",
+            title:"websiteItemTitle",
+            proprio:"websiteItem1Proprio",
             img: '/assets/images/fieger.png',
             description:{
-                title:'Domaine d\'activité de',
+                title:'acivityDomaine',
                 para:['Création du site internet de {name}, spécialisée dans la {open}co-écriture de livres pour entrepreneurs et particuliers{close}. Elle accompagne ses clients dans la réalisation de leurs projets littéraires, transformant leurs idées en ouvrages aboutis.\n','Ce site vitrine personnalisé met en avant ses différentes formules de {open}co-écriture{close}, adaptées aux besoins spécifiques de chaque auteur en devenir. Il détaille le processus collaboratif, de la conception à la publication, offrant une transparence totale sur les étapes clés de la création d\'un livre.\n',"Ce site vitrine sur mesure contient une interface d'administration ainsi qu'une expérience de navigation optimale sur tous types d'appareils.\n","Ce site internet renforce la visibilité et la crédibilité de {name} en tant que {open}co-écrivaine{close}, mettant en avant son expertise, son parcours littéraire ainsi que les témoignages de clients satisfaits. Cette plateforme reflète son engagement à aider les auteurs à concrétiser leurs rêves d'écriture.\n"]
             },
             infoSite:{
-                title:'Infos projet web',
+                title:'infoProjet',
                 year:"2019",
                 cat:"devModeWordpress",
                 techno:['HTML5','Bootstrap','JavaScript',"JQuery","WordPress (CMS)",'CSS3'],
                 mode:'devModeWordpress',
                 link:'https://www.fieger-lamellenfenster.de/'
             },
-            task:['Mise à jour du contenu (text/image...)','Correction du style',"Ajout de composant & images","Test final","Publication"]
+            task:['websiteItem1TaksPara1','websiteItem1TaksPara2','websiteItem1TaksPara3','websiteItem1TaksPara4','websiteItem1TaksPara5']
         },
         2:{
-            title:"Site internet pour",
-            proprio:"Entreprise Neue-gruppe",
+            title:"websiteItemTitle",
+            proprio:"websiteItem2Proprio",
             img: '/assets/images/neue-groupe.png',
             description:{
-                title:'Domaine d\'activité de',
+                title:'acivityDomaine',
                 para:[]
             },
             infoSite:{
-                title:'Infos projet web',
+                title:'infoProjet',
                 year:"2019",
                 cat:"devModeOfHand",
                 techno:['HTML5','JavaScript',"JQuery","JQuery",'CSS3'],
                 mode:'devModeOfHand',
                 link:'https://www.neue-gruppe.com/'
             },
-            task:['Ajout de nouvelle fonctionnalité','Ajout du contenu (text/image...)','Modification du désign (style/apparence)',"Test final","Déploiement (mise en ligne)"]
+            task:['websiteItem2TaksPara1','websiteItem2TaksPara2','websiteItem2TaksPara3','websiteItem2TaksPara4','websiteItem2TaksPara5']
         },
         3:{
-            title:"Site internet pour",
-            proprio:"Entreprise Avlis",
+            title:"websiteItemTitle",
+            proprio:"websiteItem3Proprio",
             img: '/assets/images/avlis.png',
             description:{
-                title:'Domaine d\'activité de',
+                title:'acivityDomaine',
                 para:[]
             },
             infoSite:{
-                title:'Infos projet web',
+                title:'infoProjet',
                 year:"2022-2023",
                 cat:"devModeOfHand",
                 techno:['HTML5','Bootstrap','JavaScript',"JQuery","PHP",'CSS3','MySQL'],
                 mode:'devModeOfHand',
                 link:'https://www.avlis.fr'
             },
-            task:['Correction des bugs','Mise à jour du contenu (text/image...)','Ajout de nouvelle fonctionnalité',"Amélioration du code produit","Tests final","Déploiement (mise en ligne)"]
+            task:['websiteItem3TaksPara1','websiteItem3TaksPara2','websiteItem3TaksPara3','websiteItem3TaksPara4','websiteItem3TaksPara5','websiteItem3TaksPara6']
         },
         4:{
-            title:"Site internet pour",
-            proprio:"Entreprise Charlotte Consulting",
+            title:"websiteItemTitle",
+            proprio:"websiteItem4Proprio",
             img: '/assets/images/fieger.png',
             description:{
-                title:'Domaine d\'activité de',
+                title:'acivityDomaine',
                 para:[]
             },
             infoSite:{
-                title:'Infos projet web',
+                title:'infoProjet',
                 year:"2024",
                 cat:"devModeOfHand",
-                techno:['HTML5','Bootstrap','JavaScript',"JQuery","MySql","PHP",'CSS3'],
+                techno:['HTML5','Bootstrap','JavaScript',"JQuery","MySql","PHP",'CSS3','External Module'],
                 mode:'WordPress',
                 link:'https://charlottekoona.com/'
             },
-            task:['Définition de la charte graphique (palette couleur,typographie...)','Mise en place du template (pages/services/blog...)',"Création des différentes fonctionnalités","Création du backoffice (espace d'administration du site)","Tests final","Déploiement (mise en ligne)"]
+            task:['websiteItem4TaksPara1','websiteItem4TaksPara2','websiteItem4TaksPara3','websiteItem4TaksPara4','websiteItem4TaksPara5','websiteItem4TaksPara6']
         }
-    }
+    },
+    reworked:{
+        title:"reworkedTitle",
+        1:{
+            title:"reworkedItemTitle",
+            proprio:"reworkedItemProprio",
+            img: '/assets/images/graphicon.png',
+            description:{
+                title:'acivityDomaine',
+                para:[]
+            },
+            infoSite:{
+                title:'infoProjet',
+                year:"2019",
+                cat:"devModeOfHand",
+                techno:['HTML5','Angular +2','JavaScript','CSS3(SCSS)','External Module'],
+                mode:'devModeOfHand',
+                link:'https://www.graphicon.de/'
+            },
+            task:['reworkedItemTaksPara1','reworkedItemTaksPara2','reworkedItemTaksPara3','reworkedItemTaksPara4','reworkedItemTaksPara5']
+        }
+    },
+    ecommerce:{
+        title:"ecommerceTitle",
+        1:{
+            title:"ecommerceItemTitle",
+            proprio:"ecommerceItem1Proprio",
+            img: '/assets/images/chicken-grill.png',
+            description:{
+                title:'acivityDomaine',
+                para:[]
+            },
+            infoSite:{
+                title:'infoProjet',
+                year:"2021",
+                cat:"devModeOfHand",
+                techno:['PHP','JavaScirpt','JQuery','MySQL','HTML5','CSS3','Bootstrap','External Module'],
+                mode:'devModeOfHand',
+                link:'https://www.kebab-gare.com/'
+            },
+            task:['ecommerceItem1TaksPara1','ecommerceItem1TaksPara2','ecommerceItem1TaksPara3','ecommerceItem1TaksPara4','ecommerceItem1TaksPara5','ecommerceItem1TaksPara6','ecommerceItem1TaksPara7','ecommerceItem1TaksPara8','ecommerceItem1TaksPara9']
+        },
+        2:{
+            title:"ecommerceItemTitle",
+            proprio:"ecommerceItem1Proprio",
+            img: '/assets/images/chicken-grill.png',
+            description:{
+                title:'acivityDomaine',
+                para:[]
+            },
+            infoSite:{
+                title:'infoProjet',
+                year:"2021",
+                cat:"devModeOfHand",
+                techno:['PHP','JavaScirpt','JQuery','MySQL','HTML5','CSS3','Bootstrap','External Module'],
+                mode:'devModeOfHand',
+                link:''
+            },
+            task:['ecommerceItem1TaksPara1','ecommerceItem1TaksPara2','ecommerceItem1TaksPara3','ecommerceItem1TaksPara4','ecommerceItem2TaksPara5','ecommerceItem1TaksPara6','ecommerceItem1TaksPara7','ecommerceItem1TaksPara8','ecommerceItem1TaksPara9']
+        }
+    },
 }
 export const reference: Reference = {
     1: {
@@ -595,9 +655,9 @@ export const reference: Reference = {
           projet: 'Fieger',
           refId: 1,
           index:1,
-          name:"Entreprise Fieger",
+          name:"websiteItem1Proprio",
           mode:"devModeWordpress",
-          shortText:"Refonte site",
+          shortText:"",
           cat:'website'
         },
         {
@@ -605,9 +665,9 @@ export const reference: Reference = {
           projet: 'Neue-gruppe',
           refId: 2,
           index:2,
-          name:"Entreprise Neue-gruppe",
+          name:"websiteItem2Proprio",
           mode:"devModeOfHand",
-          shortText:"Crétion site vitrine",
+          shortText:"",
           cat:'website'
         },
         {
@@ -615,7 +675,7 @@ export const reference: Reference = {
             projet: 'Avlis formation',
             refId: 3,
             index:3,
-            name:"Entreprise Avlis",
+            name:"websiteItem3Proprio",
             mode:"devModeOfHand",
             shortText:"Site pour un centre de formation médical",
             cat:'website'
@@ -640,9 +700,9 @@ export const reference: Reference = {
             projet: 'Graphicon',
             refId: 1,
             index:5,
-            name:"Entreprise Graphicon",
+            name:"reworkedItemProprio",
             mode:"devModeOfHand",
-            shortText:"Site de présentation de services.",
+            shortText:".",
             cat:'website'
           }
         ]
@@ -655,19 +715,19 @@ export const reference: Reference = {
                 projet: 'Kebab 78',
                 refId: 1,
                 index:7,
-                name:"Dimina Mbal",
+                name:"ecommerceItem1Proprio",
                 mode:"devModeOfHand",
-                shortText:"Site E-commerce",
+                shortText:"Site E-commerce pour un restaurant faisant des livraisons à domicile",
                 cat:'ecommerce'
             },
             {
                 img: '/assets/images/chicken-grill.png',
                 projet: 'Chicken grill',
-                name:"Dimina Mbal",
+                name:"ecommerceItem1Proprio",
                 refId: 2,
                 index:8,
                 mode:"devModeOfHand",
-                shortText:"Site E-commerce",
+                shortText:"Site E-commerce pour un restaurant multi point de vente faisant des commandes en ligne",
                 cat:'ecommerce'
             }
         ]

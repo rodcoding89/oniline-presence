@@ -21,7 +21,7 @@ const Header:React.FC<HeaderProps> = ()=>{
     useEffect(() => {
         // Détecter la langue du navigateur
         const location = new URL(window.location.href);
-    
+        console.log("location",location)
         if (!["/en","/fr","/de"].includes(location.pathname)) {
             const detectedLanguage = navigator.language
             const langCode = detectedLanguage.split('-')[0] || 'en'; // Extrait le code de langue (ex: 'en' de 'en-US')
@@ -38,11 +38,14 @@ const Header:React.FC<HeaderProps> = ()=>{
                     // ... other options
                 }); 
             }
-            navigate("/"+langCode)
+            const npathTmp = location.pathname.split("/")
+            npathTmp[1] = langCode
+            const npath = npathTmp.join("/")
+            navigate(npath)
         }else{
             setLanguage(location.pathname.split("/")[1]);
             // Changer la langue dans i18next
-            navigate("/"+location.pathname.split("/")[1])
+            navigate(location.pathname)
             if (!hasChangeLanguage) {
                 i18n.changeLanguage(location.pathname.split("/")[1]);
                 scroller.scrollTo(1, {
@@ -56,7 +59,7 @@ const Header:React.FC<HeaderProps> = ()=>{
         if (!hasChangeLanguage) {
             setHasChangeLanguage(false);
         }
-      }, [navigate,hasChangeLanguage]);
+    }, [navigate,hasChangeLanguage]);
     const handleChangeLanguage = (lang: string) => {
         const newLang = lang;
         //setLanguage(newLang);
@@ -67,13 +70,19 @@ const Header:React.FC<HeaderProps> = ()=>{
                     console.error('Error changing language:', err);
                 }
                 setLanguage(newLang)
-                navigate("/"+newLang)
+                //navigate("/"+newLang)
                 setIsShowLang(false)
             });
         } else {
             //console.error('i18n is undefined or does not have the method changeLanguage');
         }
     };
+    const switchToStart = ()=>{
+        const location = new URL(window.location.href);
+        if (location.pathname.split("/").length > 2) {
+            navigate("/"+location.pathname.split("/")[1])
+        }
+    }
     const handleShowMore = ()=>{
         const windowWidth = window.innerWidth;
         const costomeWidth = windowWidth >= 920 ? 'w-[25%]' : windowWidth <= 920 && windowWidth >= 650 ? 'w-[45%]' : windowWidth <= 650 && windowWidth >= 420 ? 'w-[55%]' : 'w-[100%]'
@@ -91,8 +100,8 @@ const Header:React.FC<HeaderProps> = ()=>{
                 offset={-100} 
                 duration={500}
                 to={`home`}
-                ><img src="/assets/images/logo.webp" alt="logo" className='w-auto h-[80px] rounded-full'/></Link>
-                <nav className='navi flex justify-start items-center gap-4 max-920:hidden'>
+                ><img src="/assets/images/logo.webp" alt="logo" className='w-auto h-[80px] rounded-full' onClick={switchToStart}/></Link>
+                <nav className='navi flex justify-start items-center gap-4 max-1085:hidden'>
                     <Link
                     className='cursor-pointer text-primary'
                     activeClass="active" 
@@ -100,7 +109,7 @@ const Header:React.FC<HeaderProps> = ()=>{
                     smooth={true} 
                     offset={-100} 
                     duration={500}
-                    to={`home`}>{t("home")}</Link>
+                    to={`home`} onClick={switchToStart}>{t("home")}</Link>
                     <Link 
                     className='cursor-pointer text-primary'
                     activeClass="active"
@@ -108,7 +117,7 @@ const Header:React.FC<HeaderProps> = ()=>{
                     smooth={true} 
                     offset={-100} 
                     duration={500} 
-                    to={`about`}>{t("about")}</Link>
+                    to={`about`} onClick={switchToStart}>{t("about")}</Link>
                     <Link
                     className='cursor-pointer text-primary'
                     activeClass="active"
@@ -116,7 +125,7 @@ const Header:React.FC<HeaderProps> = ()=>{
                     smooth={true} 
                     offset={-100} 
                     duration={500} 
-                    to={`services`}>{t("services")}</Link>
+                    to={`services`} onClick={switchToStart}>{t("services")}</Link>
                     <Link
                     className='cursor-pointer text-primary'
                     activeClass="active"
@@ -124,7 +133,7 @@ const Header:React.FC<HeaderProps> = ()=>{
                     smooth={true} 
                     offset={-100} 
                     duration={500} 
-                    to={`reference`}>{t("references")}</Link>
+                    to={`reference`} onClick={switchToStart}>{t("references")}</Link>
                     <Link
                     className='cursor-pointer text-primary'
                     activeClass="active"
@@ -132,7 +141,7 @@ const Header:React.FC<HeaderProps> = ()=>{
                     smooth={true} 
                     offset={-100} 
                     duration={500} 
-                    to={`price`}>{t("price")}</Link>
+                    to={`price`} onClick={switchToStart}>{t("price")}</Link>
                     <Link
                     className='cursor-pointer text-primary'
                     activeClass="active"
@@ -140,7 +149,7 @@ const Header:React.FC<HeaderProps> = ()=>{
                     smooth={true} 
                     offset={-100} 
                     duration={500} 
-                    to={`contact`}>{t("contact")}</Link>
+                    to={`contact`} onClick={switchToStart}>{t("contact")}</Link>
                     <a href="https://portfolio.rodcoding.tech" className='cursor-pointer text-primary' target="_blank">{t("portfolio")}</a>
                 </nav>
                 <div className='relative flex justify-start items-center gap-6'>

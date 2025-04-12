@@ -51,7 +51,7 @@ const Contact:React.FC<ContactProps> = ()=>{
         <Element className="mt-[110px]" name="contact">
             <div className="w-[85%] mx-auto">
                 <div className="section-heading  text-center"> 
-                    <h2 className='uppercase text-thirty'>{t('contactMe')}</h2> 
+                    <h1 className='uppercase text-thirty line-break'>{t('contactMe')}</h1> 
                 </div>
                 <div className="w-full flex justify-center items-start gap-10 max-792:flex-col">
                     <div className="contact-info w-1/3 max-792:w-full">
