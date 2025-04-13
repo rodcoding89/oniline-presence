@@ -1,24 +1,31 @@
-import i18n from 'i18next';
-import { initReactI18next } from 'react-i18next';
-import HttpBackend from 'i18next-http-backend';
-const detectedLanguage = navigator.language.split("-")[0]
-i18n
-  .use(HttpBackend)
-  .use(initReactI18next)
-  .init({
-    lng: detectedLanguage,
-    fallbackLng: 'en',
-    keySeparator: false,
-    interpolation: {
-      escapeValue: false,
-    },
-    backend: {
-      loadPath: '/locales/{{lng}}/{{ns}}.json',
-    },
-  }, (err) => {
-    if (err) {
-      console.error('i18n initialization error:', err);
-    }
-  });
+import {notFound} from 'next/navigation';
+import {getRequestConfig} from 'next-intl/server';
+import { LANG_LIST } from './constants';
 
-export default i18n;
+// 1. Typez explicitement vos locales
+const locales = LANG_LIST;
+type Locale = typeof locales[number];
+
+// 3. Configuration avec typage strict
+export default getRequestConfig(async ({locale}) => {
+  // Conversion explicite en Locale
+  const typedLocale = locale as Locale;
+  
+  if (!locales.includes(typedLocale)) {
+    notFound();
+  }
+
+  // Import dynamique avec vérification
+  let messages;
+  try {
+    messages = (await import(`../messages/${typedLocale}.json`)).default;
+  } catch (error) {
+    notFound();
+  }
+
+  // Retournez l'objet avec le bon typage
+  return {
+    locale: typedLocale, // string garantie
+    messages
+  };
+});
