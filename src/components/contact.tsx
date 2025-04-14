@@ -5,15 +5,32 @@ import { useForm } from 'react-hook-form';
 import { useState } from 'react';
 import CloseButton from './close-btn';
 import { useTranslationContext } from '@/hooks/app-hook';
+import  sendEmail  from '../server/services'
+interface Email{
+    from:string;
+    name:string;
+    budget?:string;
+    subject:string;
+    content:string;
+}
 
 interface ContactProps{
     locale:string
 }
-//const RESEND_API_KEY = "re_hosg2ASF_GRrpk9V6EFAKQjcoTk9RnCKg";
+
 const Contact:React.FC<ContactProps> = ({locale})=>{
     const t:any = useTranslationContext();
     const [loader,setLoader] = useState<boolean>(false)
     const [isSended,setIsSended] = useState<boolean|null>(null)
+    const [selectBudget,setSelectBudget] = useState<{item:string,index:number}|null>(null)
+    const budget = [
+        '----'+t['budget']+'----',
+        '0 - 1000',
+        '1000 - 2500',
+        '2500 - 5000',
+        '5000 - 10000',
+        '10000 - 20000'
+    ]
     const {
         register,
         handleSubmit,
@@ -23,22 +40,24 @@ const Contact:React.FC<ContactProps> = ({locale})=>{
         //const resend = new Resend(RESEND_API_KEY);
         setLoader(true)
         setIsSended(null)
+        const emailData:Email = {
+            from: data.email,
+            name: data.name,
+            budget: selectBudget !== null ? selectBudget.index !== 0 ? selectBudget.item : '' : '',
+            subject: data.subject,
+            content: data.message
+        }
         try {
-            /*const response = await resend.emails.send({
-                from: data.email,
-                to: 'rodriguekwayep.freelance@hotmail.com',
-                subject: data.subject,
-                text: data.name+'\n'+data.message
-            });
-            if (response) {
+            const response = await sendEmail(emailData)
+            console.log("response",response)
+            if (response === 'success') {
                 setIsSended(true)
                 reset()
                 return
-            }*/
-            reset()
+            }
             setIsSended(false)
-            return
         } catch (error) {
+            setIsSended(false)
             console.error(error)
         } finally {
             setLoader(false)
@@ -117,7 +136,19 @@ const Contact:React.FC<ContactProps> = ({locale})=>{
                                         {errors.subject?.type === "required" && <div className='text-[.8em] text-red-500'>{t["errSubject"]}</div>}
                                     </div>
                                 </div>
-                                
+                                <div className='w-full'>
+                                    <div className="form-group">
+                                        <select className='form-control' name="" id="">
+                                            {
+                                                budget.map((item,index)=>{
+                                                    return (
+                                                        <option value={item} onClick={()=>setSelectBudget({item,index})}>{item}</option>
+                                                    )
+                                                })
+                                            }
+                                        </select>
+                                    </div>
+                                </div>
                                 <div className="w-full">
                                     <div className="form-group">
                                         <textarea className={`form-control focus:outline-[#aaa] ${errors.message ? '!border-red-500 focus:outline-red-500':'focus:outline-[#aaa]'}`} rows={18} placeholder={t["yourMessage"]} {...register('message', { required: true })} aria-invalid={errors.message ? "true" : "false"}></textarea>
