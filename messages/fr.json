@@ -55,7 +55,7 @@
     "errEmail":"L'email est obligatoire",
     "errSubject":"Veuillez indiquer l'objet du message",
     "errMessage": "Veuillez saisir votre message",
-    "successContact":"Votre message a été envoyé avec succès. Laissez-moi le temps de l'étudier et je vous répondrez dans les plus brefs délais.",
+    "successContact":"Votre message a été envoyé avec succès. Laissez-moi le temps de l'étudier et je vous répondrai dans les plus brefs délais.",
     "errorContact":"Une erreur s'est produite lors de l'envoi du message. Je vous recommande de patienter quelques instants et de réessayer.",
     "sendMessage":"Envoyer",
     "yourMessage":"Votre message",

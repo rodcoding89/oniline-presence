@@ -55,7 +55,7 @@
     "errEmail":"E-Mail ist ein Pflichtfeld",
     "errSubject":"Bitte geben Sie den Betreff Ihres Nachrichten ein",
     "errMessage": "Bitte geben Sie Ihr Nachricht ein",
-    "successContact":"Ihre Nachricht wurde erfolgreich gesendet. Geben Sie mir Zeit, sie zu prüfen, und ich werde Ihnen so schnell wie möglich antworten.",
+    "successContact":"Ihre Nachricht wurde erfolgreich gesendet. Geben Sie mir bitte Zeit, sie zu prüfen, und ich werde Ihnen so schnell wie möglich antworten.",
     "errorContact":"Ein Fehler ist beim Senden der Nachricht aufgetreten. Ich empfehle Ihnen, einige Augenblicke zu warten und es erneut zu versuchen.",
     "sendMessage":"Senden",
     "yourMessage":"Ihre Nachricht",

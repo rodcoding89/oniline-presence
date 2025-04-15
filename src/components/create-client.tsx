@@ -3,24 +3,49 @@ import { useState, useContext, useEffect } from 'react';
 import { useForm } from 'react-hook-form';
 import { useTranslationContext } from '@/hooks/app-hook';
 import { AppContext } from '@/app/context/app-context';
+import  firebase  from "@/utils/firebase";
+import { collection, addDoc, getDocs } from "firebase/firestore";
+import { useRouter } from 'next/navigation';
 
 interface CreateClientProps {
     locale:string
+}
+
+interface Client {
+    id?: string;
+    name:string;
+    contractStatus: 'signed' | 'unsigned' | 'pending';
+    lastContact: Date;
+}
+
+export async function addClient(clientData:Client) {
+    try {
+      const docRef = await addDoc(collection(firebase.db, "clients"), clientData);
+      return docRef.id;
+    } catch (e) {
+      console.error("Error adding document: ", e);
+    }
 }
 
 const CreateClient: React.FC<CreateClientProps> = ({locale}) => {
     const t:any = useTranslationContext();
     const [isPopUp,setIsPopUp] = useState<boolean>(false)
     const {contextData} = useContext(AppContext)
+    const router = useRouter();
     const {
         register,
         handleSubmit,
         formState: { errors },
     } = useForm();
 
-    const onSubmit = (data: any) => {
+    const onSubmit = async(data: any) => {
+        const client:Client = {name:data.clientName,contractStatus:'unsigned',lastContact:new Date()}
         console.log('Client Data:', data);
-        // Handle form submission here
+        const clientId = await addClient(client)
+        if (clientId) {
+            router.push('/'+locale+'/clients-list')
+        }
+        console.log("clientId",clientId)
     };
     console.log("main",contextData)
     useEffect(()=>{
@@ -54,8 +79,7 @@ const CreateClient: React.FC<CreateClientProps> = ({locale}) => {
                 <div>
                 <button
                     type="submit"
-                    className="px-4 py-2 bg-blue-500 text-white rounded-md hover:bg-blue-600"
-                >
+                    className="px-4 py-2 bg-blue-500 text-white rounded-md hover:bg-blue-600">
                     Validate
                 </button>
                 </div>

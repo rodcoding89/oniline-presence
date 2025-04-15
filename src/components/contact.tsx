@@ -22,7 +22,6 @@ const Contact:React.FC<ContactProps> = ({locale})=>{
     const t:any = useTranslationContext();
     const [loader,setLoader] = useState<boolean>(false)
     const [isSended,setIsSended] = useState<boolean|null>(null)
-    const [selectBudget,setSelectBudget] = useState<{item:string,index:number}|null>(null)
     const budget = [
         '----'+t['budget']+'----',
         '0 - 1000',
@@ -37,13 +36,12 @@ const Contact:React.FC<ContactProps> = ({locale})=>{
         formState: { errors,isValid },reset
       } = useForm({ mode: 'onChange'});
     const sendMessage = async(data:any)=>{
-        //const resend = new Resend(RESEND_API_KEY);
         setLoader(true)
         setIsSended(null)
         const emailData:Email = {
             from: data.email,
             name: data.name,
-            budget: selectBudget !== null ? selectBudget.index !== 0 ? selectBudget.item : '' : '',
+            budget: !data.budget.includes("?----") ? data.budget : '',
             subject: data.subject,
             content: data.message
         }
@@ -138,11 +136,11 @@ const Contact:React.FC<ContactProps> = ({locale})=>{
                                 </div>
                                 <div className='w-full'>
                                     <div className="form-group">
-                                        <select className='form-control' name="" id="">
+                                        <select className='form-control' id="" {...register('budget')}>
                                             {
                                                 budget.map((item,index)=>{
                                                     return (
-                                                        <option value={item} onClick={()=>setSelectBudget({item,index})}>{item}</option>
+                                                        <option key={index} value={item}>{item}</option>
                                                     )
                                                 })
                                             }

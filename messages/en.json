@@ -55,7 +55,7 @@
     "errEmail":"Email is required",
     "errSubject":"Please indicate the subject of the message",
     "errMessage": "Please enter your message",
-    "successContact":"Your message has been successfully sent. Please give me time to review it, and i will respond to you as soon as possible.",
+    "successContact":"Your message has been successfully sent. Please give me time to review it, and I will respond to you as soon as possible.",
     "errorContact":"An error occurred while sending the message. i recommend waiting a few moments and trying again.",
     "sendMessage":"Send",
     "yourMessage":"Your message",
