@@ -4,6 +4,7 @@ import { useTranslationContext } from "@/hooks/app-hook";
 
 import { useState, useContext, useEffect } from "react";
 import { useForm } from "react-hook-form";
+import InitCanvaSignature from "./initCanvaSignature";
 
 interface ContractProps{
     locale:string
@@ -13,10 +14,11 @@ const Contrat:React.FC<ContractProps> = ({locale})=>{
     const t:any = useTranslationContext();
     const [isPopUp,setIsPopUp] = useState<boolean>(false)
     const {contextData} = useContext(AppContext)
+    const [signingContent, setSigningContent] = useState<string | null>(null);
     const {
         register,
         handleSubmit,
-        formState: { errors },
+        formState: { errors,isValid },
     } = useForm();
 
     const onSubmit = (data:any) => {
@@ -29,6 +31,13 @@ const Contrat:React.FC<ContractProps> = ({locale})=>{
             setIsPopUp(contextData.value)
         }
     },[contextData])
+    const handleSignatureChange = (data:any)=>{
+        console.log("data",data)
+        setSigningContent(data)
+    }
+    const checkValidation = ()=>{
+        return isValid && signingContent !== null
+    }
     return (
         <main className={`transition-transform duration-700 delay-300 ease-in-out ${isPopUp ? 'translate-x-[-25vw]' : 'translate-x-0'} w-[85%] mt-[110px] mx-auto`}>
             <h1 className="text-center text-thirty uppercase">{t["contrat"]}</h1>
@@ -340,12 +349,14 @@ const Contrat:React.FC<ContractProps> = ({locale})=>{
                         </select>
                     </div>
                     </section>
-
+                    <section className="signing">
+                        <InitCanvaSignature locale={locale} emit={handleSignatureChange}/>
+                    </section>
                     {/* Submit Button */}
                     <div className="flex justify-end">
                     <button
                         type="submit"
-                        className="px-4 py-2 bg-indigo-600 text-white rounded-md hover:bg-indigo-700"
+                        className={`px-4 py-2 bg-indigo-600 text-white rounded-md hover:bg-indigo-700 ${checkValidation() ? 'opacity-1' : 'opacity-50'}`} disabled={!checkValidation()}
                     >
                         Generate Contract
                     </button>

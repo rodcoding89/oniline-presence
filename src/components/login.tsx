@@ -1,8 +1,9 @@
 "use client"
 import { useState } from 'react';
-import { signInWithEmailAndPassword, signOut } from "firebase/auth";
+import { signInWithEmailAndPassword } from "firebase/auth";
 import { useRouter } from 'next/navigation';
 import firebase from "@/utils/firebase";
+import Cookies from 'js-cookie';
 
 interface LoginProps {
     locale:string
@@ -21,12 +22,20 @@ const Login: React.FC<LoginProps> = ({locale}) => {
 
     try {
       await signInWithEmailAndPassword(firebase.auth, email, password);
-      router.push('/'+locale+'/create-client');
+      const expirationDate = new Date();
+      expirationDate.setHours(expirationDate.getHours() + 12);
+      Cookies.set('logged', 'true', { expires: expirationDate });
+      router.push('/'+locale+'/clients-list');
     } catch (err:any) {
       setError(err.message);
     }
   };
 
+  if(Cookies.get('logged')){
+    router.push('/'+locale+'/clients-list')
+  }else{
+    console.log("cookies",Cookies.get('logged'))
+  }
   return (
     <div className="flex justify-center items-center h-screen bg-white mt-[100px]">
       <div className="bg-gray-200 p-8 rounded shadow-md w-[50%] min-[250px]">

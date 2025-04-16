@@ -1,9 +1,12 @@
 "use client"
 import { collection, getDocs, deleteDoc, doc, updateDoc } from 'firebase/firestore';
 import firebase from '@/utils/firebase'; // Importez votre configuration Firebase
+import { signOut } from "firebase/auth";
+import Cookies from 'js-cookie';
 
 import { useRouter } from 'next/navigation';
 import { useEffect, useState } from 'react';
+import Link from 'next/link';
 
 interface Client {
   id: string;
@@ -87,7 +90,18 @@ const ClientsList: React.FC<CLientsListProps> = ({locale}) => {
         default: return 'Statut inconnu';
         }
     };
-
+    const logout = async () => {
+        try {
+            await signOut(firebase.auth);
+            Cookies.remove('logged');
+            router.push('/'+locale+'/login');
+        } catch (error) {
+            console.error("Erreur de déconnexion:", error);
+        }
+    };
+    if(!Cookies.get('logged')){
+        router.push('/'+locale+'/login')
+    }
     if (loading) return <div className="text-center py-8 mt-[110px] h-[200px] flex justify-center items-center w-[85%] mx-auto">Chargement...</div>;
 
     return (
@@ -141,6 +155,12 @@ const ClientsList: React.FC<CLientsListProps> = ({locale}) => {
                         ))}
                         </tbody>
                     </table>
+                </div>
+            </div>
+            <div className='w-full flex items-end justify-end mt-5'>
+                <div className='flex justify-start items-center gap-3 w-full'>
+                    <Link className='text-primary py-2 px-4 bg-[#ccc] rounded-[.2em]' href={'/'+locale+'/create-client'}>Créer un client</Link>
+                    <span className='text-white py-2 px-4 bg-blue-600 hover:bg-blue-900 rounded-[.2em] cursor-pointer' onClick={logout}>Déconnexion</span>
                 </div>
             </div>
         </div>
