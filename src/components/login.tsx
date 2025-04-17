@@ -4,6 +4,7 @@ import { signInWithEmailAndPassword } from "firebase/auth";
 import { useRouter } from 'next/navigation';
 import firebase from "@/utils/firebase";
 import Cookies from 'js-cookie';
+import Icon from './Icon';
 
 interface LoginProps {
     locale:string
@@ -13,21 +14,24 @@ interface LoginProps {
 const Login: React.FC<LoginProps> = ({locale}) => {
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
+  const [loader, setLoader] = useState<boolean>(false);
   const [error, setError] = useState<string | null>(null);
   const router = useRouter();
 
   const handleSubmit = async (event: React.FormEvent) => {
     event.preventDefault();
     setError(null);
-
+    setLoader(true);
     try {
       await signInWithEmailAndPassword(firebase.auth, email, password);
       const expirationDate = new Date();
       expirationDate.setHours(expirationDate.getHours() + 12);
       Cookies.set('logged', 'true', { expires: expirationDate });
+      setLoader(false);
       router.push('/'+locale+'/clients-list');
     } catch (err:any) {
       setError(err.message);
+      setLoader(false);
     }
   };
 
@@ -71,10 +75,10 @@ const Login: React.FC<LoginProps> = ({locale}) => {
           </div>
           <div className="flex items-center justify-between">
             <button
-              className="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded focus:outline-none focus:shadow-outline"
+              className="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded focus:outline-none focus:shadow-outline flex items-start justify-center gap-2"
               type="submit"
             >
-              Sign In
+              <span>Sign In</span> {loader && <Icon name='bx bx-loader-alt bx-spin bx-rotate-180' color='#fff' size='1em'/>}
             </button>
           </div>
           {error && <p className="text-red-500 text-xs italic mt-4">{error}</p>}

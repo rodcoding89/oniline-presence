@@ -1,10 +1,45 @@
 "use client"
 import { AppContext } from "@/app/context/app-context";
 import { useTranslationContext } from "@/hooks/app-hook";
-
+import { getDoc, doc, updateDoc } from 'firebase/firestore';
 import { useState, useContext, useEffect } from "react";
 import { useForm } from "react-hook-form";
 import InitCanvaSignature from "./initCanvaSignature";
+import firebase from '@/utils/firebase'; // Importez votre configuration Firebase
+import { useParams } from "next/navigation";
+import { PDFDocument, PDFFont, PDFPage, rgb, StandardFonts } from "pdf-lib";
+
+interface Client {
+    id: string;
+    name: string;
+    contractStatus: 'signed' | 'unsigned' | 'pending';
+    lastContact: Date;
+}
+
+interface Contract {
+    name:string;
+    clientAddress:string;
+    clientBillingAddress?:string;
+    clientEmail:string;
+    clientPhone:string;
+    clientSIRET?:string;
+    clientVAT?:string;
+    freelancerName:string;
+    freelancerSirets?:string;
+    freelancerVAT?:string;
+    projectTitle:string;
+    projectDescription:string;
+    deliverables:string;
+    startDate:string;
+    endDate?:string;
+    totalPrice:number;
+    paymentMethod:string;
+    paymentSchedule:string;
+    confidentiality:boolean;
+    terminationTerms:string;
+    governingLaw:string;
+    effectiveDate:string;
+}
 
 interface ContractProps{
     locale:string
@@ -13,11 +48,18 @@ interface ContractProps{
 const Contrat:React.FC<ContractProps> = ({locale})=>{
     const t:any = useTranslationContext();
     const [isPopUp,setIsPopUp] = useState<boolean>(false)
+    const [loading, setLoading] = useState(true);
     const {contextData} = useContext(AppContext)
-    const [signingContent, setSigningContent] = useState<string | null>(null);
+    const [signingLink, setSigningLink] = useState<string | null>(null);
+    const [client, setClient] = useState<Client|null>(null)
+    // Contenu dynamique basé sur la langue
+    
+    const {id} = useParams()
+    const clientId = id as string
     const {
         register,
         handleSubmit,
+        reset,
         formState: { errors,isValid },
     } = useForm();
 
@@ -25,24 +67,174 @@ const Contrat:React.FC<ContractProps> = ({locale})=>{
         console.log("Contract Data:", data);
         // Generate PDF or send data to backend
     };
+    
+    const handleSignatureChange = (data:any)=>{
+        console.log("data",data)
+        setSigningLink(data)
+    }
+    const checkValidation = ()=>{
+        return isValid && signingLink !== null
+    }
+    const getStatusText = (status: string) => {
+        if(!status) return 'Statut inconnu';
+        switch (status) {
+        case 'signed': return 'Contrat signé';
+        case 'pending': return 'En cours de signature';
+        case 'unsigned': return 'Contrat non signé';
+        default: return 'Statut inconnu';
+        }
+    };
+    const getStatusClass = (status: string) => {
+        if(!status) return 'bg-gray-100 text-gray-800';
+        switch (status) {
+        case 'signed': return 'bg-green-100 text-green-800';
+        case 'pending': return 'bg-yellow-100 text-yellow-800';
+        case 'unsigned': return 'bg-red-100 text-red-800';
+        default: return 'bg-gray-100 text-gray-800';
+        }
+    };
+    // Obtenir l'icône en fonction du statut
+    const getStatusIcon = (status: string) => {
+        if(!status) return 'bx bx-question-mark';
+        switch (status) {
+        case 'signed': return 'bx bx-check-circle';
+        case 'pending': return 'bx bx-time';
+        case 'unsigned': return 'bx bx-error-circle';
+        default: return 'bx bx-question-mark';
+        }
+    };
+    const handlePdf = async(data:Contract)=>{
+        //if(!signingLink) return
+        console.log("start fontion")
+        const content = {
+            title: "CONTRAT DE PRESTATION EN DÉVELOPPEMENT WEB",
+            preambleFrom: `ENTRE: ${data.name}`,
+            preambleTo: `ET: ${data.freelancerName}`,
+            preambleFromSous:'(ci-après appelé(e) "le client")',
+            preambleToSous:'(ci-après appelée "le prestataire de services")'
+            // Ajoutez toutes les autres sections ici...
+        };
+        try {
+            console.log("try fontion")
+            // Création d'un nouveau document PDF
+            const pdfDoc = await PDFDocument.create();
+            const page = pdfDoc.addPage([595, 842]); // Format A4
+            
+            // Chargement des polices
+            const font = await pdfDoc.embedFont(StandardFonts.Helvetica);
+            const fontBold = await pdfDoc.embedFont(StandardFonts.HelveticaBold);
+      
+            // Dimensions utiles
+            const { width, height } = page.getSize();
+            const margin = 50;
+            const lineHeight = 14;
+      
+            //const signatureImage = await pdfDoc.embedPng(signingLink);
+            //page.drawImage(signatureImage, { x: 50, y: 250, width: 200, height: 80 });
+      
+            // Position initiale
+            let yPosition = height - margin;
+
+
+            // Titre
+            addText(content.title, margin, yPosition, 16, true,font,fontBold,page,lineHeight);
+            yPosition -= lineHeight * 2;
+
+            // Préambule
+            const preambleLinesFrom = addText(content.preambleFrom, margin, yPosition,11,false,font,fontBold,page,lineHeight);
+            yPosition -= lineHeight * (preambleLinesFrom + 0);
+
+            //Sous title
+            const preambleLinesFromSous = addText(content.preambleFromSous, margin, yPosition, 9, false,font,fontBold,page,lineHeight);
+            yPosition -= lineHeight * (preambleLinesFromSous + 1);
+
+            // Préambule
+            const preambleLinesTo = addText(content.preambleTo, margin, yPosition,11,false,font,fontBold,page,lineHeight);
+            yPosition -= lineHeight * (preambleLinesTo + 0);
+
+            //Sous title
+            const preambleLinesFromTo = addText(content.preambleToSous, margin, yPosition, 9, false,font,fontBold,page,lineHeight);
+            yPosition -= lineHeight * (preambleLinesFromTo + 2);
+
+            // Sections du contrat (ajoutez toutes les sections nécessaires)
+            addText('1 - PRÉAMBULE', margin, yPosition, 14, true,font,fontBold,page,lineHeight);
+            yPosition -= lineHeight * 2;
+            
+            // ... Ajoutez toutes les autres sections du contrat ici
+
+            // Signatures
+            yPosition -= lineHeight * 3;
+            addText('Signature du client : ___________________________', margin, yPosition,12,false,font,fontBold,page,lineHeight);
+            addText(`Date: ${data.effectiveDate}`, width - 150, yPosition,12,false,font,fontBold,page,lineHeight);
+            yPosition -= lineHeight * 2;
+            addText('Signature du prestataire : ___________________________', margin, yPosition,12,false,font,fontBold,page,lineHeight);
+            addText(`Date: ${data.effectiveDate}`, width - 150, yPosition,12,false,font,fontBold,page,lineHeight);
+
+            // Génération du PDF final
+            const pdfBytes = await pdfDoc.save();
+            const blob = new Blob([pdfBytes], { type: 'application/pdf' });
+            const link = document.createElement('a');
+            link.href = URL.createObjectURL(blob);
+            link.download = `document-signé-${data.name}.pdf`;
+            link.innerText = 'Télécharger le document signé';
+            setTimeout(() => {
+                document.querySelector('body form')?.appendChild(link);
+            }, 0);
+            console.log("end fontion")
+            //return await pdfDoc.save();
+        } catch (error) {
+            console.error('Erreur lors de la génération du PDF:', error);
+            alert('Une erreur est survenue.');
+        }
+    }
+    // Fonction utilitaire pour ajouter du texte multiligne
+    const addText = (text: string, x: number, y: number, size = 12, isBold = false,font:PDFFont,fontBold:PDFFont,page:PDFPage,lineHeight:number) => {
+        const lines = text.split('\n');
+        const currentFont = isBold ? fontBold : font;
+        
+        lines.forEach((line, i) => {
+            page.drawText(line, {
+                x,
+                y: y - (i * lineHeight),
+                size,
+                font: typeof(currentFont) !== 'string' ? currentFont : undefined,
+                color: rgb(0, 0, 0),
+            });
+        });
+        
+        return lines.length;
+    };
+    useEffect(() => {
+        async function getDocumentById(collectionName: string, id: string) {
+            if(!id) return
+            const docRef = doc(firebase.db, collectionName, id);
+            const docSnap = await getDoc(docRef);
+          
+            if (docSnap.exists()) {
+              const client:any = { id: docSnap.id, ...docSnap.data() };
+              setClient(client);
+              reset(client);
+              setLoading(false);
+            } else {
+              console.log("Document non trouvé !");
+              return null;
+            }
+            await handlePdf({name:"Test Name",freelancerName:"ROD TECH SOLUTIONS",freelancerSirets:"SIRET",freelancerVAT:"",clientEmail:"test@mail.com",clientAddress:"123 rue Saint-Sébastien, Poissy 78300, France",clientSIRET:"",clientPhone:"7845 454 12",confidentiality:true,projectTitle:"SIte Web",projectDescription:"Test du site",startDate:new Date().toISOString(),endDate:new Date().toISOString(),effectiveDate:new Date().toISOString(),deliverables:"50%",totalPrice:700,paymentMethod:"Bank Transfer",paymentSchedule:"50",terminationTerms:"50",governingLaw:"French Law"})
+        }
+        getDocumentById("clients",clientId);
+    }, []);
     useEffect(()=>{
         if (contextData && (contextData.state === "hide" || contextData.state === "show")) {
             console.log("inside contextData",contextData)
             setIsPopUp(contextData.value)
         }
     },[contextData])
-    const handleSignatureChange = (data:any)=>{
-        console.log("data",data)
-        setSigningContent(data)
-    }
-    const checkValidation = ()=>{
-        return isValid && signingContent !== null
-    }
+    if (loading) return <div className="text-center py-8 mt-[110px] h-[200px] flex justify-center items-center w-[85%] mx-auto">Chargement...</div>;
     return (
         <main className={`transition-transform duration-700 delay-300 ease-in-out ${isPopUp ? 'translate-x-[-25vw]' : 'translate-x-0'} w-[85%] mt-[110px] mx-auto`}>
             <h1 className="text-center text-thirty uppercase">{t["contrat"]}</h1>
             <div className="max-w-3xl mx-auto p-6 bg-white shadow-md rounded-lg">
-                <h1 className="text-2xl font-bold mb-6">Freelance Web Development Contract</h1>
+                <h1 className="text-2xl font-bold mb-6 flex justify-start items-center gap-2">Freelance Web Development Contract <span className={`px-2 inline-flex text-xs leading-5 font-semibold rounded-full ${getStatusClass(client?.contractStatus ?? '')}`}><i className={`${getStatusIcon(client?.contractStatus ?? '')} mr-1`}></i>{getStatusText(client?.contractStatus ?? '')}</span></h1>
 
                 <form onSubmit={handleSubmit(onSubmit)} className="space-y-6">
                     {/* === Client Information === */}
@@ -55,11 +247,11 @@ const Contrat:React.FC<ContractProps> = ({locale})=>{
                             Full Name / Business Name*
                         </label>
                         <input
-                            {...register("clientName", { required: "This field is required" })}
+                            {...register("name", { required: "This field is required" })}
                             className="mt-1 block w-full border border-gray-300 rounded-md p-2"
                         />
-                        {errors.clientName && (
-                            <p className="text-red-500 text-sm mt-1">{errors.clientName.message as string}</p>
+                        {errors.name && (
+                            <p className="text-red-500 text-sm mt-1">{errors.name.message as string}</p>
                         )}
                         </div>
 
@@ -293,7 +485,7 @@ const Contrat:React.FC<ContractProps> = ({locale})=>{
                         {...register("paymentSchedule", { required: "This field is required" })}
                         rows={2}
                         className="mt-1 block w-full border border-gray-300 rounded-md p-2"
-                        placeholder="Example: 50% upfront, 50% on delivery"
+                        placeholder="50% au début, 50% a la livraison"
                         />
                         {errors.paymentSchedule && (
                         <p className="text-red-500 text-sm mt-1">{errors.paymentSchedule.message as string}</p>
@@ -354,12 +546,12 @@ const Contrat:React.FC<ContractProps> = ({locale})=>{
                     </section>
                     {/* Submit Button */}
                     <div className="flex justify-end">
-                    <button
-                        type="submit"
-                        className={`px-4 py-2 bg-indigo-600 text-white rounded-md hover:bg-indigo-700 ${checkValidation() ? 'opacity-1' : 'opacity-50'}`} disabled={!checkValidation()}
-                    >
-                        Generate Contract
-                    </button>
+                        <button
+                            type="submit"
+                            className={`px-4 py-2 bg-indigo-600 text-white rounded-md hover:bg-indigo-700 ${checkValidation() ? 'opacity-1' : 'opacity-50'}`} disabled={!checkValidation()}
+                        >
+                            Generate Contract
+                        </button>
                     </div>
                 </form>
             </div>
